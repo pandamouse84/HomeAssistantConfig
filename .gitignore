@@ -398,11 +398,15 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Home Assistant Config
-/secrets.yaml
-/home-assistant*
-/tts/
-/www/
-/themes/
-/image/
-/custom_components/
-/blueprints/
+.cloud/
+.git/
+.storage/
+blueprints/
+custom_components/
+deps/
+image/
+themes/
+tts/
+www/
+home-assistant*
+secrets.yaml
