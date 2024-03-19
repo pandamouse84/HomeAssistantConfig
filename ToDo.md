@@ -1,3 +1,5 @@
+# Fix UI Bugs
+# Move UI to /config/*.yaml if possible
 # Icons and Areas
 # Scheduler
 # LCARS Menu System
