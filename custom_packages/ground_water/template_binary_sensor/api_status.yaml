@@ -1,0 +1,31 @@
+# Template binary sensors:
+- unique_id: ground_water_station_ready
+  name: ground_water_station_ready
+  state: |-
+    {{-
+      is_number(states('input_number.ground_water_search_radius'))
+      and is_number(state_attr('zone.home', 'latitude'))
+      and is_number(state_attr('zone.home', 'longitude'))
+      and not is_state('sensor.ground_water_next_station_api_url', 'unavailable')
+      and states('sensor.ground_water_next_station_api_url').startswith('https://')
+    -}}
+  attributes:
+    "Search Radius is set": "{{- is_number(states('input_number.ground_water_search_radius')) -}}"
+    "Latitude is set": "{{- is_number(state_attr('zone.home', 'latitude')) -}}"
+    "Longitude is set": "{{- is_number(state_attr('zone.home', 'longitude')) -}}"
+    "URL is available": "{{- not is_state('sensor.ground_water_next_station_api_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.ground_water_next_station_api_url').startswith('https://') -}}"
+- unique_id: ground_water_measurements_ready
+  name: ground_water_measurements_ready
+  state: |-
+    {{-
+      is_state('sensor.ground_water_next_station', 'OK')
+      and state_attr('sensor.ground_water_next_station', 'data').stationID != none
+      and not is_state('sensor.ground_water_current_measurement_api_url', 'unavailable')
+      and states('sensor.ground_water_current_measurement_api_url').startswith('https://')
+    -}}
+  attributes:
+    "Station Service is done": "{{- is_state('sensor.ground_water_next_station', 'OK') -}}"
+    "Station is found": "{{- state_attr('sensor.ground_water_next_station', 'data').stationID != none -}}"
+    "URL is available": "{{- not is_state('sensor.ground_water_current_measurement_api_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.ground_water_current_measurement_api_url').startswith('https://') -}}"

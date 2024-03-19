@@ -1,0 +1,131 @@
+# Template sensors:
+
+# Thermostat-Gruppe Wohnzimmer (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_livingroom_temperature
+  name: eve_thermostat_livingroom_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_livingroom')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_livingroom')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe Esszimmer (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_diningroom_temperature
+  name: eve_thermostat_diningroom_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_diningroom')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_diningroom')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe Schlafzimmer (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_bedroom_temperature
+  name: eve_thermostat_bedroom_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_bedroom')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_bedroom')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe Badezimmer OG (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_bath_first_floor_temperature
+  name: eve_thermostat_bath_first_floor_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_bath_first_floor')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_bath_first_floor')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe Erdgeschoss (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_ground_floor_temperature
+  name: eve_thermostat_ground_floor_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_ground_floor')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_ground_floor')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe Obergeschoss (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_first_floor_temperature
+  name: eve_thermostat_first_floor_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_first_floor')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_first_floor')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+  # Thermostat-Gruppe alle Thermostate (Aktuelle durchschnittliche Temperatur)
+- unique_id: eve_thermostat_house_temperature
+  name: eve_thermostat_house_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_mean_house')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_mean_house')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe alle Thermostate (Aktuell minimale Termperatur)
+- unique_id: eve_thermostat_min_house_temperature
+  name: eve_thermostat_min_house_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_min_house')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_min_house')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe alle Thermostate (Aktuell maximale Termperatur)
+- unique_id: eve_thermostat_max_house_temperature
+  name: eve_thermostat_max_house_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_max_house')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_max_house')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat-Gruppe alle Thermostate (Aktuelle Differenz min<-|-max Termperatur)
+- unique_id: eve_thermostat_range_house_temperature
+  name: eve_thermostat_range_house_temperature
+  device_class: temperature
+  availability: "{{- is_number(states('sensor.eve_thermostat_range_house')) -}}"
+  state: |-
+    {{-
+      states('sensor.eve_thermostat_range_house')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement

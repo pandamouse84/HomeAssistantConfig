@@ -1,0 +1,25 @@
+# Frontend input text controls:
+nina_xrepository_base_url:
+  name: nina_xrepository_base_url
+  icon: mdi:web
+  pattern: '(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'
+nina_xrepository_codelist_parameters:
+  name: nina_xrepository_codelist_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'
+nina_xrepository_document_id:
+  name: nina_xrepository_document_id
+  icon: mdi:filter-settings
+  pattern: "([a-z]+:)+[a-z]+"
+nina_warning_base_url:
+  name: nina_base_url
+  icon: mdi:web
+  pattern: '(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'
+nina_warning_parameters:
+  name: nina_warning_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'
+nina_warning_detail_parameters:
+  name: nina_warning_detail_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'

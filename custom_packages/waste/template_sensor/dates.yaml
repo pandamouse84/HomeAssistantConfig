@@ -1,0 +1,44 @@
+# Template sensors:
+- unique_id: waste_next_residual_collection
+  name: waste_next_residual_collection
+  icon: mdi:trash-can
+  device_class: timestamp
+  availability: |-
+    {%- from 'formatter.jinja' import test_garbage_date -%}
+    {{- test_garbage_date('ZAC_REST') -}}
+  state: |-
+    {%- from 'formatter.jinja' import get_garbage_date -%}
+    {{- get_garbage_date('ZAC_REST') -}}
+
+- unique_id: waste_next_organic_collection
+  name: waste_next_organic_collection
+  icon: mdi:trash-can
+  device_class: timestamp
+  availability: |-
+    {%- from 'formatter.jinja' import test_garbage_date -%}
+    {{- test_garbage_date('ZAC_BIO') -}}
+  state: |-
+    {%- from 'formatter.jinja' import get_garbage_date -%}
+    {{- get_garbage_date('ZAC_BIO') -}}
+
+- unique_id: waste_next_plastic_collection
+  name: waste_next_plastic_collection
+  icon: mdi:trash-can
+  device_class: timestamp
+  availability: |-
+    {%- from 'formatter.jinja' import test_garbage_date -%}
+    {{- test_garbage_date('ZAC_GELB') -}}
+  state: |-
+    {%- from 'formatter.jinja' import get_garbage_date -%}
+    {{- get_garbage_date('ZAC_GELB') -}}
+
+- unique_id: waste_next_paper_collection
+  name: waste_next_paper_collection
+  icon: mdi:trash-can
+  device_class: timestamp
+  availability: |-
+    {%- from 'formatter.jinja' import test_garbage_date -%}
+    {{- test_garbage_date('ZAC_PAP') -}}
+  state: |-
+    {%- from 'formatter.jinja' import get_garbage_date -%}
+    {{- get_garbage_date('ZAC_PAP') -}}

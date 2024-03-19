@@ -1,0 +1,25 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: ground_water_next_station
+    name: ground_water_next_station
+    scan_interval: 1800
+    availability: "{{- is_state('binary_sensor.ground_water_station_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.ground_water_station_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.ground_water_next_station_api_url') -}}' \
+        -d 'key={{- states('input_text.ground_water_api_key') -}}' |
+        jq -cn -f /config/custom_packages/ground_water/jq/process_station_json_response.jq |
+        python3 /config/scripts/calculate_distances.py -la {{ state_attr('zone.home', 'latitude') }} -lo {{ state_attr('zone.home', 'longitude') }} -md {{ states('input_number.ground_water_search_radius') -}};
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

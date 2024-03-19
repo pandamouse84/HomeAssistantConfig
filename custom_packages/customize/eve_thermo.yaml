@@ -1,0 +1,171 @@
+# Friendly names for UI input number controls
+input_number.eve_thermo_schlafzimmer_min:
+  friendly_name: "Minimale Temperatur Schlafzimmer"
+input_number.eve_thermo_schlafzimmer_max:
+  friendly_name: "Maximale Temperatur Schlafzimmer"
+input_number.eve_thermo_wohnzimmer_min:
+  friendly_name: "Minimale Temperatur Wohnzimmer"
+input_number.eve_thermo_wohnzimmer_max:
+  friendly_name: "Maximale Temperatur Wohnzimmer"
+input_number.eve_thermo_esszimmer_min:
+  friendly_name: "Minimale Temperatur Esszimmer"
+input_number.eve_thermo_esszimmer_max:
+  friendly_name: "Maximale Temperatur Esszimmer"
+input_number.eve_thermo_kueche_min:
+  friendly_name: "Minimale Temperatur Küche"
+input_number.eve_thermo_kueche_max:
+  friendly_name: "Maximale Temperatur Küche"
+input_number.eve_thermo_badezimmer_eg_min:
+  friendly_name: "Minimale Temperatur Badezimmer EG"
+input_number.eve_thermo_badezimmer_eg_max:
+  friendly_name: "Maximale Temperatur Badezimmer EG"
+input_number.eve_thermo_badezimmer_og_min:
+  friendly_name: "Minimale Temperatur Badezimmer OG"
+input_number.eve_thermo_badezimmer_og_max:
+  friendly_name: "Maximale Temperatur Badezimmer OG"
+input_number.eve_thermo_kinderzimmer_min:
+  friendly_name: "Minimale Temperatur Kinderzimmer"
+input_number.eve_thermo_kinderzimmer_max:
+  friendly_name: "Maximale Temperatur Kinderzimmer"
+input_number.eve_thermo_naehzimmer_min:
+  friendly_name: "Minimale Temperatur Nähzimmer"
+input_number.eve_thermo_naehzimmer_max:
+  friendly_name: "Maximale Temperatur Nähzimmer"
+input_number.eve_thermo_bibliothek_min:
+  friendly_name: "Minimale Temperatur Bibliothek"
+input_number.eve_thermo_bibliothek_max:
+  friendly_name: "Maximale Temperatur Bibliothek"
+input_number.eve_thermo_schlafzimmer_heizdauer:
+  friendly_name: "Heizdauer Gute-Nacht Modus Schlafzimmer"
+input_number.eve_thermo_badezimmer_og_heizdauer:
+  friendly_name: "Heizdauer Badezeit Modus Badezimmer OG"
+
+# Friendly names for group sensors
+sensor.eve_thermostat_mean_livingroom:
+  friendly_name: "Temperatur Wohnzimmer"
+sensor.eve_thermostat_mean_bath_first_floor:
+  friendly_name: "Temperatur Badezimmer OG"
+sensor.eve_thermostat_mean_diningroom:
+  friendly_name: "Temperatur Esszimmer"
+sensor.eve_thermostat_mean_bedroom:
+  friendly_name: "Temperatur Schlafzimmer"
+sensor.eve_thermostat_mean_ground_floor:
+  friendly_name: "Durchschnittliche Temperatur Erdgeschoss"
+sensor.eve_thermostat_mean_first_floor:
+  friendly_name: "Durchschnittliche Temperatur Obergeschoss"
+sensor.eve_thermostat_mean_house:
+  friendly_name: "Durchschnittliche Temperatur Haus"
+sensor.eve_thermostat_min_house:
+  friendly_name: "Durchschnittliche minimal Temperatur Haus"
+sensor.eve_thermostat_max_house:
+  friendly_name: "Durchschnittliche maximal Temperatur Haus"
+sensor.eve_thermostat_range_house:
+  friendly_name: "Durchschnittliche Differenz Temperatur Haus"
+
+# Friendly names for template sensors
+sensor.eve_thermostat_livingroom_temperature:
+  friendly_name: "Temperatur Wohnzimmer"
+sensor.eve_thermostat_diningroom_temperature:
+  friendly_name: "Temperatur Esszimmer"
+sensor.eve_thermostat_bedroom_temperature:
+  friendly_name: "Temperatur Schlafzimmer"
+sensor.eve_thermostat_bath_first_floor_temperature:
+  friendly_name: "Temperatur Badezimmer OG"
+sensor.eve_thermostat_ground_floor_temperature:
+  friendly_name: "Durchschnittliche Temperatur Erdgeschoss"
+sensor.eve_thermostat_first_floor_temperature:
+  friendly_name: "Durchschnittliche Temperatur Obergeschoss"
+sensor.eve_thermostat_house_temperature:
+  friendly_name: "Durchschnittliche Temperatur Haus"
+sensor.eve_thermostat_min_house_temperature:
+  friendly_name: "Durchschnittliche minimal Temperatur Haus"
+sensor.eve_thermostat_max_house_temperature:
+  friendly_name: "Durchschnittliche maximal Temperatur Haus"
+sensor.eve_thermostat_range_house_temperature:
+  friendly_name: "Durchschnittliche Differenz Temperatur Haus"
+
+# Friendly names for template sensors
+sensor.eve_thermostat_library_temperature:
+  friendly_name: "Temperatur Bibliotheke"
+sensor.eve_thermostat_sewingroom_temperature:
+  friendly_name: "Temperatur Nähzimmer"
+sensor.eve_thermostat_livingroom_left_temperature:
+  friendly_name: "Temperatur Wohnzimmer Links"
+sensor.eve_thermostat_livingroom_right_temperature:
+  friendly_name: "Temperatur Wohnzimmer Rechts"
+sensor.eve_thermostat_bath_ground_floor_temperature:
+  friendly_name: "Temperatur Badezimmer EG"
+sensor.eve_thermostat_bath_first_floor_window_temperature:
+  friendly_name: "Temperatur Badezimmer OG Fenster"
+sensor.eve_thermostat_bath_first_floor_towel_rail_temperature:
+  friendly_name: "Temperatur Badezimmer OG Handtuchhalter"
+sensor.eve_thermostat_bedroom_left_temperature:
+  friendly_name: "Temperatur Schlafzimmer Links"
+sensor.eve_thermostat_bedroom_right_temperature:
+  friendly_name: "Temperatur Schlafzimmer Rechts"
+sensor.eve_thermostat_diningroom_left_temperature:
+  friendly_name: "Temperatur Esszimmer Links"
+sensor.eve_thermostat_diningroom_right_temperature:
+  friendly_name: "Temperatur Esszimmer Rechts"
+sensor.eve_thermostat_childrens_room_temperature:
+  friendly_name: "Temperatur Kindenzimmer"
+sensor.eve_thermostat_kitchen_temperature:
+  friendly_name: "Temperatur Küche"
+
+# Friendly names for template sensors
+sensor.eve_thermostat_library_set_temperature:
+  friendly_name: "Eingestellte Temperatur Bibliotheke"
+sensor.eve_thermostat_sewingroom_set_temperature:
+  friendly_name: "Eingestellte Temperatur Nähzimmer"
+sensor.eve_thermostat_livingroom_left_set_temperature:
+  friendly_name: "Eingestellte Temperatur Wohnzimmer Links"
+sensor.eve_thermostat_livingroom_right_set_temperature:
+  friendly_name: "Eingestellte Temperatur Wohnzimmer Rechts"
+sensor.eve_thermostat_bath_ground_floor_set_temperature:
+  friendly_name: "Eingestellte Temperatur Badezimmer EG"
+sensor.eve_thermostat_bath_first_floor_window_set_temperature:
+  friendly_name: "Eingestellte Temperatur Badezimmer OG Fenster"
+sensor.eve_thermostat_bath_first_floor_towel_rail_set_temperature:
+  friendly_name: "Eingestellte Temperatur Badezimmer OG Handtuchhalter"
+sensor.eve_thermostat_bedroom_left_set_temperature:
+  friendly_name: "Eingestellte Temperatur Schlafzimmer Links"
+sensor.eve_thermostat_bedroom_right_set_temperature:
+  friendly_name: "Eingestellte Temperatur Schlafzimmer Rechts"
+sensor.eve_thermostat_diningroom_left_set_temperature:
+  friendly_name: "Eingestellte Temperatur Esszimmer Links"
+sensor.eve_thermostat_diningroom_right_set_temperature:
+  friendly_name: "Eingestellte Temperatur Esszimmer Rechts"
+sensor.eve_thermostat_childrens_room_set_temperature:
+  friendly_name: "Eingestellte Temperatur Kindenzimmer"
+sensor.eve_thermostat_kitchen_set_temperature:
+  friendly_name: "Eingestellte Temperatur Küche"
+
+# Friendly names for template switches
+switch.eve_thermo_badezimmer_eg_status:
+  friendly_name: "Temperatur Status Badezimmer EG"
+switch.eve_thermo_badezimmer_og_status:
+  friendly_name: "Temperatur Status Badezimmer OG"
+switch.eve_thermo_bibliothek_status:
+  friendly_name: "Temperatur Status Bibliothek"
+switch.eve_thermo_esszimmer_status:
+  friendly_name: "Temperatur Status Esszimmer"
+switch.eve_thermo_kinderzimmer_status:
+  friendly_name: "Temperatur Status Kinderzimmer"
+switch.eve_thermo_kueche_status:
+  friendly_name: "Temperatur Status Küche"
+switch.eve_thermo_naehzimmer_status:
+  friendly_name: "Temperatur Status Nähzimmer"
+switch.eve_thermo_schlafzimmer_status:
+  friendly_name: "Temperatur Status Schlafzimmer"
+switch.eve_thermo_wohnzimmer_status:
+  friendly_name: "Temperatur Status Wohnzimmer"
+switch.eve_thermo_schlafzimmer_good_night_mode:
+  friendly_name: "Gute Nacht Modus Schlafzimmer"
+switch.eve_thermo_badezimmer_bath_time_mode:
+  friendly_name: "Badezeit Modus Badezimmer OG"
+
+# Friendly names for timers
+timer.eve_thermo_schlafzimmer_good_night_timer:
+  friendly_name: "Zeit bis zum Abschalten der Schlafzimmer Heizung"
+timer.eve_thermo_badezimmer_bath_time_timer:
+  friendly_name: "Zeit bis zum Abschalten der Badezimmer OG Heizung"

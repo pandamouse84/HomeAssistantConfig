@@ -1,0 +1,22 @@
+- alias: "Thermostate: Gute Nacht Modus gestoppt"
+  id: eve_thermo_good_night_mode_stopped
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+    - platform: event
+      event_type: timer.cancelled
+      event_data:
+        entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.heizung_schlafzimmer_links
+      data:
+        temperature: "{{- states('input_number.eve_thermo_schlafzimmer_min') -}}"
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.heizung_schlafzimmer_rechts
+      data:
+        temperature: "{{- states('input_number.eve_thermo_schlafzimmer_min') -}}"

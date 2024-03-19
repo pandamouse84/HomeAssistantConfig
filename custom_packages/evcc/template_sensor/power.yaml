@@ -1,0 +1,131 @@
+# Template sensors:
+- unique_id: evcc_grid_reference_power
+  name: evcc_grid_reference_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'gridPower')) -}}"
+  state: |-
+    {{-
+      max(0, state_attr("sensor.evcc_pv_state", "gridPower"))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_grid_delivery_power
+  name: evcc_grid_delivery_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'gridPower')) -}}"
+  state: |-
+    {{-
+      max(0, max(0, -state_attr("sensor.evcc_pv_state", "gridPower")))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_pv_delivery_power
+  name: evcc_pv_delivery_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'pvPower')) -}}"
+  state: |-
+    {{-
+      max(0, state_attr("sensor.evcc_pv_state", "pvPower"))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_green_power
+  name: evcc_green_power
+  device_class: power
+  availability: |-
+    {{-
+      is_number(states('sensor.evcc_home_consumption_power')) and
+      is_number(states('sensor.evcc_wallbox_charging_power')) and
+      is_number(states('sensor.evcc_grid_reference_power'))
+    -}}
+  state: |-
+    {{-
+      max(0,
+        (states("sensor.evcc_home_consumption_power") | float)
+        + (states("sensor.evcc_wallbox_charging_power") | float)
+        - (states("sensor.evcc_grid_reference_power") | float)
+      )
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_battery_charging_power
+  name: evcc_battery_charging_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'batteryPower')) -}}"
+  state: |-
+    {{-
+      max(0, max(0, -state_attr("sensor.evcc_pv_state", "batteryPower")))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_battery_discharging_power
+  name: evcc_battery_discharging_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'batteryPower')) -}}"
+  state: |-
+    {{-
+      max(0, state_attr("sensor.evcc_pv_state", "batteryPower"))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_home_consumption_power
+  name: evcc_home_consumption_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'homePower')) -}}"
+  state: |-
+    {{-
+      max(0, state_attr("sensor.evcc_pv_state", "homePower"))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_wallbox_charging_power
+  name: evcc_wallbox_charging_power
+  device_class: power
+  availability: "{{- is_number(state_attr('sensor.evcc_wallbox_state', 'chargePower')) -}}"
+  state: |-
+    {{-
+      max(0, state_attr("sensor.evcc_wallbox_state", "chargePower"))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+- unique_id: evcc_home_consumption_without_devices_power
+  name: evcc_home_consumption_without_devices_power
+  device_class: power
+  availability: |-
+    {{-
+      is_number(states('sensor.evcc_home_consumption_power'))
+      and is_number(states('sensor.evcc_wallbox_charging_power'))
+      and is_number(states('sensor.steckdose_bibliothek_leistung'))
+      and is_number(states('sensor.steckdose_degu_licht_leistung'))
+      and is_number(states('sensor.steckdose_esszimmer_leistung'))
+      and is_number(states('sensor.steckdose_keller_leistung'))
+      and is_number(states('sensor.steckdose_naehzimmer_leistung'))
+      and is_number(states('sensor.steckdose_sauna_leistung'))
+      and is_number(states('sensor.steckdose_wohnzimmer_leistung'))
+    -}}
+  state: |-
+    {{-
+      max(0,
+        (states("sensor.evcc_home_consumption_power") | float)
+        - (states("sensor.evcc_wallbox_charging_power") | float)
+        - (states("sensor.steckdose_bibliothek_leistung") | float)
+        - (states("sensor.steckdose_degu_licht_leistung") | float)
+        - (states("sensor.steckdose_esszimmer_leistung") | float)
+        - (states("sensor.steckdose_keller_leistung") | float)
+        - (states("sensor.steckdose_naehzimmer_leistung") | float)
+        - (states("sensor.steckdose_sauna_leistung") | float)
+        - (states("sensor.steckdose_wohnzimmer_leistung") | float)
+      )
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+  attributes:
+    home_consumption: "{{- (states('sensor.evcc_home_consumption_power') | float) -}}"
+    wallbox_charging: "{{- (states('sensor.evcc_wallbox_charging_power') | float) -}}"
+    bibliothek: "{{- (states('sensor.steckdose_bibliothek_leistung') | float) -}}"
+    degu_licht: "{{- (states('sensor.steckdose_degu_licht_leistung') | float) -}}"
+    esszimmer: "{{- (states('sensor.steckdose_esszimmer_leistung') | float) -}}"
+    keller: "{{- (states('sensor.steckdose_keller_leistung') | float) -}}"
+    naehzimmer: "{{- (states('sensor.steckdose_naehzimmer_leistung') | float) -}}"
+    sauna: "{{- (states('sensor.steckdose_sauna_leistung') | float) -}}"
+    wohnzimmer: "{{- (states('sensor.steckdose_wohnzimmer_leistung') | float) -}}"

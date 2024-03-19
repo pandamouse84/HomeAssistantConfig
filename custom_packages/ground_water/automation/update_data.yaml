@@ -1,0 +1,41 @@
+# Automations
+- alias: "Update Sensor: ground_water_next_station"
+  id: update_ground_water_next_station
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.ground_water_next_station
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.ground_water_station_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.ground_water_next_station
+- alias: "Update Sensor: ground_water_current_measurement"
+  id: update_ground_water_current_measurement
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.ground_water_current_measurement
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.ground_water_measurements_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.ground_water_current_measurement

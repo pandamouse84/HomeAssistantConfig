@@ -1,0 +1,29 @@
+# Template sensors:
+- unique_id: evcc_pv_state
+  name: evcc_pv_state
+  availability: "{{- is_state('sensor.evcc_data', 'OK') -}}"
+  icon: mdi:data-matrix
+  state: "{{- states('sensor.evcc_data') -}}"
+  attributes:
+    pvPower: "{{- state_attr('sensor.evcc_data', 'data').pvPower -}}"
+    batterySoc: "{{- state_attr('sensor.evcc_data', 'data').batterySoc -}}"
+    homePower: "{{- state_attr('sensor.evcc_data', 'data').homePower -}}"
+    gridPower: "{{- state_attr('sensor.evcc_data', 'data').gridPower -}}"
+    batteryPower: "{{- state_attr('sensor.evcc_data', 'data').batteryPower -}}"
+
+# Template sensors:
+- unique_id: evcc_wallbox_state
+  name: evcc_wallbox_state
+  availability: "{{- is_state('sensor.evcc_data', 'OK') -}}"
+  icon: mdi:data-matrix
+  state: "{{- states('sensor.evcc_data') -}}"
+  attributes:
+    mode: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].mode -}}"
+    title: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].title -}}"
+    vehicleName: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].vehicleName -}}"
+    vehicleSoc: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].vehicleSoc -}}"
+    vehicleRange: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].vehicleRange -}}"
+    connected: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].connected -}}"
+    enabled: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].enabled -}}"
+    charging: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].charging -}}"
+    chargePower: "{{- state_attr('sensor.evcc_data', 'data').loadpoints[0].chargePower -}}"

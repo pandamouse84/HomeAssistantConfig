@@ -1,0 +1,125 @@
+# <summary>
+# This YAML configuration contains template sensors
+# for automatically creating the nessesary API URIs
+# including the correct port and endpoint.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# Creates the API URI for getting an EZ1 device information.
+# </summary>
+- unique_id: apsystems_ez1_url_getDeviceInfo
+  name: apsystems_ez1_url_getDeviceInfo
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/getDeviceInfo'
+    -}}
+
+# <summary>
+# Creates the API URI for getting the current
+# realtime output data of an EZ1 device.
+# Such as Power and Output Energy.
+# </summary>
+- unique_id: apsystems_ez1_url_getOutputData
+  name: apsystems_ez1_url_getOutputData
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/getOutputData'
+    -}}
+
+# <summary>
+# Creates the API URI for getting an EZ1 device max power.
+# </summary>
+- unique_id: apsystems_ez1_url_getMaxPower
+  name: apsystems_ez1_url_getMaxPower
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/getMaxPower'
+    -}}
+
+# <summary>
+# Creates the API URI for setting an EZ1 device max power.
+# </summary>
+- unique_id: apsystems_ez1_url_setMaxPower
+  name: apsystems_ez1_url_setMaxPower
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/setMaxPower'
+    -}}
+
+# <summary>
+# Creates the API URI for getting alarm information of an EZ1 device.
+# </summary>
+- unique_id: apsystems_ez1_url_getAlarm
+  name: apsystems_ez1_url_getAlarm
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/getAlarm'
+    -}}
+
+# <summary>
+# Creates the API URI for getting the On/Off status of an EZ1 device.
+# </summary>
+- unique_id: apsystems_ez1_url_getOnOff
+  name: apsystems_ez1_url_getOnOff
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/getOnOff'
+    -}}
+
+# <summary>
+# Creates the API URI for setting the On/Off status of an EZ1 device.
+# </summary>
+- unique_id: apsystems_ez1_url_setOnOff
+  name: apsystems_ez1_url_setOnOff
+  icon: mdi:api
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_api_ready', 'on')
+    -}}
+  state: |-
+    {{-
+      states('apsystems_ez1_base_url')
+      + ':8050/setOnOff'
+    -}}

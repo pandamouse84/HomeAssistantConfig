@@ -1,0 +1,56 @@
+# Friendly names for UI input number
+input_number.river_level_search_radius:
+  friendly_name: "Radius für die Suche nach der nächsten Pegel-Messstation"
+
+# Friendly names for UI input text
+input_text.river_level_api_base_url:
+  friendly_name: "Basus URL des Pegelstand Dienstes"
+input_text.river_level_next_station_parameters:
+  friendly_name: "Parameter für den Abruf der Pegel-Messstationen"
+input_text.river_level_current_measurement_parameters:
+  friendly_name: "Parameter für den Abruf der Messdaten"
+
+# Friendly names for REST sensors
+sensor.river_level_current_measurement:
+  friendly_name: "Aktuelle Pegelstand Messdaten"
+sensor.river_level_next_station:
+  friendly_name: "Pegelstand Messstation"
+
+# Friendly names for binary sensors
+binary_sensor.river_station_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messstation erfüllt"
+binary_sensor.river_measurements_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messdaten erfüllt"
+
+# Friendly names for template sensors
+sensor.river_level_next_station_api_url:
+  friendly_name: "URL zum Abruf der Pegel-Messstationen"
+sensor.river_level_current_measurement_api_url:
+  friendly_name: "URL zum Abruf der Pegel-Messsdaten"
+
+# Friendly names for template sensors
+sensor.river_level_current_time:
+  friendly_name: "Messzeitpunkt"
+sensor.river_level_current_state:
+  friendly_name: "Pegel-Status"
+sensor.river_level_current_value:
+  friendly_name: "Aktueller Pegel"
+sensor.river_level_mnw_value:
+  friendly_name: "Mittlerer Niedrigwassser-Pegel"
+sensor.river_level_mhw_value:
+  friendly_name: "Mittlerer Hochwasserwassser-Pegel"
+sensor.river_level_warning_level_1:
+  friendly_name: "Pegel: Warnstufe 1"
+sensor.river_level_warning_level_2:
+  friendly_name: "Pegel: Warnstufe 2"
+sensor.river_level_warning_level_3:
+  friendly_name: "Pegel: Warnstufe 3"
+sensor.river_level_current_warning_level:
+  friendly_name: "Aktuelle Warnstufe"
+
+# Friendly names for template sensors
+sensor.river_level_station:
+  friendly_name: "Standort und Agentur der Pegel-Messstation"
+  entity_picture: "/local/media/river_level_station.png"
+sensor.river_level_river_name:
+  friendly_name: "Name des Flusses"

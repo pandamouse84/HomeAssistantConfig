@@ -1,0 +1,46 @@
+# <summary>
+# This YAML configuration contains Riemann sum integrals
+# to calculate the average power of an EZ1.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# Integral for the energy production of channel one.
+# </summary>
+# Integration sensors
+- platform: integration
+  unique_id: apsystems_ez1_channel_one_power_integral
+  name: apsystems_ez1_channel_one_power_integral
+  source: sensor.apsystems_ez1_channel_one_energy
+  method: left
+  unit_prefix: k
+  round: 2
+
+# <summary>
+# Integral for the energy production of channel two.
+# </summary>
+# Integration sensors
+- platform: integration
+  unique_id: apsystems_ez1_channel_two_power_integral
+  name: apsystems_ez1_channel_two_power_integral
+  source: sensor.apsystems_ez1_channel_two_energy
+  method: left
+  unit_prefix: k
+  round: 2
+
+# <summary>
+# Integral for the summarized energy production of channel one and two.
+# </summary>
+# Integration sensors
+- platform: integration
+  unique_id: apsystems_ez1_summarized_power_integral
+  name: apsystems_ez1_summarized_power_integral
+  source: sensor.apsystems_ez1_summarized_energy
+  method: left
+  unit_prefix: k
+  round: 2

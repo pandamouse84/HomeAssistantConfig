@@ -1,0 +1,42 @@
+# Automations
+- alias: "Update Sensor: pollen"
+  id: update_pollen
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.pollen
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.pollen_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.pollen
+
+- alias: "Update Sensor: pollen_regions"
+  id: update_pollen_regions
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.pollen_regions
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.pollen_regions_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.pollen_regions

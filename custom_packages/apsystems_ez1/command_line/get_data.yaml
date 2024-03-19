@@ -1,0 +1,149 @@
+# <summary>
+# This YAML configuration contains command line commands
+# to interface with an EZ1 API.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# The request will return the EZ1 device information.
+# </summary>
+- sensor:
+    unique_id: apsystems_getDeviceInfo
+    name: apsystems_getDeviceInfo
+    scan_interval: 10
+    icon: mdi:api
+    availability: "{{- is_state('binary_sensor.apsystems_ez1_api_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.apsystems_ez1_api_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.apsystems_ez1_url_getDeviceInfo') -}}' |
+        jq -cn -f /config/custom_packages/apsystems_ez1/jq/process_json.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data
+
+    # <summary>
+    # The request will return the EZ1 current realtime output data.
+    # Such as Power and Output Energy.
+    # </summary>
+- sensor:
+    unique_id: apsystems_getOutputData
+    name: apsystems_getOutputData
+    scan_interval: 10
+    icon: mdi:api
+    availability: "{{- is_state('binary_sensor.apsystems_ez1_api_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.apsystems_ez1_api_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.apsystems_ez1_url_getOutputData') -}}' |
+        jq -cn -f /config/custom_packages/apsystems_ez1/jq/process_json.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data
+
+    # <summary>
+    # This request will return the EZ1 max power.
+    # </summary>
+- sensor:
+    unique_id: apsystems_getMaxPower
+    name: apsystems_getMaxPower
+    scan_interval: 10
+    icon: mdi:api
+    availability: "{{- is_state('binary_sensor.apsystems_ez1_api_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.apsystems_ez1_api_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.apsystems_ez1_url_getMaxPower') -}}' |
+        jq -cn -f /config/custom_packages/apsystems_ez1/jq/process_json.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data
+
+    # <summary>
+    # This request will return the EZ1 alarm information.
+    # </summary>
+- sensor:
+    unique_id: apsystems_getAlarm
+    name: apsystems_getAlarm
+    scan_interval: 10
+    icon: mdi:api
+    availability: "{{- is_state('binary_sensor.apsystems_ez1_api_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.apsystems_ez1_api_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.apsystems_ez1_url_getAlarm') -}}' |
+        jq -cn -f /config/custom_packages/apsystems_ez1/jq/process_json.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data
+
+    # <summary>
+    # This request will return the EZ1 On/Off status.
+    # When set off to the device,
+    # the device will stop outputting power,
+    # but the local API is still working.
+    # </summary>
+- sensor:
+    unique_id: apsystems_getOnOff
+    name: apsystems_getOnOff
+    scan_interval: 10
+    icon: mdi:api
+    availability: "{{- is_state('binary_sensor.apsystems_ez1_api_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.apsystems_ez1_api_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.apsystems_ez1_url_getOnOff') -}}' |
+        jq -cn -f /config/custom_packages/apsystems_ez1/jq/process_json.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

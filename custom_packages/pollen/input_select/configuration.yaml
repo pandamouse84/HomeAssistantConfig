@@ -1,0 +1,13 @@
+# Frontend input text controls:
+pollen_region:
+  name: pollen_region
+  icon: mdi:land-plots
+  options:
+    - "None"
+
+# Frontend input text controls:
+pollen_severity:
+  name: pollen_severity
+  icon: mdi:alert
+  options:
+    - "None"

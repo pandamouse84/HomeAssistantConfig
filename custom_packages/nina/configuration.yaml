@@ -1,0 +1,6 @@
+automation: !include_dir_merge_list automation/
+command_line: !include_dir_merge_list command_line/
+input_text: !include_dir_merge_named input_text/
+template:
+  - binary_sensor: !include_dir_merge_list template_binary_sensor/
+  - sensor: !include_dir_merge_list template_sensor/

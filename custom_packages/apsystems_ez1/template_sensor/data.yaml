@@ -1,0 +1,72 @@
+# <summary>
+# This YAML configuration contains contains template sensors
+# summarizing all response data into one object.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# Template sensors:
+- unique_id: apsystems_ez1_state
+  name: apsystems_ez1_state
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_getDeviceInfo', 'OK')
+      and is_state('sensor.apsystems_getOutputData', 'OK')
+      and is_state('sensor.apsystems_getMaxPower', 'OK')
+      and is_state('sensor.apsystems_getAlarm', 'OK')
+      and is_state('sensor.apsystems_getOnOff', 'OK')
+    -}}
+  icon: mdi:data-matrix
+  state: |-
+    {%- if
+      is_state('sensor.apsystems_getDeviceInfo', 'OK')
+      and is_state('sensor.apsystems_getOutputData', 'OK')
+      and is_state('sensor.apsystems_getMaxPower', 'OK')
+      and is_state('sensor.apsystems_getAlarm', 'OK')
+      and is_state('sensor.apsystems_getOnOff', 'OK')
+    -%}
+      {{- 'OK' -}}
+    {%- else -%}
+      {{- 'unavailable' -}}"
+    {%- endif -%}
+  attributes:
+    # Serial number of the device.
+    deviceId: "{{- state_attr('sensor.apsystems_getDeviceInfo', 'data').deviceId -}}"
+    # Version of the device.
+    devVer: "{{- state_attr('sensor.apsystems_getDeviceInfo', 'data').devVer -}}"
+    # The W-Lan SSID that device is connected to.
+    ssid: "{{- state_attr('sensor.apsystems_getDeviceInfo', 'data').ssid -}}"
+    # The IP address of the device.
+    ipAddr: "{{- state_attr('sensor.apsystems_getDeviceInfo', 'data').ipAddr -}}"
+    # The minimum power that device could be set to. Unit in Watts.
+    minPower: "{{- state_attr('sensor.apsystems_getDeviceInfo', 'data').minPower -}}"
+    # The maximum power that device could be set to. Unit in Watts.
+    maxPower: "{{- state_attr('sensor.apsystems_getDeviceInfo', 'data').maxPower -}}"
+    # The currently set maximal power of the device. Unit in Watts.
+    currentMaxPower: "{{- state_attr('sensor.apsystems_getMaxPower', 'data').maxPower -}}"
+    # On/Off status of the device.
+    status: "{{- state_attr('sensor.apsystems_getOnOff', 'data').status -}}"
+    # Power channel 1. Unit in Watts.
+    p1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').p1 -}}"
+    # Energy generation channel 1 after startup. Unit in kilo Watt hours.
+    el1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').el1 -}}"
+    # Lifetime energy generation channel 1. Unit in kilo Watt hours.
+    te1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').te1 -}}"
+    # Power channel 2. Unit in Watts.
+    p2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').p2 -}}"
+    # Energy generation channel 2 after startup. Unit in kilo Watt hours.
+    el2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').el2 -}}"
+    # Lifetime energy generation channel 2. Unit in kilo Watt hours.
+    te2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').te2 -}}"
+    # Alarm: Off-Grid.
+    og: "{{- state_attr('sensor.apsystems_getAlarm', 'data').og -}}"
+    # Alarm: Output-Fault.
+    oe: "{{- state_attr('sensor.apsystems_getAlarm', 'data').oe -}}"
+    # Alarm: Short-Circuit-Fault (Channel 1).
+    isce1: "{{- state_attr('sensor.apsystems_getAlarm', 'data').isce1 -}}"
+    # Alarm: Short-Circuit-Fault (Channel 1).
+    isce2: "{{- state_attr('sensor.apsystems_getAlarm', 'data').isce2 -}}"

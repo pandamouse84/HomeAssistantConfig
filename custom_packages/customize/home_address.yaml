@@ -1,0 +1,20 @@
+# Friendly names for command line sensors
+sensor.home_address_data:
+  friendly_name: "Adressdaten der Zone Home"
+
+# Friendly names for UI input text
+input_text.home_address_base_url:
+  friendly_name: "Basis URL des Geocode Dienstes"
+input_text.home_address_api_key:
+  friendly_name: "Key für den API Zugriff"
+
+# Friendly names for binary sensors
+binary_sensor.home_address_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Geocode Daten erfüllt"
+
+# Friendly names for template sensors
+sensor.home_address_url:
+  friendly_name: "URL des Geocode Dienstes"
+sensor.home_address:
+  friendly_name: "Adresse der Zone Home"
+  entity_picture: "/local/media/Lerchenkamp.jpeg"

@@ -1,0 +1,26 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: home_address_data
+    name: home_address_data
+    scan_interval: 3600
+    availability: "{{- is_state('binary_sensor.home_address_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.home_address_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.home_address_url') -}}' \
+        -d 'lat={{- state_attr('zone.home', 'latitude') -}}' \
+        -d 'lon={{- state_attr('zone.home', 'longitude') -}}' \
+        -d 'apiKey={{- states('input_text.home_address_api_key') -}}' |
+        jq -cn -f /config/custom_packages/home_address/jq/process_reverse_data_json_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json.status is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

@@ -1,0 +1,37 @@
+# Friendly names for command line sensors
+sensor.nina_xrepository_ars:
+  friendly_name: "Aktuelle ARS Daten"
+sensor.nina_warnings:
+  friendly_name: "Aktuelle NINA Warnungen"
+
+# Friendly names for UI input text
+input_text.nina_xrepository_base_url:
+  friendly_name: "Basis URL des XRepository Dienstes"
+input_text.nina_xrepository_codelist_parameters:
+  friendly_name: "Parameter für den Abruf von Codeseiten aus dem XRepository"
+input_text.nina_xrepository_document_id:
+  friendly_name: "Parameter mit der DokumentID für den Abruf der ARS Daten aus dem XRepository"
+input_text.nina_warning_base_url:
+  friendly_name: "Basis URL des Nina Dienstes"
+input_text.nina_warning_parameters:
+  friendly_name: "Parameter für den Abruf Nina Warnungen"
+input_text.nina_warning_detail_parameters:
+  friendly_name: "Parameter für den Abruf von Details zu Nina Warnungen"
+
+# Friendly names for binary sensors
+binary_sensor.nina_xrepository_ars_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der ARS Daten erfüllt"
+binary_sensor.nina_warning_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der NINA Warnungen erfüllt"
+binary_sensor.nina_warning_exists:
+  friendly_name: "Aktuelle Nina Meldungen vorhanden"
+
+# Friendly names for template sensors
+sensor.nina_xrepository_ars_url:
+  friendly_name: "URL zum Abruf des ARS Codes"
+sensor.nina_warning_url:
+  friendly_name: "URL zum Abruf der Nina Warnungen"
+sensor.nina_xrepository_ars_code:
+  friendly_name: "ARS Code der Region"
+sensor.nina_warning_detail_url_pattern:
+  friendly_name: "Muster für die URL Abruf von Details einer Nina Warnung"

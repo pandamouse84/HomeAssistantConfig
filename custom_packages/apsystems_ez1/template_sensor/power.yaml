@@ -1,0 +1,70 @@
+# <summary>
+# This YAML configuration contains template sensors
+# for the current energy production.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# Current energy production channel one.
+# </summary>
+- unique_id: apsystems_ez1_channel_one_energy
+  name: apsystems_ez1_channel_one_energy
+  device_class: power
+  icon: mdi:flash
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_state', 'OK')
+      and is_number(state_attr('sensor.apsystems_ez1_state', 'p1'))
+    -}}"
+  state: |-
+    {{-
+      max(0, state_attr('sensor.apsystems_ez1_state', 'p1'))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+
+# <summary>
+# Current energy production channel two.
+# </summary>
+- unique_id: apsystems_ez1_channel_two_energy
+  name: apsystems_ez1_channel_two_energy
+  device_class: power
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_state', 'OK')
+      and is_number(state_attr('sensor.apsystems_ez1_state', 'p2'))
+    -}}"
+  state: |-
+    {{-
+      max(0, state_attr('sensor.apsystems_ez1_state', 'p2'))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "W"
+
+# <summary>
+# Summarized current energy production
+# of channel one and two.
+# </summary>
+- unique_id: apsystems_ez1_summarized_energy
+  name: apsystems_ez1_summarized_energy
+  device_class: power
+  icon: mdi:flash
+  availability: |-
+    {{-
+      is_state('sensor.apsystems_ez1_state', 'OK')
+      and is_number(state_attr('sensor.apsystems_ez1_state', 'p1'))
+      and is_number(state_attr('sensor.apsystems_ez1_state', 'p2'))
+    -}}"
+  state: |-
+    {{-
+      (
+        max(0, state_attr('sensor.apsystems_ez1_state', 'p1')) | float
+        + max(0, state_attr('sensor.apsystems_ez1_state', 'p2')) | float
+      ) | round(2)
+    -}}
+  unit_of_measurement: "W"

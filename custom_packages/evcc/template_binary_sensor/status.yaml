@@ -1,0 +1,11 @@
+# Template binary sensors:
+- unique_id: evcc_car_connected
+  name: evcc_car_connected
+  device_class: plug
+  availability: "{{- state_attr('sensor.evcc_wallbox_state', 'connected') != none -}}"
+  state: "{{- state_attr('sensor.evcc_wallbox_state', 'connected') -}}"
+- unique_id: evcc_car_charging
+  name: evcc_car_charging
+  device_class: battery_charging
+  availability: "{{- state_attr('sensor.evcc_wallbox_state', 'charging') != none -}}"
+  state: "{{- state_attr('sensor.evcc_wallbox_state', 'charging') -}}"

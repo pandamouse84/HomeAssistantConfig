@@ -1,0 +1,48 @@
+# Automations
+- alias: "Keller-Pumpe: Start der Pumpe melden."
+  id: pump_control_notify_pump_stated
+  trigger:
+    - platform: state
+      entity_id: sensor.pump_control_status
+      to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.pump_control_water_alert_send
+        state: "off"
+      - condition: time
+        after: "08:00:00"
+        before: "22:00:00"
+  action:
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_started"
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_stopped"
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_unknown"
+    - service: notify.all_mobile_apps
+      data:
+        title: "Keller Pumpe gestartet"
+        message: "Halte die Benachrichtung gedrückt für weitere Optionen."
+        data:
+          group: "ha_pump_control"
+          subtitle: "Die Pumpe im Keller wurde aktiviert!"
+          tag: "ha_pump_started"
+          actions:
+            - action: "URI"
+              icon: mdi:home-floor-b
+              title: "Keller ansehen"
+              uri: "/dashboard-raume/keller"
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.pump_control_water_alert_send

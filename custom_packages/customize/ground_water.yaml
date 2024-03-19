@@ -1,0 +1,50 @@
+# Friendly names for command line sensors
+sensor.ground_water_current_measurement:
+  friendly_name: "Aktuelle Pegelstand Messdaten"
+sensor.ground_water_next_station:
+  friendly_name: "Pegelstand Messstation"
+
+# Friendly names for UI input number
+input_number.ground_water_search_radius:
+  friendly_name: "Radius für die Suche nach der nächsten Pegel-Messstation"
+
+# Friendly names for UI input text
+input_text.ground_water_api_base_url:
+  friendly_name: "Basus URL des Pegelstand Dienstes"
+input_text.ground_water_next_station_parameters:
+  friendly_name: "Parameter für den Abruf der Pegel-Messstationen"
+input_text.ground_water_current_measurement_parameters:
+  friendly_name: "Parameter für den Abruf der Messdaten"
+input_text.ground_water_api_key:
+  friendly_name: "Key für den API Zugriff"
+
+# Friendly names for template sensors
+sensor.ground_water_next_station_api_url:
+  friendly_name: "URL zum Abruf der Pegel-Messstationen"
+sensor.ground_water_current_measurement_api_url:
+  friendly_name: "URL zum Abruf der Pegel-Messsdaten"
+
+# Friendly names for template sensors
+sensor.ground_water_current_time:
+  friendly_name: "Messzeitpunkt"
+sensor.ground_water_current_state:
+  friendly_name: "Pegel-Status"
+sensor.ground_water_current_value:
+  friendly_name: "Aktueller Pegel"
+sensor.ground_water_mnw_value:
+  friendly_name: "Mittlerer Niedrigwassser-Pegel"
+sensor.ground_water_mhw_value:
+  friendly_name: "Mittlerer Hochwasserwassser-Pegel"
+
+# Friendly names for template sensors
+sensor.ground_water_station:
+  friendly_name: "Name der Pegel-Messstation"
+  entity_picture: "/local/media/ground_water_station.png"
+sensor.ground_water_river_name:
+  friendly_name: "Name des Gewässers"
+
+# Friendly names for binary sensors
+binary_sensor.ground_water_station_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messstation erfüllt"
+binary_sensor.ground_water_measurements_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messdaten erfüllt"

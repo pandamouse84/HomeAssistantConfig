@@ -1,0 +1,17 @@
+# Template sensors:
+- unique_id: pollen_severity_id
+  name: pollen_severity_id
+  icon: mdi:alert
+  availability: |-
+    {{-
+      is_state('sensor.pollen', 'OK')
+      and states('input_select.pollen_severity') != none
+      and states('input_select.pollen_severity') != 'unknown'
+      and states('input_select.pollen_severity') != 'None'
+
+    -}}
+  state: |-
+    {%- if is_state('sensor.pollen', 'OK') -%}
+      {%- set severtity = (state_attr('sensor.pollen', 'data').legend | selectattr('description', 'equalto', states('input_select.pollen_severity')) | first) -%}
+        {{- severtity.severity -}}
+    {%- endif -%}

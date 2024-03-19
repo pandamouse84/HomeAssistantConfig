@@ -1,0 +1,129 @@
+# Automations
+
+- alias: "Roborock: Wohnzimmer Saugen & Wischen"
+  id: automation.roborock_living_room
+  trigger: []
+  condition: []
+  action:
+    - service: vacuum.send_command
+      data:
+        command: set_water_box_custom_mode
+        params: 202
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: vacuum.send_command
+      data:
+        command: set_custom_mode
+        params: 102
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: roborock.vacuum_clean_segment
+      data:
+        segments:
+          - 17
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+  mode: single
+
+- alias: "Roborock: Flur Saugen & Wischen"
+  id: automation.roborock_corridor
+  trigger: []
+  condition: []
+  action:
+    - service: vacuum.send_command
+      data:
+        command: set_water_box_custom_mode
+        params: 202
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: vacuum.send_command
+      data:
+        command: set_custom_mode
+        params: 102
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: roborock.vacuum_clean_segment
+      data:
+        segments:
+          - 21
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+  mode: single
+
+- alias: "Roborock: Küche Saugen & Wischen"
+  id: automation.roborock_kitchen
+  trigger: []
+  condition: []
+  action:
+    - service: vacuum.send_command
+      data:
+        command: set_water_box_custom_mode
+        params: 202
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: vacuum.send_command
+      data:
+        command: set_custom_mode
+        params: 102
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: roborock.vacuum_clean_segment
+      data:
+        segments:
+          - 18
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+  mode: single
+
+- alias: "Roborock: Esszimmer Saugen & Wischen"
+  id: automation.roborock_dining_room
+  trigger: []
+  condition: []
+  action:
+    - service: vacuum.send_command
+      data:
+        command: set_water_box_custom_mode
+        params: 202
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: vacuum.send_command
+      data:
+        command: set_custom_mode
+        params: 102
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: roborock.vacuum_clean_segment
+      data:
+        segments:
+          - 19
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+  mode: single
+
+- alias: "Roborock: Erdgeschoss Saugen & Wischen"
+  id: automation.roborock_ground_floor
+  trigger: []
+  condition: []
+  action:
+    - service: vacuum.send_command
+      data:
+        command: set_water_box_custom_mode
+        params: 202
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: vacuum.send_command
+      data:
+        command: set_custom_mode
+        params: 102
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+    - service: roborock.vacuum_clean_segment
+      data:
+        segments:
+          - 18
+          - 19
+          - 21
+          - 17
+      target:
+        entity_id: vacuum.roborock_s8_pro_ultra
+  mode: single

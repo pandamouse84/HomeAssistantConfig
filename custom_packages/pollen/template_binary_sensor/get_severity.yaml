@@ -1,0 +1,19 @@
+# Template binary sensors:
+- unique_id: pollen_severity_warning_exists
+  name: pollen_severity_warning_exists
+  icon: mdi:alert
+  availability: "{{- is_state('sensor.pollen', 'OK') and is_number(states('sensor.pollen_severity_id')) -}}"
+  state: |-
+    {%- set vars = namespace(result=false) -%}
+    {%- if is_state('sensor.pollen', 'OK') and is_number(states('sensor.pollen_severity_id')) -%}
+      {%- for type in state_attr('sensor.pollen', 'data').content -%}
+        {%-
+          if (state_attr('sensor.pollen', 'data').content[type].today.severity | int) >= (states('sensor.pollen_severity_id') | int)
+          or (state_attr('sensor.pollen', 'data').content[type].tomorrow.severity | int) >= (states('sensor.pollen_severity_id') | int)
+          or (state_attr('sensor.pollen', 'data').content[type].dayafter_to.severity | int) >= (states('sensor.pollen_severity_id') | int)
+        -%}
+          {%- set vars.result = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {{ vars.result }}

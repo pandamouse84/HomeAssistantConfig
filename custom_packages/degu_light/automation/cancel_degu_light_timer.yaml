@@ -1,0 +1,11 @@
+# Automations
+- alias: "Degu-Licht: Timer abbrechen"
+  id: degu_light_cancel_degu_light_timer
+  trigger:
+    - platform: state
+      entity_id: switch.degu_light
+      to: "off"
+  action:
+    - service: timer.cancel
+      target:
+        entity_id: timer.degu_light_stop_timer

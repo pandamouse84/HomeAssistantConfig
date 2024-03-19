@@ -1,0 +1,53 @@
+# Template binary sensors:
+- unique_id: waste_area_city_ready
+  name: waste_area_city_ready
+  state: |-
+    {{-
+      is_state('sensor.home_address', 'OK')
+      and state_attr('sensor.home_address', 'district') != none
+      and state_attr('sensor.home_address', 'city') != none
+      and not is_state('sensor.waste_area_city_url', 'unavailable')
+      and states('sensor.waste_area_city_url').startswith('https://')
+    -}}
+  attributes:
+    "Address Recieved": "{{- is_state('sensor.home_address', 'OK') -}}"
+    "District is set": "{{- state_attr('sensor.home_address', 'district') != none -}}"
+    "City is set": "{{- state_attr('sensor.home_address', 'city') != none -}}"
+    "URL is available": "{{- not is_state('sensor.waste_area_city_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.waste_area_city_url').startswith('https://') -}}"
+- unique_id: waste_area_street_ready
+  name: waste_area_street_ready
+  state: |-
+    {{-
+      is_state('sensor.home_address', 'OK')
+      and state_attr('sensor.home_address', 'street') != none
+      and is_state('sensor.waste_area_city', 'OK')
+      and is_number(states('sensor.waste_city_id'))
+      and not is_state('sensor.waste_area_street_url', 'unavailable')
+      and states('sensor.waste_area_street_url').startswith('https://')
+    -}}
+  attributes:
+    "Address is recieved": "{{- is_state('sensor.home_address', 'OK') -}}"
+    "Street is set": "{{- state_attr('sensor.home_address', 'street') != none -}}"
+    "City is recieved": "{{- is_state('sensor.waste_area_city', 'OK') -}}"
+    "City ID is set": "{{- is_number(states('sensor.waste_city_id')) -}}"
+    "URL is available": "{{- not is_state('sensor.waste_area_street_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.waste_area_street_url').startswith('https://') -}}"
+- unique_id: waste_dates_ready
+  name: waste_dates_ready
+  state: |-
+    {{-
+      is_state('sensor.waste_area_city', 'OK')
+      and is_number(states('sensor.waste_city_id'))
+      and is_state('sensor.waste_area_street', 'OK')
+      and is_number(states('sensor.waste_area_id'))
+      and not is_state('sensor.waste_dates_url', 'unavailable')
+      and states('sensor.waste_dates_url').startswith('https://')
+    -}}
+  attributes:
+    "City is recieved": "{{- is_state('sensor.waste_area_city', 'OK') -}}"
+    "City ID is set": "{{- is_number(states('sensor.waste_city_id')) -}}"
+    "Street is recieved": "{{- is_state('sensor.waste_area_street', 'OK') -}}"
+    "Area ID is set": "{{- is_number(states('sensor.waste_area_id')) -}}"
+    "URL is available": "{{- is_state('sensor.waste_dates_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.waste_dates_url').startswith('https://') -}}"

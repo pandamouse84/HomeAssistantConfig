@@ -1,0 +1,18 @@
+# <summary>
+# This YAML configuration contains input text controls for the frontend
+# to set the base URI of an EZ1 device.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# Control to the the base URI of an EZ1.
+# </summary>
+apsystems_ez1_base_url:
+  name: apsystems_ez1_base_url
+  icon: mdi:web
+  pattern: '^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})(?<!\/)$'

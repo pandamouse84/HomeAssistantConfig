@@ -1,0 +1,10 @@
+# Template sensors:
+- unique_id: waste_area_id
+  name: waste_area_id
+  icon: mdi:road
+  availability: |-
+    {{-
+      is_state('sensor.waste_area_street', 'OK')
+      and is_number(state_attr('sensor.waste_area_street', 'data')[0].area_id)
+    -}}
+  state: "{{- state_attr('sensor.waste_area_street', 'data')[0].area_id -}}"

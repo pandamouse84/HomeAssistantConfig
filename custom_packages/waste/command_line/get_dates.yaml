@@ -1,0 +1,26 @@
+- sensor:
+    unique_id: waste_next_waste_collections
+    name: waste_next_waste_collections
+    scan_interval: 3600
+    icon: mdi:trash-can
+    availability: "{{- is_state('binary_sensor.waste_dates_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.waste_dates_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.waste_dates_url') -}}' \
+        -d 'idx=termins' \
+        -d 'city_id={{- states('sensor.waste_city_id') -}}' \
+        -d 'area_id={{- states('sensor.waste_area_id') -}}' |
+        jq -cn -f /config/custom_packages/waste/jq/process_json_dates_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

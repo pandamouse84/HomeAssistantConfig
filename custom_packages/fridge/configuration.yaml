@@ -1,0 +1,2 @@
+template:
+  - binary_sensor: !include_dir_merge_list template_binary_sensor/

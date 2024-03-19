@@ -1,0 +1,13 @@
+# Frontend input text controls:
+evcc_base_url_pattern:
+  name: evcc_base_url_pattern
+  icon: mdi:web
+  pattern: '[^\s]+'
+evcc_get_data_parameter:
+  name: evcc_parameter
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'
+evcc_set_wallbox_mode_parameter:
+  name: nina_xrepository_codelist_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'

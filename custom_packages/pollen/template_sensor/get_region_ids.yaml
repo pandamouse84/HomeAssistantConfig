@@ -1,0 +1,31 @@
+# Template sensors:
+- unique_id: pollen_region_id
+  name: pollen_region_id
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      is_state('sensor.pollen_regions', 'OK')
+      and states('input_select.pollen_region') != none
+      and states('input_select.pollen_region') != 'unknown'
+      and states('input_select.pollen_region') != 'None'
+    -}}
+  state: |-
+    {%- if is_state('sensor.pollen_regions', 'OK') -%}
+      {%- set region = (state_attr('sensor.pollen_regions', 'data').content | selectattr('name', 'equalto', states('input_select.pollen_region')) | first) -%}
+        {{- region.region_id -}}
+    {%- endif -%}
+- unique_id: pollen_partregion_id
+  name: pollen_partregion_id
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      is_state('sensor.pollen_regions', 'OK')
+      and states('input_select.pollen_region') != none
+      and states('input_select.pollen_region') != 'unknown'
+      and states('input_select.pollen_region') != 'None'
+    -}}
+  state: |-
+    {%- if is_state('sensor.pollen_regions', 'OK') -%}
+      {%- set region = (state_attr('sensor.pollen_regions', 'data').content | selectattr('name', 'equalto', states('input_select.pollen_region')) | first) -%}
+        {{- region.partregion_id -}}
+    {%- endif -%}

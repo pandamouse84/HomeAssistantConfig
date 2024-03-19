@@ -1,0 +1,107 @@
+- unique_id: ground_water_current_time
+  name: ground_water_current_time
+  device_class: timestamp
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_current_measurement', 'OK')
+      and state_attr('sensor.ground_water_current_measurement', 'data').Datum != none
+    -}}
+  state: |-
+    {%-
+      if is_state('sensor.ground_water_current_measurement', 'OK')
+      and state_attr('sensor.ground_water_current_measurement', 'data').Datum != none
+    -%}
+      {{-
+        strptime(
+          state_attr('sensor.ground_water_current_measurement', 'data').Datum
+          ,'%Y-%m-%dT%X%z'
+        )
+      -}}
+    {%- else -%}
+      {{- this.state -}}
+    {%- endif -%}
+- unique_id: ground_water_current_value
+  name: ground_water_current_value
+  unit_of_measurement: m
+  state_class: measurement
+  device_class: distance
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_current_measurement', 'OK')
+      and state_attr('sensor.ground_water_current_measurement', 'data').Wert != none
+    -}}
+  state: |-
+    {%- if is_number(state_attr('sensor.ground_water_current_measurement', 'data').Wert) -%}
+      {{- state_attr('sensor.ground_water_current_measurement', 'data').Wert -}}
+    {%- else -%}
+      {{- this.state -}}
+    {%- endif -%}
+- unique_id: ground_water_mnw_value
+  name: ground_water_mnw_value
+  unit_of_measurement: m
+  state_class: measurement
+  device_class: distance
+  icon: mdi:wave-arrow-down
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_current_measurement', 'OK')
+      and state_attr('sensor.ground_water_current_measurement', 'data').mnw != none
+    -}}
+  state: |-
+    {%- if is_number(state_attr('sensor.ground_water_current_measurement', 'data').mnw) -%}
+      {{- state_attr('sensor.ground_water_current_measurement', 'data').mnw -}}
+    {%- else -%}
+      {{- this.state -}}
+    {%- endif -%}
+- unique_id: ground_water_mhw_value
+  name: ground_water_mhw_value
+  unit_of_measurement: m
+  state_class: measurement
+  device_class: distance
+  icon: mdi:wave-arrow-up
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_current_measurement', 'OK')
+      and state_attr('sensor.ground_water_current_measurement', 'data').mhw != none
+    -}}
+  state: |-
+    {%- if is_number(state_attr('sensor.ground_water_current_measurement', 'data').mhw) -%}
+      {{- state_attr('sensor.ground_water_current_measurement', 'data').mhw -}}
+    {%- else -%}
+      {{- this.state -}}
+    {%- endif -%}
+- unique_id: ground_water_current_state
+  name: ground_water_current_state
+  device_class: enum
+  icon: |-
+    {%- if this.state == "Höchstwert überschritten" -%}
+      mdi:waves-arrow-up
+    {%- elif this.state == "sehr hoch" -%}
+      mdi:waves-arrow-up
+    {%- elif this.state == "hoch" -%}
+      mdi:wave-arrow-up
+    {%- elif this.state == "normal" -%}
+      mdi:hand-okay
+    {%- elif this.state == "niedrig" -%}
+      mdi:wave-arrow-down
+    {%- elif this.state == "sehr niedrig" -%}
+      mdi:wave-arrow-down
+    {%- elif this.state == "Niedrigstwert unterschritten" -%}
+      mdi:wave-arrow-down
+    {%- else -%}
+      mdi:alert-circle
+    {%- endif -%}
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_current_measurement', 'OK')
+      and state_attr('sensor.ground_water_current_measurement', 'data').Grundwasserstandsklasse != none
+    -}}
+  state: |-
+    {%- set stateList = ['Höchstwert überschritten', 'sehr hoch', 'hoch' 'normal', 'niedrig', 'sehr niedrig', 'Niedrigstwert unterschritten'] -%}
+    {%- if state_attr('sensor.ground_water_current_measurement', 'data').Grundwasserstandsklasse in stateList -%}
+      {{- state_attr('sensor.ground_water_current_measurement', 'data').Grundwasserstandsklasse -}}
+    {%- else -%}
+      unknown
+    {%- endif -%}
+  attributes:
+    options: "{{- ['Höchstwert überschritten', 'sehr hoch', 'hoch' 'normal', 'niedrig', 'sehr niedrig', 'Niedrigstwert unterschritten', 'unknown'] -}}"

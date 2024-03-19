@@ -1,0 +1,16 @@
+# Template sensors:
+- unique_id: qnap_firmware_fz_nas_01
+  name: qnap_firmware_fz_nas_01
+  icon: mdi:state-machine
+  availability: "{{- device_attr('ff96c9291140ee054b819e3b2c8332d9','sw_version') is defined -}}"
+  state: "{{- device_attr('ff96c9291140ee054b819e3b2c8332d9','sw_version') -}}"
+- unique_id: qnap_firmware_fz_nas_02
+  name: qnap_firmware_fz_nas_02
+  icon: mdi:state-machine
+  availability: "{{- device_attr('887844b1defae08326131e1b494addc6','sw_version') is defined -}}"
+  state: "{{- device_attr('887844b1defae08326131e1b494addc6','sw_version') -}}"
+- unique_id: qnap_firmware_fz_nas_03
+  name: qnap_firmware_fz_nas_03
+  icon: mdi:state-machine
+  availability: "{{- device_attr('a23a8336e967bb487b10b385b94e9b0e','sw_version') is defined -}}"
+  state: "{{- device_attr('a23a8336e967bb487b10b385b94e9b0e','sw_version') -}}"

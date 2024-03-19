@@ -1,0 +1,63 @@
+{%- macro replace_umlaute(string) -%}
+    {{- string | lower | replace('ä', 'ae') | replace('ü', 'ue') | replace('ö', 'oe') | replace(' ', '_') -}}
+{%- endmacro -%}
+
+{%- macro get_color_for_trashdate(date) -%}
+  {%- if date and date != 'unavailable' -%}
+    {%- if is_state('sensor.waste_next_waste_collections', 'OK') -%}
+      {%- set date_today =  (now().date() + timedelta(days = 1)) -%}
+      {%- set date_tomorrow = (date_today + timedelta(days = 1)) -%}
+      {%- set date_waste = as_datetime(date, '').date() -%}
+      {%- if date_waste == date_today -%}
+        red
+      {%- elif date_waste == date_tomorrow -%}
+        orange
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro get_color_for_trashbin(entity_id) -%}
+  {%- if entity_id -%}
+    {%- if is_state('sensor.waste_next_waste_collections', 'OK') -%}
+      {%- set id = (entity_id | regex_replace('^sensor\.waste_next_', '', 'i') | regex_replace('_collection$', '', 'i')) -%}
+      {%- if (id | regex_match('^organic$', 'i')) -%}
+        #755C48
+      {%- elif (id | regex_match('^plastic$', 'i')) -%}
+        #F3DA0B
+      {%- elif (id | regex_match('^residual$', 'i')) -%}
+        #23282B
+      {%- elif (id | regex_match('^paper$', 'i')) -%}
+        #2271B3
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro get_garbage_date(garbage_type) -%}
+  {%- if is_state('sensor.waste_next_waste_collections', 'OK') -%}
+    {{-
+        as_local(
+            strptime(
+                (
+                    state_attr('sensor.waste_next_waste_collections', 'data') |
+                    selectattr('cal_garbage_type', 'match', garbage_type, 'i') |
+                    first
+                ).cal_date
+            , '%Y-%m-%d')
+          )
+    -}}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro test_garbage_date(garbage_type) -%}
+    {{-
+      is_state('sensor.waste_next_waste_collections', 'OK')
+      and (
+        state_attr('sensor.waste_next_waste_collections', 'data') |
+        selectattr('cal_garbage_type', 'match', 'ZAC_BIO', 'i') |
+        selectattr('cal_date', 'defined') |
+        list | length > 0
+      )
+    -}}
+{%- endmacro -%}

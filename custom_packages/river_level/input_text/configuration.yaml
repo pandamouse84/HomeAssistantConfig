@@ -1,0 +1,13 @@
+# Frontend input text controls:
+river_level_api_base_url:
+  name: river_level_api_base_url
+  icon: mdi:web
+  pattern: '(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'
+river_level_next_station_parameters:
+  name: river_level_next_station_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'
+river_level_current_measurement_parameters:
+  name: river_level_current_measurement_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'

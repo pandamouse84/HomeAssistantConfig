@@ -1,0 +1,121 @@
+# Frontend input number controls:
+eve_thermo_schlafzimmer_min:
+  name: eve_thermo_schlafzimmer_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_schlafzimmer_max:
+  name: eve_thermo_schlafzimmer_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_schlafzimmer_heizdauer:
+  name: eve_thermo_schlafzimmer_heizdauer
+  icon: mdi:timer-sand
+  unit_of_measurement: Minutes
+  min: 30
+  max: 90
+eve_thermo_wohnzimmer_min:
+  name: eve_thermo_wohnzimmer_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_wohnzimmer_max:
+  name: eve_thermo_wohnzimmer_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_esszimmer_min:
+  name: eve_thermo_esszimmer_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_esszimmer_max:
+  name: eve_thermo_esszimmer_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_kueche_min:
+  name: eve_thermo_kueche_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_kueche_max:
+  name: eve_thermo_kueche_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_badezimmer_og_min:
+  name: eve_thermo_badezimmer_og_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_badezimmer_og_max:
+  name: eve_thermo_badezimmer_og_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_badezimmer_og_heizdauer:
+  name: eve_thermo_badezimmer_og_heizdauer
+  icon: mdi:timer-sand
+  unit_of_measurement: Hours
+  min: 1
+  max: 4
+eve_thermo_kinderzimmer_min:
+  name: eve_thermo_kinderzimmer_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_kinderzimmer_max:
+  name: eve_thermo_kinderzimmer_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_naehzimmer_min:
+  name: eve_thermo_naehzimmer_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_naehzimmer_max:
+  name: eve_thermo_naehzimmer_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_bibliothek_min:
+  name: eve_thermo_bibliothek_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_bibliothek_max:
+  name: eve_thermo_bibliothek_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_badezimmer_eg_min:
+  name: eve_thermo_badezimmer_eg_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 12
+  max: 30
+eve_thermo_badezimmer_eg_max:
+  name: eve_thermo_badezimmer_eg_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 12
+  max: 30

@@ -1,0 +1,6 @@
+# Template sensors:
+- unique_id: pollen_url
+  name: pollen_url
+  icon: mdi:webhook
+  availability: "{{- states('input_select.pollen_base_url') != none -}}"
+  state: "{{- states('input_text.pollen_base_url') -}}"

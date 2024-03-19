@@ -1,0 +1,93 @@
+# Friendly names for UI input text
+input_text.evcc_base_url_pattern:
+  friendly_name: "Muster für die Basis URL des EVCC Dienstes"
+input_text.evcc_get_data_parameter:
+  friendly_name: "Parameter zum Abrufen von Daten"
+input_text.evcc_set_wallbox_mode_parameter:
+  friendly_name: "Parameter zum Ändern des Wallbox Modus"
+
+# Friendly names for command line sensors
+sensor.evcc_data:
+  friendly_name: "EVCC Status Daten"
+
+# Friendly names for integration sensors
+sensor.evcc_average_grid_reference_power:
+  friendly_name: "Netzbezug"
+sensor.evcc_average_grid_delivery_power:
+  friendly_name: "Netzeinspeisung"
+sensor.evcc_average_pv_delivery_power:
+  friendly_name: "PV Leistung"
+sensor.evcc_average_battery_charging_power:
+  friendly_name: "Batterieladung"
+sensor.evcc_average_battery_discharging_power:
+  friendly_name: "Batterieentladung"
+sensor.evcc_average_home_consumption_power:
+  friendly_name: "Hausverbrauch"
+sensor.evcc_average_wallbox_charging_power:
+  friendly_name: "Wallbox Leistung"
+sensor.evcc_average_green_power:
+  friendly_name: "Grüne Energie"
+sensor.evcc_average_home_consumption_without_devices_power:
+  friendly_name: "Übriger Hausverbrauch"
+
+# Friendly names for binary sensors
+binary_sensor.evcc_car_connected:
+  friendly_name: "Verbindungsstatus Fahrzeug"
+binary_sensor.evcc_car_charging:
+  friendly_name: "Ladestatus Fahrzeug"
+binary_sensor.evcc_get_data_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der EVCC Daten erfüllt"
+binary_sensor.evcc_set_wallbox_mode_ready:
+  friendly_name: "Vorraussetzungen zum Setzen des Wallbox Modus erfüllt"
+
+# Friendly names for UI select input controls
+select.evcc_wallbox_mode:
+  friendly_name: "Wallbox Lademodus"
+
+# Friendly names for template sensors
+sensor.evcc_get_data_url:
+  friendly_name: "URL zum Abruf der EVCC Daten"
+sensor.evcc_set_wallbox_mode_url:
+  friendly_name: "URL zum Setzen des Wallbox Status in EVCC"
+
+# Friendly names for template sensors
+sensor.evcc_wallbox_state:
+  friendly_name: "EVCC REST Wallbox Status"
+sensor.evcc_pv_state:
+  friendly_name: "EVCC REST PV Status"
+sensor.evcc_car_soc:
+  friendly_name: "Ladestatus Fahrzeug Akku"
+sensor.evcc_battery_soc:
+  friendly_name: "Ladestatus Haus Batterie"
+sensor.evcc_car_range:
+  friendly_name: "Reichweite Fahrzeug"
+sensor.evcc_wallbox_power:
+  friendly_name: "Wallbox Leistung"
+sensor.evcc_pv_power:
+  friendly_name: "PV Leistung"
+sensor.evcc_battery_power:
+  friendly_name: "Batterie Leistung"
+sensor.evcc_home_power:
+  friendly_name: "Haus Verbrauch"
+sensor.evcc_grid_reference_power:
+  friendly_name: "Netzbezug in Watt"
+sensor.evcc_grid_delivery_power:
+  friendly_name: "Netzeinspeisung in Watt"
+sensor.evcc_pv_delivery_power:
+  friendly_name: "PV Leistung in Watt"
+sensor.evcc_battery_charging_power:
+  friendly_name: "Batterieladung in Watt"
+sensor.evcc_battery_discharging_power:
+  friendly_name: "Batterieentladung in Watt"
+sensor.evcc_home_consumption_power:
+  friendly_name: "Hausverbrauch in Watt"
+sensor.evcc_wallbox_charging_power:
+  friendly_name: "Wallbox Leistung in Watt"
+sensor.evcc_green_power:
+  friendly_name: "Verbrauch Haus+Wallbox abzüglich Netzbezug"
+sensor.evcc_home_consumption_without_devices_power:
+  friendly_name: "Hausverbrauch ohne Steckdosen in Watt"
+
+# Friendly names for utility meters
+sensor.evcc_average_green_power_utility:
+  friendly_name: "Grüne Energie"

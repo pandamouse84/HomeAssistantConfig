@@ -1,0 +1,16 @@
+# Template sensors:
+- unique_id: waste_area_city_url
+  name: waste_area_city_url
+  icon: mdi:webhook
+  availability: "{{- states('input_text.waste_area_base_url') != none -}}"
+  state: "{{- states('input_text.waste_area_base_url') -}}"
+- unique_id: waste_area_street_url
+  name: waste_area_street_url
+  icon: mdi:webhook
+  availability: "{{- states('input_text.waste_area_base_url') != none -}}"
+  state: "{{- states('input_text.waste_area_base_url') -}}"
+- unique_id: waste_dates_url
+  name: waste_dates_url
+  icon: mdi:webhook
+  availability: "{{- states('input_text.waste_dates_base_url') != none -}}"
+  state: "{{- states('input_text.waste_dates_base_url') -}}"

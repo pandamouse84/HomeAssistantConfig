@@ -1,0 +1,70 @@
+# Automations
+- alias: "Update Input Text: pollen_selected_region"
+  id: update_pollen_selected_region
+  trigger:
+    platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: input_select.pollen_region
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.pollen_region
+            state: "None"
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.pollen_region
+            state: none
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.pollen_region
+            state: unknown
+      - condition: state
+        entity_id: sensor.pollen
+        state: "OK"
+  action:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.pollen_selected_region
+      data:
+        value: "{{ states('input_select.pollen_region') }}"
+
+- alias: "Update Input Text: pollen_selected_severity"
+  id: update_pollen_selected_severity
+  trigger:
+    platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: input_select.pollen_severity
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.pollen_severity
+            state: "None"
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.pollen_severity
+            state: none
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.pollen_severity
+            state: unknown
+      - condition: state
+        entity_id: sensor.pollen
+        state: "OK"
+  action:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.pollen_selected_severity
+      data:
+        value: "{{ states('input_select.pollen_severity') }}"

@@ -1,0 +1,15 @@
+# Template binary sensors:
+- unique_id: home_address_ready
+  name: home_address_ready
+  state: |-
+    {{-
+      is_number(state_attr('zone.home', 'latitude'))
+      and is_number(state_attr('zone.home', 'longitude'))
+      and not is_state('sensor.home_address_url', 'unavailable')
+      and states('sensor.home_address_url').startswith('https://')
+    -}}
+  attributes:
+    "Latitude is set": "{{- is_number(state_attr('zone.home', 'latitude')) -}}"
+    "Longitude is set": "{{- is_number(state_attr('zone.home', 'longitude')) -}}"
+    "URL is available": "{{- not is_state('sensor.home_address_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.home_address_url').startswith('https://') -}}"

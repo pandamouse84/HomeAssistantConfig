@@ -1,0 +1,28 @@
+- unique_id: ground_water_station
+  name: ground_water_station
+  icon: mdi:home-analytics
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_next_station', 'OK')
+      and state_attr('sensor.ground_water_next_station', 'data').name != none
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.ground_water_next_station', 'data').name
+    -}}
+  attributes:
+    latitude: "{{- state_attr('sensor.ground_water_next_station', 'data').latitude -}}"
+    longitude: "{{- state_attr('sensor.ground_water_next_station', 'data').longitude -}}"
+    altitude: "{{- state_attr('sensor.ground_water_next_station', 'data').altitude -}}"
+- unique_id: ground_water_river_name
+  name: ground_water_river_name
+  icon: mdi:water-well
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_next_station', 'OK')
+      and state_attr('sensor.ground_water_next_station', 'data').gewaesserName != none
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.ground_water_next_station', 'data').gewaesserName
+    -}}

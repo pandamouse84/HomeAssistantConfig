@@ -1,0 +1,46 @@
+# Automations
+- alias: "Keller-Pumpe: Unbekannten Status melden."
+  id: pump_control_notify_unknown
+  trigger:
+    - platform: state
+      entity_id: sensor.pump_control_status
+      to: "unknown"
+      for:
+        minutes: 10
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.pump_control_water_alert_send
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_started"
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_stopped"
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_unknown"
+    - service: notify.all_mobile_apps
+      data:
+        title: "Status Keller Pumpe unbekannt"
+        message: "Halte die Benachrichtung gedrückt für weitere Optionen."
+        data:
+          group: "ha_pump_control"
+          subtitle: "Der Status der Pumpe kannn nicht mehr ermittelt werden."
+          tag: "ha_pump_unknown"
+          actions:
+            - action: "URI"
+              icon: mdi:home-floor-b
+              title: "Keller ansehen"
+              uri: "/dashboard-raume/keller"
+          push:
+            sound:
+              name: "default"
+              critical: 1
+              volume: 0.5ç√

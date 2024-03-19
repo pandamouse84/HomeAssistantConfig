@@ -1,0 +1,13 @@
+# Automations
+- alias: "Keller-Pumpe: Unbekannten Status - Matter Neustart"
+  id: restart_matter_pump_unknown
+  trigger:
+    - platform: state
+      entity_id: sensor.pump_control_status
+      to: "unknown"
+      for:
+        minutes: 5
+  action:
+    - service: hassio.addon_restart
+      data:
+        addon: core_matter_server

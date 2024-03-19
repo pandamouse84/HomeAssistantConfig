@@ -1,0 +1,41 @@
+# Friendly names for command line sensors
+sensor.waste_area_city:
+  friendly_name: "Stadt im Abfallkalender"
+sensor.waste_area_street:
+  friendly_name: "Straße im Abfallkalender"
+sensor.waste_next_waste_collections:
+  friendly_name: "Nächste Müll-Abfuhr Termine"
+
+# Friendly names for UI input text
+input_text.waste_area_base_url:
+  friendly_name: "Basis URL des Abfallkalender Dienstes für den Standort"
+input_text.waste_dates_base_url:
+  friendly_name: "Basis URL des Abfallkalender Dienstes für die Daten"
+
+# Friendly names for binary sensors
+binary_sensor.waste_area_city_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Stadt aus dem Abfallkalender Dienstes erfülltt"
+binary_sensor.waste_area_street_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Straße aus dem Abfallkalender Dienstes erfüllt"
+binary_sensor.waste_dates_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Abfuhrtermins aus dem Abfallkalender Dienstes erfüllt"
+
+# Friendly names for template sensors
+sensor.waste_area_city_url:
+  friendly_name: "URL für die Abfrage der Stadt aus dem Abfallkalender Dienstes für den Standort"
+sensor.waste_area_street_url:
+  friendly_name: "URL für die Abfrage der Straße aus dem Abfallkalender Dienstes für den Standort"
+sensor.waste_dates_url:
+  friendly_name: "URL für die Abfrage des nächste Abfuhrtermins aus dem Abfallkalender Dienstes für die Daten"
+sensor.waste_next_organic_collection:
+  friendly_name: "Biomüll"
+sensor.waste_next_plastic_collection:
+  friendly_name: "Plastikmüll"
+sensor.waste_next_residual_collection:
+  friendly_name: "Restmüll"
+sensor.waste_next_paper_collection:
+  friendly_name: "Papiermüll"
+sensor.waste_city_id:
+  friendly_name: "ID der Stadt im Abfallkalender"
+sensor.waste_area_id:
+  friendly_name: "ID der Region im Abfallkalender"

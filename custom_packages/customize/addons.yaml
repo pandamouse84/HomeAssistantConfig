@@ -1,0 +1,19 @@
+# Friendly names for template switches
+switch.addons_sql_status:
+  friendly_name: "SQLite Web Status"
+switch.addons_ssh_status:
+  friendly_name: "Advanced SSH & Web Terminal Status"
+switch.addons_vscode_status:
+  friendly_name: "Visual Studio Code Status"
+device_tracker.ev6_location:
+  entity_picture: "/local/media/EV6.png"
+device_tracker.ipad_von_florian:
+  entity_picture: "/local/media/iPadPro.png"
+device_tracker.ipad_von_manuela:
+  entity_picture: "/local/media/iPadAir.png"
+device_tracker.iphone_von_florian:
+  entity_picture: "/local/media/iPhone.png"
+device_tracker.iphone_von_manuela:
+  entity_picture: "/local/media/iPhone.png"
+zone.home:
+  entity_picture: "/local/media/Home.jpeg"

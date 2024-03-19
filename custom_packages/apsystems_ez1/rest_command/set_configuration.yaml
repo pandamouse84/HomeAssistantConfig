@@ -1,0 +1,31 @@
+# <summary>
+# This YAML configuration contains rest commands
+# to set configurations inside the EZ1 device.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# This request will set the EZ1 On/Off status.
+# When set off to the device,
+# the device will stop outputting power,
+# but the local API is still working.
+# </summary>
+apsystems_setonoff:
+  url: "{{- states('sensor.apsystems_ez1_url_setOnOff') -}}"
+  method: get
+  content_type: "application/x-www-form-urlencoded"
+  payload: "{{- 'status=' + status -}}"
+
+# <summary>
+# This request will set the EZ1 max power.
+# </summary>
+apsystems_setmaxpower:
+  url: "{{- states('sensor.apsystems_ez1_url_setMaxPower') -}}"
+  method: get
+  content_type: "application/x-www-form-urlencoded"
+  payload: "{{- 'p=' + power -}}"

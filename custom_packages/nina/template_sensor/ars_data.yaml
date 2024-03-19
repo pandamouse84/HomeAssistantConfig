@@ -1,0 +1,19 @@
+- unique_id: nina_xrepository_ars_code
+  name: nina_xrepository_ars_code
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      is_state('sensor.nina_xrepository_ars', 'OK')
+      and is_number(state_attr('sensor.nina_xrepository_ars', 'data').daten[0].Schluessel)
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.nina_xrepository_ars', 'data')['daten'][0].Schluessel[:-7]
+      + (
+        state_attr('sensor.nina_xrepository_ars', 'data')['daten'][0].Schluessel[-7:]
+        | replace(
+          state_attr('sensor.nina_xrepository_ars', 'data')['daten'][0].Schluessel[-7:],
+          "0000000"
+        )
+      )
+    -}}

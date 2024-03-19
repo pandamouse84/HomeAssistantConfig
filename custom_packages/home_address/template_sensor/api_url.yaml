@@ -1,0 +1,6 @@
+# Template sensors:
+- unique_id: home_address_url
+  name: home_address_url
+  icon: mdi:webhook
+  availability: "{{- states('input_select.home_address_base_url') != none -}}"
+  state: "{{- states('input_text.home_address_base_url') -}}"

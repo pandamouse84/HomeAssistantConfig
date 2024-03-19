@@ -1,0 +1,25 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: external_access_update_dyndns
+    name: external_access_update_dyndns
+    scan_interval: 360
+    availability: "{{ is_state('binary_sensor.external_access_update_dyndns_ready', 'on') -}};"
+    command: |-
+      if
+        {{ is_state('binary_sensor.external_access_update_dyndns_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.external_access_dnydns_url') -}}' \
+        -u '{{- states('input_text.external_access_dnydns_username') -}}:{{- states('input_text.external_access_dnydns_password') -}}' \
+        -d 'myip6={{- states('sensor.system_monitor_ipv6_adresse_enp0s3') -}}' |
+        jq -cnR -f /config/custom_packages/external_access/jq/process_json_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - raw

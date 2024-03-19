@@ -1,0 +1,19 @@
+# Friendly names for REST sensors
+sensor.external_access_update_dyndns:
+  friendly_name: "DynDNS REST Dienst Status"
+
+# Friendly names for UI text input controls
+input_text.external_access_dnydns_base_url:
+  friendly_name: "Basis URL des DynDNS Dienstes"
+input_text.external_access_dnydns_username:
+  friendly_name: "Benutzername des DynDNS Dienstes"
+input_text.external_access_dnydns_password:
+  friendly_name: "Passwort des DynDNS Dienstes"
+
+# Friendly names for binary sensors
+binary_sensor.external_access_update_dyndns_ready:
+  friendly_name: "Vorraussetzungen zum Setzen der DYNDNS Addresse erfüllt"
+
+# Friendly names for binary sensors
+sensor.external_access_dnydns_url:
+  friendly_name: "URL des DynDNS Dienstes"

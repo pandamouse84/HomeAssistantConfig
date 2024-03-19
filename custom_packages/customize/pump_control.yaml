@@ -1,0 +1,27 @@
+# Friendly names for UI select boolean controls
+input_boolean.pump_control_water_alert_send:
+  friendly_name: "Wasser-Alarm Meldung Keller ist pausiert"
+input_boolean.pump_control_jammed:
+  friendly_name: "Die Pumpe hat eine Störung"
+input_boolean.pump_control_use_auto_start:
+  friendly_name: "Autostart der Pumpe ist aktiviert"
+
+# Friendly names for UI input number controls
+input_number.pump_control_runtime_dry:
+  friendly_name: "Dauer bis zum Abschalten der Keller-Pumpe wenn trocken"
+input_number.pump_control_stop_power:
+  friendly_name: "Leistung der Pumpe zum Abschalten"
+input_number.pump_control_emergency_stop:
+  friendly_name: "Leistung der Pumpe bei Störung"
+input_number.pump_control_auto_start_interval:
+  friendly_name: "Interval des Pumpen-Autostarts"
+
+# Friendly names for template sensors
+sensor.pump_control_status:
+  friendly_name: "Status der Keller-Pumpe"
+
+# Friendly names for timers
+timer.pump_control_stop_timer:
+  friendly_name: "Zeit bis zum Abschalten der Keller-Punmpe"
+timer.pump_control_start_timer:
+  friendly_name: "Zeit bis zum Automatischen Starten der Keller-Punmpe"

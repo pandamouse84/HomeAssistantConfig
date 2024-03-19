@@ -1,0 +1,37 @@
+# <summary>
+# This YAML configuration contains template binary sensors
+# for automatically creating the nessesary API URIs
+# including the correct port and endpoint.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# Tests if the EZ1 API is ready for processing
+# by checking if the configuration is setup correctly
+# </summary>
+- unique_id: apsystems_ez1_api_ready
+  name: apsystems_ez1_api_ready
+  state: |-
+    {%- set uriRegex = '^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})(?<!\/)$' -%}
+    {{-
+      not is_state('input_text.apsystems_ez1_base_url', 'unavailable')
+      and states('input_text.apsystems_ez1_base_url') is match(uriRegex, ignorecase=False)
+    -}}
+  attributes:
+    "URL is available": "{{- not is_state('input_text.apsystems_ez1_base_url', 'unavailable') -}}"
+    "URL is valid": |-
+      {%- set uriRegex = '^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})(?<!\/)$' -%}
+      {{- states('input_text.apsystems_ez1_base_url') is match(uriRegex, ignorecase=False) -}}
+  icon: |-
+    {%- if this.state == "on" -%}
+      mdi:check-circle
+    {%- elif this.state == "off" -%}
+      mdi:close-circle
+    {%- else -%}
+      mdi:alert-circle
+    {%- endif -%}

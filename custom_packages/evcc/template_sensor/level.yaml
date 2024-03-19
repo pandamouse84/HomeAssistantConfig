@@ -1,0 +1,22 @@
+# Template sensors:
+- unique_id: evcc_car_soc
+  name: evcc_car_soc
+  device_class: battery
+  availability: "{{- is_number(state_attr('sensor.evcc_wallbox_state', 'vehicleSoc')) -}}"
+  state: |-
+    {{-
+      state_attr("sensor.evcc_wallbox_state", "vehicleSoc")
+      | float | round(2)
+    -}}
+  unit_of_measurement: "%"
+- unique_id: evcc_battery_soc
+  name: evcc_battery_soc
+  device_class: battery
+  state_class: measurement
+  availability: "{{- is_number(state_attr('sensor.evcc_pv_state', 'batterySoc')) -}}"
+  state: |-
+    {{-
+      state_attr("sensor.evcc_pv_state", "batterySoc")
+      | float | round(2)
+    -}}
+  unit_of_measurement: "%"

@@ -1,0 +1,18 @@
+# Automations
+- alias: "Degu-Licht: starten"
+  id: degu_light_start_degu_light_timer
+  trigger:
+    - platform: state
+      entity_id: switch.degu_light
+      to: "on"
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.degu_light_stop_timer
+      data:
+        duration: |-
+          {{-
+            "00:"
+            "%0.2d"| format(states("input_number.degu_light_duration") | int)
+            + ":00"
+          -}}

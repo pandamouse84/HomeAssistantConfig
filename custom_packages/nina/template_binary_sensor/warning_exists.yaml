@@ -1,0 +1,8 @@
+# Template binary sensors:
+- unique_id: nina_warning_exists
+  name: nina_warning_exists
+  state: |-
+    {{-
+      state_attr('sensor.nina_warning', 'data') != none
+      and not is_state_attr('sensor.nina_warning', 'data', '')
+    -}}

@@ -1,0 +1,24 @@
+# command line sensors:
+- sensor:
+    unique_id: waste_area_city
+    name: waste_area_city
+    scan_interval: 3600
+    availability: "{{- is_state('binary_sensor.waste_area_city_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.waste_area_city_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.waste_area_city_url') -}}' \
+        -d 'r=cities_web' |
+        jq -cn -f /config/custom_packages/waste/jq/process_json_city_response.jq --argjson city '"{{ state_attr('sensor.home_address', 'city') }}"' --argjson district '"{{ state_attr('sensor.home_address', 'district') -}}"';
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

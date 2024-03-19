@@ -1,0 +1,19 @@
+# Automations
+- alias: "Thermostate: Gute Nacht Modus gestartet"
+  id: eve_thermo_good_night_mode_started
+  trigger:
+    - platform: event
+      event_type: timer.started
+      event_data:
+        entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.heizung_schlafzimmer_links
+      data:
+        temperature: "{{- states('input_number.eve_thermo_schlafzimmer_max') -}}"
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.heizung_schlafzimmer_rechts
+      data:
+        temperature: "{{- states('input_number.eve_thermo_schlafzimmer_max') -}}"

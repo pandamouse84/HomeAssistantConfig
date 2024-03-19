@@ -1,0 +1,170 @@
+# Template sensors:
+
+# Thermostat Bibliothek (Eingestellte Temperatur)
+- unique_id: eve_thermostat_library_set_temperature
+  name: eve_thermostat_library_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_bibliotheke', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_bibliotheke', 'temperature')
+      | float(0) | round(1)          
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Nähzimmer (Eingestellte Temperatur)
+- unique_id: eve_thermostat_sewingroom_set_temperature
+  name: eve_thermostat_sewingroom_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_naehzimmer', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_naehzimmer', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Wohnzimmer Linke Heizung (Eingestellte Temperatur)
+- unique_id: eve_thermostat_livingroom_left_set_temperature
+  name: eve_thermostat_livingroom_left_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_wohnzimmer_links', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_wohnzimmer_links', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Wohnzimmer Rechte Heizung (Eingestellte Temperatur)
+- unique_id: eve_thermostat_livingroom_right_set_temperature
+  name: eve_thermostat_livingroom_right_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_wohnzimmer_rechts', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_wohnzimmer_rechts', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Badezimmer OG Heizung Fenster (Eingestellte Temperatur)
+- unique_id: eve_thermostat_bath_ground_floor_set_temperature
+  name: eve_thermostat_bath_ground_floor_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_eg', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_badezimmer_eg', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+  # Thermostat Badezimmer OG Heizung Fenster (Eingestellte Temperatur)
+- unique_id: eve_thermostat_bath_first_floor_window_set_temperature
+  name: eve_thermostat_bath_first_floor_window_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_og_fenster', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_badezimmer_og_fenster', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Badezimmer OG Heizung Handtuchhalter (Eingestellte Temperatur)
+- unique_id: eve_thermostat_bath_first_floor_towel_rail_set_temperature
+  name: eve_thermostat_bath_first_floor_towel_rail_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_og_fenster', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_badezimmer_og_fenster', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Esszimmer Linke Heizung (Eingestellte Temperatur)
+- unique_id: eve_thermostat_diningroom_left_set_temperature
+  name: eve_thermostat_diningroom_left_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_esszimmer_links', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_esszimmer_links', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Esszimmer Rechte Heizung (Eingestellte Temperatur)
+- unique_id: eve_thermostat_diningroom_right_set_temperature
+  name: eve_thermostat_diningroom_right_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_esszimmer_rechts', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_esszimmer_rechts', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Schlafzimmer Linke Heizung (Eingestellte Temperatur)
+- unique_id: eve_thermostat_bedroom_left_set_temperature
+  name: eve_thermostat_bedroom_left_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_schlafzimmer_links', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_schlafzimmer_links', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Schlafzimmer Rechte Heizung (Eingestellte Temperatur)
+- unique_id: eve_thermostat_bedroom_right_set_temperature
+  name: eve_thermostat_bedroom_right_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_schlafzimmer_rechts', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_schlafzimmer_rechts', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Küche (Eingestellte Temperatur)
+- unique_id: eve_thermostat_kitchen_set_temperature
+  name: eve_thermostat_kitchen_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_kueche', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_kueche', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Kinderzimmer (Eingestellte Temperatur)
+- unique_id: eve_thermostat_childrens_room_set_temperature
+  name: eve_thermostat_childrens_room_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_kinderzimmer', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_kinderzimmer', 'temperature')
+      | float(0) | round(1)
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement

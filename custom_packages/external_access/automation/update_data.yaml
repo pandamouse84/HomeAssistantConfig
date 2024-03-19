@@ -1,0 +1,21 @@
+# Automations
+- alias: "Update Sensor: external_access_update_dyndns"
+  id: update_external_access_update_dyndns
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.external_access_update_dyndns
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.external_access_update_dyndns_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.external_access_update_dyndns

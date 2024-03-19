@@ -1,0 +1,37 @@
+# Friendly names for command line sensors
+sensor.pollen:
+  friendly_name: "Aktuelle Pollenflug Daten"
+sensor.pollen_regions:
+  friendly_name: "Pollenflug Regionen"
+
+# Friendly names for UI input select
+input_select.pollen_region:
+  friendly_name: "Region zum Abruf der Pollendaten"
+input_select.pollen_severity:
+  friendly_name: "Stufe, ab welcher Daten als Warnung angezeigt werden"
+
+# Friendly names for UI input text
+input_text.pollen_base_url:
+  friendly_name: "Basis URL des Pollenflug Dienstes"
+input_text.pollen_selected_region:
+  friendly_name: "Ausgewählte Region"
+input_text.pollen_selected_severity:
+  friendly_name: "Ausgewählte Stufe"
+
+# Friendly names for binary sensors
+binary_sensor.pollen_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Pollenflug Daten erfüllt"
+binary_sensor.pollen_regions_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der Pollenflug Regionen erfüllt"
+binary_sensor.pollen_severity_warning_exists:
+  friendly_name: "Aktuelle Pollenflug Warnung vorhanden"
+
+# Friendly names for template sensors
+sensor.pollen_url:
+  friendly_name: "URL des Pollenflug Dienstes"
+sensor.pollen_region_id:
+  friendly_name: "ID der Region zum Abruf der Pollendaten"
+sensor.pollen_partregion_id:
+  friendly_name: "ID der Unter-Region zum Abruf der Pollendaten"
+sensor.pollen_severity_id:
+  friendly_name: "ID der gewählten Warnstufe"

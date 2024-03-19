@@ -1,0 +1,188 @@
+- unique_id: river_level_current_time
+  name: river_level_current_time
+  device_class: timestamp
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').currentMeasurement.timestamp != none
+    -}}
+  state: |-
+    {{-
+      as_local(
+        strptime(
+          state_attr('sensor.river_level_current_measurement', 'data').currentMeasurement.timestamp
+          ,'%Y-%m-%dT%X%z'
+        )
+      )
+    -}}
+- unique_id: river_level_current_state
+  name: river_level_current_state
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').currentMeasurement.stateMnwMhw != none
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.river_level_current_measurement', 'data').currentMeasurement.stateMnwMhw
+    -}}
+  icon: |-
+    {%- if states('sensor.river_level_current_state') == 'high' -%}
+      mdi:wave-arrow-up
+    {%- elif states('sensor.river_level_current_state') == 'low' -%}
+      mdi:wave-arrow-down
+    {%- else -%}
+      mdi:wave
+    {%- endif -%}
+- unique_id: river_level_current_value
+  name: river_level_current_value
+  unit_of_measurement: cm
+  state_class: measurement
+  device_class: distance
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').currentMeasurement.value != none
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.river_level_current_measurement', 'data').currentMeasurement.value
+    -}}
+- unique_id: river_level_mnw_value
+  name: river_level_mnw_value
+  unit_of_measurement: cm
+  state_class: measurement
+  device_class: distance
+  icon: mdi:wave-arrow-down
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').characteristicValues != none
+    -}}
+  state: |-
+    {%-
+      set x = state_attr('sensor.river_level_current_measurement', 'data').characteristicValues
+      | selectattr('shortname', 'eq', 'MNW')
+      | list
+    -%}
+    {{-
+      x[0].value
+    -}}
+- unique_id: river_level_mhw_value
+  name: river_level_mhw_value
+  unit_of_measurement: cm
+  state_class: measurement
+  device_class: distance
+  icon: mdi:wave-arrow-up
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').characteristicValues != none
+    -}}
+  state: |-
+    {%-
+      set x = state_attr('sensor.river_level_current_measurement', 'data').characteristicValues
+      | selectattr('shortname', 'eq', 'MHW')
+      | list
+    -%}
+    {{-
+      x[0].value
+    -}}
+- unique_id: river_level_warning_level_1
+  name: river_level_warning_level_1
+  unit_of_measurement: cm
+  state_class: measurement
+  device_class: distance
+  icon: mdi:numeric-1-circle
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').characteristicValues != none
+    -}}
+  state: |-
+    {%-
+      set x = state_attr('sensor.river_level_current_measurement', 'data').characteristicValues
+      | selectattr('shortname', 'eq', 'M_I')
+      | list
+    -%}
+    {{-
+      x[0].value
+    -}}
+- unique_id: river_level_warning_level_2
+  name: river_level_warning_level_2
+  unit_of_measurement: cm
+  state_class: measurement
+  device_class: distance
+  icon: mdi:numeric-2-circle
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').characteristicValues != none
+    -}}
+  state: |-
+    {%-
+      set x = state_attr('sensor.river_level_current_measurement', 'data').characteristicValues
+      | selectattr('shortname', 'eq', 'M_II')
+      | list
+    -%}
+    {{-
+      x[0].value
+    -}}
+- unique_id: river_level_warning_level_3
+  name: river_level_warning_level_3
+  unit_of_measurement: cm
+  state_class: measurement
+  device_class: distance
+  icon: mdi:numeric-3-circle
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and state_attr('sensor.river_level_current_measurement', 'data').characteristicValues != none
+    -}}
+  state: |-
+    {%-
+      set x = state_attr('sensor.river_level_current_measurement', 'data').characteristicValues
+      | selectattr('shortname', 'eq', 'M_III')
+      | list
+    -%}
+    {{-
+      x[0].value
+    -}}
+- unique_id: river_level_current_warning_level
+  name: river_level_current_warning_level
+  device_class: enum
+  icon: |-
+    {%- if this.state == "Warnstufe 1" -%}
+      mdi:numeric-1-circle
+    {%- elif this.state == "Warnstufe 2" -%}
+      mdi:numeric-2-circle
+    {%- elif this.state == "Warnstufe 3" -%}
+      mdi:numeric-3-circle
+    {%- elif this.state == "Keine Warnung" -%}
+      mdi:hand-okay
+    {%- else -%}
+      mdi:alert-circle
+    {%- endif -%}
+  availability: |-
+    {{-
+      is_state('sensor.river_level_current_measurement', 'OK')
+      and is_number(states('sensor.river_level_current_value'))
+    -}}
+  state: |-
+    {%- if states('sensor.river_level_current_value') | float
+      > states('sensor.river_level_warning_level_3') | float
+    -%}
+      Warnstufe 3
+    {%- elif states('sensor.river_level_current_value') | float
+      > states('sensor.river_level_warning_level_2') | float
+    -%}
+      Warnstufe 2
+    {%- elif states('sensor.river_level_current_value') | float
+      > states('sensor.river_level_warning_level_1') | float
+    -%}
+      Warnstufe 1
+    {%- else -%}
+      Keine Warnung
+    {%- endif -%}
+  attributes:
+    options: "{{- ['Warnstufe 1', 'Warnstufe 2', 'Warnstufe 3', 'Keine Warnung'] -}}"

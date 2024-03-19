@@ -1,0 +1,4 @@
+# Timers:
+pump_control_start_timer:
+  name: pump_control_start_timer
+  duration: "00:10:00"

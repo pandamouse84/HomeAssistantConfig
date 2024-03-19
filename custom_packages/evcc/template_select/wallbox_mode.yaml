@@ -1,0 +1,11 @@
+# Frontend input select controls:
+- unique_id: evcc_wallbox_mode
+  name: evcc_wallbox_mode
+  icon: mdi:tune-vertical-variant
+  availability: "{{- state_attr('sensor.evcc_wallbox_state', 'mode') != none -}}"
+  state: "{{- state_attr('sensor.evcc_wallbox_state', 'mode') -}}"
+  options: "{{- ['off', 'pv', 'minpv', 'now'] -}}"
+  select_option:
+    - service: rest_command.evcc_set_wallbox_mode
+      data:
+        mode: "{{- option -}}"

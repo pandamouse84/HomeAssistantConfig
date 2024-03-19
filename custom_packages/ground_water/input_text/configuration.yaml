@@ -1,0 +1,18 @@
+# Frontend input text controls:
+ground_water_api_base_url:
+  name: ground_water_api_base_url
+  icon: mdi:web
+  pattern: '(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'
+ground_water_next_station_parameters:
+  name: ground_water_next_station_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'
+ground_water_current_measurement_parameters:
+  name: ground_water_current_measurement_parameters
+  icon: mdi:filter-settings
+  pattern: '[^\s]+'
+ground_water_api_key:
+  name: ground_water_api_key
+  icon: mdi:lock
+  initial: !secret ground_water_api_key
+  mode: password

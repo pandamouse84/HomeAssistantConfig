@@ -1,0 +1,26 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: pollen
+    name: pollen
+    scan_interval: 600
+    availability: "{{- is_state('binary_sensor.pollen_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.pollen_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.pollen_url') -}}' |
+        jq -cn -f /config/custom_packages/pollen/jq/process_json_response.jq \
+          --argjson regionid {{ states('sensor.pollen_region_id') }} \
+          --argjson partregionid {{ states('sensor.pollen_partregion_id') }};
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - status
+      - data

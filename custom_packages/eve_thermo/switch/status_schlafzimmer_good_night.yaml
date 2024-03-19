@@ -1,0 +1,25 @@
+eve_thermo_schlafzimmer_good_night_mode:
+  value_template: "{{- is_state('timer.eve_thermo_schlafzimmer_good_night_timer', 'active') -}}"
+  turn_on:
+    - service: timer.start
+      target:
+        entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+      data:
+        duration: |-
+          {{-
+            "00:"
+            "%0.2d"| format(states("input_number.eve_thermo_schlafzimmer_heizdauer") | int)
+            + ":00"
+          -}}
+  turn_off:
+    - service: timer.cancel
+      target:
+        entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+  icon_template: |-
+    {%-
+      if is_state('timer.eve_thermo_schlafzimmer_good_night_timer', 'active')
+    -%}
+      mdi:thermometer-chevron-up
+    {%- else -%}
+      mdi:sleep
+    {%- endif -%}

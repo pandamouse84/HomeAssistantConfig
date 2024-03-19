@@ -1,0 +1,19 @@
+# Automations
+- alias: "Thermostate: Badezeit Modus gestartet"
+  id: eve_thermo_bath_time_mode_started
+  trigger:
+    - platform: event
+      event_type: timer.started
+      event_data:
+        entity_id: timer.eve_thermo_badezimmer_bath_time_timer
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.heizung_badezimmer_og_fenster
+      data:
+        temperature: "{{- states('input_number.eve_thermo_badezimmer_og_max') -}}"
+    - service: climate.set_temperature
+      target:
+        entity_id: climate.heizung_badezimmer_og_handtuchhalter
+      data:
+        temperature: "{{- states('input_number.eve_thermo_badezimmer_og_max') -}}"

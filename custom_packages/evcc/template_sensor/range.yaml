@@ -1,0 +1,11 @@
+# Template sensors:
+- unique_id: evcc_car_range
+  name: evcc_car_range
+  device_class: distance
+  availability: "{{- is_number(state_attr('sensor.evcc_wallbox_state', 'vehicleRange')) -}}"
+  state: |-
+    {{-
+      max(0, state_attr("sensor.evcc_wallbox_state", "vehicleRange"))
+      | float | round(2)
+    -}}
+  unit_of_measurement: "km"

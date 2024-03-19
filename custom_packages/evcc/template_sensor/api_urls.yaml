@@ -1,0 +1,35 @@
+# Template sensors:
+- unique_id: evcc_get_data_url
+  name: evcc_get_data_url
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      states('input_text.evcc_base_url_pattern') != none
+      and states('input_text.evcc_get_data_parameter') != none
+      and states('sensor.system_monitor_ipv6_adresse_enp0s3') != none
+    -}}
+  state: |-
+    {{-
+      (
+        states('input_text.evcc_base_url_pattern')
+        + states('input_text.evcc_get_data_parameter')
+      )
+      | format(states('sensor.system_monitor_ipv6_adresse_enp0s3'))
+    -}}
+- unique_id: evcc_set_wallbox_mode_url
+  name: evcc_set_wallbox_mode_url
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      states('input_text.evcc_base_url_pattern') != none
+      and states('input_text.evcc_set_wallbox_mode_parameter') != none
+      and states('sensor.system_monitor_ipv6_adresse_enp0s3') != none
+    -}}
+  state: |-
+    {{-
+      (
+        states('input_text.evcc_base_url_pattern')
+        + states('input_text.evcc_set_wallbox_mode_parameter')
+      )
+      | format(states('sensor.system_monitor_ipv6_adresse_enp0s3'))
+    -}}

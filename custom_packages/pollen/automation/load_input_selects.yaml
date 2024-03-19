@@ -1,0 +1,54 @@
+# Automations
+- alias: "Update Input Select: pollen_severity"
+  id: update_pollen_severity
+  trigger:
+    platform: state
+    entity_id: sensor.pollen
+    to: "OK"
+  action:
+    - service: input_select.set_options
+      target:
+        entity_id: input_select.pollen_severity
+      data:
+        options: |-
+          {%- if is_state('sensor.pollen', 'OK') -%}
+            {%- set data = namespace(severtity_list=['None']) -%}
+            {%- for severity in state_attr('sensor.pollen', 'data').legend -%}
+              {%- set item = severity.description -%}
+              {%- set data.severtity_list = data.severtity_list + [item] -%}
+            {%- endfor -%}
+            {%- set severityList = data.severtity_list -%}
+            {{ severityList }}
+          {%- endif -%}
+    - service: input_select.select_option
+      target:
+        entity_id: input_select.pollen_severity
+      data:
+        option: "{{ states('input_text.pollen_selected_severity') }}"
+
+- alias: "Update Input Select: pollen_region"
+  id: update_pollen_region
+  trigger:
+    platform: state
+    entity_id: sensor.pollen_regions
+    to: "OK"
+  action:
+    - service: input_select.set_options
+      target:
+        entity_id: input_select.pollen_region
+      data:
+        options: |-
+          {%- if is_state('sensor.pollen_regions', 'OK') -%}
+            {%- set data = namespace(region_list=['None']) -%}
+            {%- for region in state_attr('sensor.pollen_regions', 'data').content -%}
+              {%- set item = region.name -%}
+              {%- set data.region_list = data.region_list + [item] -%}
+            {%- endfor -%}
+            {%- set regionList = data.region_list -%}
+            {{ regionList }}
+          {%- endif -%}
+    - service: input_select.select_option
+      target:
+        entity_id: input_select.pollen_region
+      data:
+        option: "{{ states('input_text.pollen_selected_region') }}"

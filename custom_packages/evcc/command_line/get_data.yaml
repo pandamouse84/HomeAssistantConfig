@@ -1,0 +1,23 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: evcc_data
+    name: evcc_data
+    scan_interval: 10
+    availability: "{{- is_state('binary_sensor.evcc_get_data_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.evcc_get_data_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.evcc_get_data_url') -}}' |
+        jq -cn -f /config/custom_packages/evcc/jq/process_evcc_json_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

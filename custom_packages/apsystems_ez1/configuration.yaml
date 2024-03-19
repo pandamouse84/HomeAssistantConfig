@@ -1,0 +1,22 @@
+# <summary>
+# This YAML configuration contains
+# the configuration of the EZ1 custom package.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+command_line: !include_dir_merge_list command_line/
+input_text: !include_dir_merge_named input_text/
+rest_command: !include_dir_merge_named rest_command/
+sensor: !include_dir_merge_list sensor/
+template:
+  - binary_sensor: !include_dir_merge_list template_binary_sensor/
+  - number: !include_dir_merge_list template_number/
+  - sensor: !include_dir_merge_list template_sensor/
+switch:
+  - platform: template
+    switches: !include_dir_merge_named switch/

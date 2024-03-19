@@ -1,0 +1,6 @@
+degu_light_duration:
+  name: degu_light_duration
+  icon: mdi:timer-sand
+  unit_of_measurement: Minutes
+  min: 30
+  max: 90

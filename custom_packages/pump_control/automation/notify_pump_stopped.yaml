@@ -1,0 +1,44 @@
+# Automations
+- alias: "Keller-Pumpe: Stopp der Pumpe melden"
+  id: pump_control_notify_pump_stopped
+  trigger:
+    - platform: state
+      entity_id: sensor.pump_control_status
+      from: "on"
+      to: "off"
+  condition:
+    condition: time
+    after: "08:00:00"
+    before: "22:00:00"
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.pump_control_water_alert_send
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_started"
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_stopped"
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_pump_unknown"
+    - service: notify.all_mobile_apps
+      data:
+        title: "Keller Pumpe gestoppt"
+        message: "Halte die Benachrichtung gedrückt für weitere Optionen."
+        data:
+          group: "ha_pump_control"
+          subtitle: "Die Pumpe im Keller wurde wieder abgeschaltet."
+          tag: "ha_pump_stopped"
+          actions:
+            - action: "URI"
+              icon: mdi:home-floor-b
+              title: "Keller ansehen"
+              uri: "/dashboard-raume/keller"

@@ -1,0 +1,11 @@
+addons_vscode_status:
+  value_template: "{{- states('binary_sensor.studio_code_server_lauft') -}}"
+  turn_on:
+    - service: hassio.addon_start
+      data:
+        addon: a0d7b954_vscode
+  turn_off:
+    - service: hassio.addon_stop
+      data:
+        addon: a0d7b954_vscode
+  icon_template: mdi:microsoft-visual-studio-code

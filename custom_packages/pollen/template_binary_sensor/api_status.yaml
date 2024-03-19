@@ -1,0 +1,29 @@
+# Template binary sensors:
+- unique_id: pollen_ready
+  name: pollen_ready
+  state: |-
+    {{-
+      not is_state('sensor.pollen_url', 'unavailable')
+      and states('sensor.pollen_url').startswith('https://')
+      and not is_state('sensor.pollen_region_id', 'unavailable')
+      and (states('sensor.pollen_region_id') | int(0)) != 0
+      and not is_state('sensor.pollen_partregion_id', 'unavailable')
+      and (states('sensor.pollen_partregion_id') | int(0)) != 0
+    -}}
+  attributes:
+    "URL is available": "{{- not is_state('sensor.pollen_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.pollen_url').startswith('https://') -}}"
+    "Region is available": "{{- not is_state('sensor.pollen_region_id', 'unavailable') -}}"
+    "Region is set": "{{- (states('sensor.pollen_region_id') | int(0)) != 0 -}}"
+    "Sub-Region is available": "{{- not is_state('sensor.pollen_partregion_id', 'unavailable') -}}"
+    "Sub-Region is set": "{{- (states('sensor.pollen_partregion_id') | int(0)) != 0 -}}"
+- unique_id: pollen_regions_ready
+  name: pollen_regions_ready
+  state: |-
+    {{-
+      not is_state('sensor.pollen_url', 'unavailable')
+      and states('sensor.pollen_url').startswith('https://')
+    -}}
+  attributes:
+    "URL is available": "{{- not is_state('sensor.pollen_url', 'unavailable') -}}"
+    "URL is set": "{{- states('sensor.pollen_url').startswith('https://') -}}"

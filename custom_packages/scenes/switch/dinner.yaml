@@ -1,0 +1,16 @@
+scene_dinner:
+  icon_template: mdi:silverware
+  value_template: "{{- is_state('switch.steckdose_esszimmer', 'on')-}}"
+  turn_on:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.steckdose_esszimmer
+    - delay:
+        minutes: 1
+    - service: remote.turn_on
+      target:
+        entity_id: remote.fernseher_im_wohnzimmer
+  turn_off:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.steckdose_esszimmer

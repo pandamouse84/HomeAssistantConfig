@@ -1,0 +1,25 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: river_level_current_measurement
+    name: river_level_current_measurement
+    scan_interval: 60
+    availability: "{{- is_state('binary_sensor.river_measurements_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.river_measurements_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.river_level_current_measurement_api_url') -}}' \
+        -d 'includeCurrentMeasurement=true' \
+        -d 'includeCharacteristicValues=true' |
+        jq -cn -f /config/custom_packages/river_level/jq/process_measurements_ars_json_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

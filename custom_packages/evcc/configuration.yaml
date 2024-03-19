@@ -1,0 +1,9 @@
+command_line: !include_dir_merge_list command_line/
+input_text: !include_dir_merge_named input_text/
+rest_command: !include_dir_merge_named rest_command/
+sensor: !include_dir_merge_list sensor/
+template:
+  - binary_sensor: !include_dir_merge_list template_binary_sensor/
+  - select: !include_dir_merge_list template_select/
+  - sensor: !include_dir_merge_list template_sensor/
+utility_meter: !include_dir_merge_named utility_meter/

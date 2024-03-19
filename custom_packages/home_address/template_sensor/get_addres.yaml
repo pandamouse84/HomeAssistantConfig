@@ -1,0 +1,17 @@
+# Template sensors:
+- unique_id: home_address
+  name: home_address
+  icon: mdi:home
+  availability: "{{- is_state('sensor.home_address_data', 'OK') -}}"
+  state: "{{- states('sensor.home_address_data') -}}"
+  attributes:
+    city: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.city -}}"
+    district: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.district -}}"
+    country: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.country -}}"
+    state: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.state -}}"
+    county: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.county -}}"
+    postcode: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.postcode -}}"
+    street: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.street -}}"
+    housenumber: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.housenumber -}}"
+    latitude: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.lat -}}"
+    longitude: "{{- state_attr('sensor.home_address_data', 'data')[0].properties.lon -}}"

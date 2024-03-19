@@ -1,0 +1,32 @@
+# Template sensors:
+- unique_id: ground_water_next_station_api_url
+  name: ground_water_next_station_api_url
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      states('input_text.ground_water_api_base_url') != none
+      and states('input_text.ground_water_next_station_parameters') != none
+    -}}
+  state: |-
+    {{-
+      states('input_text.ground_water_api_base_url')
+      + states('input_text.ground_water_next_station_parameters')
+    -}}
+- unique_id: ground_water_current_measurement_api_url
+  name: ground_water_current_measurement_api_url
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      is_state('sensor.ground_water_next_station', 'OK')
+      and state_attr('sensor.ground_water_next_station', 'data').stationID != none
+      and states('input_text.ground_water_api_base_url') != none
+      and states('input_text.ground_water_current_measurement_parameters') != none
+    -}}
+  state: |-
+    {{-
+      (
+        states('input_text.ground_water_api_base_url')
+        + states('input_text.ground_water_current_measurement_parameters')
+      )
+      | format(state_attr('sensor.ground_water_next_station', 'data').stationID)
+    -}}

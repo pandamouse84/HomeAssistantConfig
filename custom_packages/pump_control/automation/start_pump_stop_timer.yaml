@@ -1,0 +1,18 @@
+# Automations
+- alias: "Keller-Pumpe: Abschalt Countdown starten"
+  id: pump_control_start_stop_timer
+  trigger:
+    - platform: state
+      entity_id: sensor.pump_control_status
+      to: "dry"
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.pump_control_stop_timer
+      data:
+        duration:  |-
+          {{-
+            "00:"
+            "%0.2d"| format(states("input_number.pump_control_runtime_dry") | int)
+            + ":00"
+          -}}

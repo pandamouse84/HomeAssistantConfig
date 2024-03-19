@@ -1,0 +1,33 @@
+- unique_id: river_level_station
+  name: river_level_station
+  icon: mdi:home-analytics
+  availability: |-
+    {{-
+      is_state('sensor.river_level_next_station', 'OK')
+      and state_attr('sensor.river_level_next_station', 'data')[0].uuid != none
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.river_level_next_station', 'data')[0].longname
+      | capitalize
+      + " ("
+      + state_attr('sensor.river_level_next_station', 'data')[0].agency
+      | capitalize
+      + ")"
+    -}}
+  attributes:
+    latitude: "{{- state_attr('sensor.river_level_next_station', 'data')[0].latitude -}}"
+    longitude: "{{- state_attr('sensor.river_level_next_station', 'data')[0].longitude -}}"
+- unique_id: river_level_river_name
+  name: river_level_river_name
+  icon: mdi:wave
+  availability: |-
+    {{-
+      is_state('sensor.river_level_next_station', 'OK')
+      and state_attr('sensor.river_level_next_station', 'data')[0].uuid != none
+    -}}
+  state: |-
+    {{-
+      state_attr('sensor.river_level_next_station', 'data')[0].water.longname
+      | capitalize
+    -}}

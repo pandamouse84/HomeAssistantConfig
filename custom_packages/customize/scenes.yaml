@@ -1,0 +1,11 @@
+# Friendly names for template switches
+switch.scene_fernsehen:
+  friendly_name: "Fernsehen"
+switch.scene_work:
+  friendly_name: "Arbeit"
+switch.scene_dinner:
+  friendly_name: "Dinner - Brettspiel"
+switch.scene_homework:
+  friendly_name: "Heimarbeit"
+switch.scene_sauna:
+  friendly_name: "Sauna Musik"

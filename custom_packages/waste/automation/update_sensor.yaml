@@ -1,0 +1,63 @@
+# Automations
+- alias: "Update Sensor: waste_area_street"
+  id: update_waste_area_street
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.waste_area_street
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.waste_area_street_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.waste_area_street
+- alias: "Update Sensor: waste_area_city"
+  id: update_area_city
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.waste_area_city
+            state: "OK"
+      - condition: state
+        entity_id: binary_sensor.waste_area_city_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.waste_area_city
+- alias: "Update Sensor: waste_next_collections"
+  id: updatewaste_next_collections
+  trigger:
+    platform: time_pattern
+    seconds: "/10"
+  condition:
+    condition: and
+    conditions:
+      - condition: not
+        conditions:
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: sensor.waste_next_waste_collections
+                state: "OK"
+      - condition: state
+        entity_id: binary_sensor.waste_dates_ready
+        state: "on"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.waste_next_waste_collections

@@ -1,0 +1,23 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: nina_xrepository_ars
+    name: nina_xrepository_ars
+    scan_interval: 86400
+    availability: "{{- is_state('binary_sensor.nina_xrepository_ars_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.nina_xrepository_ars_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.nina_xrepository_ars_url') -}}' |
+        jq -cn -f /config/custom_packages/nina/jq/process_xrepository_ars_json_response.jq --argjson city '"{{ state_attr('sensor.home_address', 'city') }}"' --argjson district '"{{ state_attr('sensor.home_address', 'district') -}}"';
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

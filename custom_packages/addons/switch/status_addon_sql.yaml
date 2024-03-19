@@ -1,0 +1,11 @@
+addons_sql_status:
+  value_template: "{{- states('binary_sensor.sqlite_web_lauft') -}}"
+  turn_on:
+    - service: hassio.addon_start
+      data:
+        addon: a0d7b954_sqlite-web
+  turn_off:
+    - service: hassio.addon_stop
+      data:
+        addon: a0d7b954_sqlite-web
+  icon_template: mdi:database

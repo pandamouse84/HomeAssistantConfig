@@ -1,0 +1,31 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: nina_warning
+    name: nina_warning
+    scan_interval: 600
+    availability: "{{- is_state('binary_sensor.nina_warning_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.nina_warning_ready', 'on') | lower -}};
+      then
+        curl -L '{{- states('sensor.nina_warning_url') -}}' |
+        jq -cn -f /config/custom_packages/nina/jq/process_warning_ids_json_response.jq |
+        jq -cr '.data[]' |
+        while read id;
+          do
+            BASEURL='{{- states('sensor.nina_warning_detail_url_pattern') -}}';
+            URL=${BASEURL/'%s'/${id-}};
+            curl -L $URL;
+          done |
+        jq -cns -f /config/custom_packages/nina/jq/process_warnings_json_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

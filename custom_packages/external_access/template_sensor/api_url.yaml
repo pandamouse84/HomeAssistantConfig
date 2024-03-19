@@ -1,0 +1,6 @@
+# Template sensors:
+- unique_id: external_access_dnydns_url
+  name: external_access_dnydns_url
+  icon: mdi:webhook
+  availability: "{{- states('input_select.external_access_dnydns_base_url') != none -}}"
+  state: "{{- states('input_text.external_access_dnydns_base_url') -}}"

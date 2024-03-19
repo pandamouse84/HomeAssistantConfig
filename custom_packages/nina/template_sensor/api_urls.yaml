@@ -1,0 +1,52 @@
+# Template sensors:
+- unique_id: nina_xrepository_ars_url
+  name: nina_xrepository_ars_url
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      is_state('sensor.home_address', 'OK')
+      and state_attr('sensor.home_address', 'district') != none
+      and state_attr('sensor.home_address', 'city') != none
+      and states('input_text.nina_xrepository_base_url') != none
+      and states('input_text.nina_xrepository_codelist_parameters') != none
+      and states('input_text.nina_xrepository_document_id') != none
+    -}}
+  state: |-
+    {{-
+      (
+        states('input_text.nina_xrepository_base_url')
+        + states('input_text.nina_xrepository_codelist_parameters')
+      )
+      | format(states('input_text.nina_xrepository_document_id'))
+    -}}
+- unique_id: nina_warning_url
+  name: nina_warning_url
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      states('input_text.nina_warning_base_url') != none
+      and states('input_text.nina_warning_parameters') != none
+      and not is_state('sensor.nina_xrepository_ars_code', 'unavailable')
+      and is_number(states('sensor.nina_xrepository_ars_code'))
+    -}}
+  state: |-
+    {{-
+      (
+        states('input_text.nina_warning_base_url')
+        + states('input_text.nina_warning_parameters')
+      )
+      | format(states('sensor.nina_xrepository_ars_code'))
+    -}}
+- unique_id: nina_warning_detail_url_pattern
+  name: nina_warning_detail_url_pattern
+  icon: mdi:webhook
+  availability: |-
+    {{-
+      states('input_text.nina_warning_base_url') != none
+      and states('input_text.nina_warning_detail_parameters') != none
+    -}}
+  state: |-
+    {{-
+      states('input_text.nina_warning_base_url')
+      + states('input_text.nina_warning_detail_parameters')
+    -}}

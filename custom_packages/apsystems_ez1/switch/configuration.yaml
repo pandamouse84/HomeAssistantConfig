@@ -1,0 +1,38 @@
+# <summary>
+# This YAML configuration contains template input switch controls
+# for the frontend to set the EZ1 On/Off state.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-03-11   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# <summary>
+# On/Off status of the device.
+# </summary>
+apsystems_ez1_status:
+  unique_id: apsystems_ez1_status
+  availability_template: |-
+    {{-
+      is_state('sensor.apsystems_ez1_state', 'OK')
+      and state_attr('sensor.apsystems_ez1_state', 'status') in ['0', '1']
+    -}}
+  value_template: |-
+    {{- is_state_attr('sensor.apsystems_ez1_state', 'status', '1') -}}
+  turn_on:
+    - service: rest_command.apsystems_setonoff
+      data:
+        status: "1"
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.apsystems_getOnOff
+  turn_off:
+    - service: rest_command.apsystems_setonoff
+      data:
+        status: "0"
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.apsystems_getOnOff
+  icon_template: mdi:power

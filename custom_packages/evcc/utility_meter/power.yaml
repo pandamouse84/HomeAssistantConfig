@@ -1,0 +1,5 @@
+# Utility meters:
+evcc_average_green_power_utility:
+  name: evcc_average_green_power_utility
+  source: sensor.evcc_average_green_power
+  cycle: daily

@@ -1,0 +1,26 @@
+# Frontend input number controls:
+- sensor:
+    unique_id: river_level_next_station
+    name: river_level_next_station
+    scan_interval: 1000
+    availability: "{{- is_state('binary_sensor.river_station_ready', 'on') -}}"
+    command: |-
+      if
+        {{ is_state('binary_sensor.river_station_ready', 'on') | lower -}};
+      then
+        curl -G -L '{{- states('sensor.river_level_next_station_api_url') -}}' \
+        -d 'latitude={{- state_attr('zone.home', 'latitude') -}}' \
+        -d 'longitude={{- state_attr('zone.home', 'longitude') -}}' \
+        -d 'radius={{- states('input_number.river_level_search_radius') -}}' |
+        jq -cn -f /config/custom_packages/river_level/jq/process_station_ars_json_response.jq;
+      else
+        python3 /config/scripts/check_data.py;
+      fi
+    value_template: |-
+      {%- if value_json.status is defined -%}
+        {{- value_json.status -}}
+      {%- else -%}
+        {{- 'unavailable' -}}
+      {%- endif -%}
+    json_attributes:
+      - data

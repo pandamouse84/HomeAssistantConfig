@@ -1,0 +1,4 @@
+# Rest commands:
+evcc_set_wallbox_mode:
+  url: "{{- states('sensor.evcc_set_wallbox_mode_url') + mode -}}"
+  method: post
