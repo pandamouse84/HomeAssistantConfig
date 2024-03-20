@@ -21,4 +21,4 @@ automation: !include custom_yaml/automations.yaml
 logger:
   default: warn
 #  logs:
-#     homeassistant.components.command_line: debug
+#    homeassistant.components.rest_command: debug

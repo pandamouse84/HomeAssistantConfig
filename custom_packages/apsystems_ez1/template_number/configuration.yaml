@@ -28,7 +28,7 @@
   icon: mdi:lightning-bolt-circle
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('sensor.apsystems_ez1_state', 'OK')
       and is_number(state_attr('sensor.apsystems_ez1_state', 'currentMaxPower'))
       and is_number(state_attr('sensor.apsystems_ez1_state', 'minPower'))
       and is_number(state_attr('sensor.apsystems_ez1_state', 'maxPower'))
@@ -43,4 +43,4 @@
         entity_id: sensor.apsystems_getMaxPower
   step: 1
   min: "{{- state_attr('sensor.apsystems_ez1_state', 'minPower') | int -}}"
-  max: "{{- state_attr('sensor.apsystems_ez1_state', 'minPower') | int -}}"
+  max: "{{- state_attr('sensor.apsystems_ez1_state', 'maxPower') | int -}}"

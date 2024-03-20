@@ -16,16 +16,22 @@
 # but the local API is still working.
 # </summary>
 apsystems_setonoff:
-  url: "{{- states('sensor.apsystems_ez1_url_setOnOff') -}}"
+  url: |
+    {{-
+      states('sensor.apsystems_ez1_url_setOnOff')
+      + '?status=' + (status | string)
+    -}}
   method: get
   content_type: "application/x-www-form-urlencoded"
-  payload: "{{- 'status=' + status -}}"
 
 # <summary>
 # This request will set the EZ1 max power.
 # </summary>
 apsystems_setmaxpower:
-  url: "{{- states('sensor.apsystems_ez1_url_setMaxPower') -}}"
+  url: |
+    {{-
+      states('sensor.apsystems_ez1_url_setMaxPower')
+      + '?p=' + (power | int | string)
+    -}}
   method: get
   content_type: "application/x-www-form-urlencoded"
-  payload: "{{- 'p=' + power -}}"

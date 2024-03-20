@@ -53,13 +53,13 @@
     # Power channel 1. Unit in Watts.
     p1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').p1 -}}"
     # Energy generation channel 1 after startup. Unit in kilo Watt hours.
-    el1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').el1 -}}"
+    e1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').e1 -}}"
     # Lifetime energy generation channel 1. Unit in kilo Watt hours.
     te1: "{{- state_attr('sensor.apsystems_getOutputData', 'data').te1 -}}"
     # Power channel 2. Unit in Watts.
     p2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').p2 -}}"
     # Energy generation channel 2 after startup. Unit in kilo Watt hours.
-    el2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').el2 -}}"
+    e2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').e2 -}}"
     # Lifetime energy generation channel 2. Unit in kilo Watt hours.
     te2: "{{- state_attr('sensor.apsystems_getOutputData', 'data').te2 -}}"
     # Alarm: Off-Grid.

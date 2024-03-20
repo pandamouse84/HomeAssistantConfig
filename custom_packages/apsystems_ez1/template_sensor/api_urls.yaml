@@ -5,8 +5,9 @@
 # </summary>
 # <remarks>
 # =========================================================================
-# Date         Author        Comment
-# 2024-03-11   FZE           Initial release
+# Date         Author  Comment
+# 2024-03-11   PM      Initial release
+# 2024-03-20   PM      Fixed sensor names
 # =========================================================================
 # </remarks>
 
@@ -18,11 +19,11 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/getDeviceInfo'
     -}}
 
@@ -36,11 +37,11 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/getOutputData'
     -}}
 
@@ -52,11 +53,11 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/getMaxPower'
     -}}
 
@@ -68,11 +69,11 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/setMaxPower'
     -}}
 
@@ -84,11 +85,11 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/getAlarm'
     -}}
 
@@ -100,11 +101,11 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/getOnOff'
     -}}
 
@@ -116,10 +117,10 @@
   icon: mdi:api
   availability: |-
     {{-
-      is_state('sensor.apsystems_ez1_api_ready', 'on')
+      is_state('binary_sensor.apsystems_ez1_api_ready', 'on')
     -}}
   state: |-
     {{-
-      states('apsystems_ez1_base_url')
+      states('input_text.apsystems_ez1_base_url')
       + ':8050/setOnOff'
     -}}

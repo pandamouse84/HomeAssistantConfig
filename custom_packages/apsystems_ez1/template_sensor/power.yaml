@@ -20,7 +20,7 @@
     {{-
       is_state('sensor.apsystems_ez1_state', 'OK')
       and is_number(state_attr('sensor.apsystems_ez1_state', 'p1'))
-    -}}"
+    -}}
   state: |-
     {{-
       max(0, state_attr('sensor.apsystems_ez1_state', 'p1'))
@@ -38,7 +38,7 @@
     {{-
       is_state('sensor.apsystems_ez1_state', 'OK')
       and is_number(state_attr('sensor.apsystems_ez1_state', 'p2'))
-    -}}"
+    -}}
   state: |-
     {{-
       max(0, state_attr('sensor.apsystems_ez1_state', 'p2'))
@@ -59,7 +59,7 @@
       is_state('sensor.apsystems_ez1_state', 'OK')
       and is_number(state_attr('sensor.apsystems_ez1_state', 'p1'))
       and is_number(state_attr('sensor.apsystems_ez1_state', 'p2'))
-    -}}"
+    -}}
   state: |-
     {{-
       (

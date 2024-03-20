@@ -17,21 +17,21 @@ apsystems_ez1_status:
   availability_template: |-
     {{-
       is_state('sensor.apsystems_ez1_state', 'OK')
-      and state_attr('sensor.apsystems_ez1_state', 'status') in ['0', '1']
+      and state_attr('sensor.apsystems_ez1_state', 'status') in [0, 1]
     -}}
   value_template: |-
-    {{- is_state_attr('sensor.apsystems_ez1_state', 'status', '1') -}}
+    {{- is_state_attr('sensor.apsystems_ez1_state', 'status', 0) -}}
   turn_on:
     - service: rest_command.apsystems_setonoff
       data:
-        status: "1"
+        status: 0
     - service: homeassistant.update_entity
       target:
         entity_id: sensor.apsystems_getOnOff
   turn_off:
     - service: rest_command.apsystems_setonoff
       data:
-        status: "0"
+        status: 1
     - service: homeassistant.update_entity
       target:
         entity_id: sensor.apsystems_getOnOff
