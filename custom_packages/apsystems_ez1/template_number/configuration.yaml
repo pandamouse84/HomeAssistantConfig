@@ -10,17 +10,6 @@
 # </remarks>
 
 # <summary>
-# This YAML configuration contains template input switch controls
-# for the frontend to set the EZ1 On/Off state.
-# </summary>
-# <remarks>
-# =========================================================================
-# Date         Author        Comment
-# 2024-03-11   FZE           Initial release
-# =========================================================================
-# </remarks>
-
-# <summary>
 # The currently set maximal power of the device.
 # </summary>
 - unique_id: apsystems_ez1_max_power
