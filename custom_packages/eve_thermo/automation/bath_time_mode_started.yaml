@@ -7,10 +7,6 @@
       event_data:
         entity_id: timer.eve_thermo_badezimmer_bath_time_timer
   action:
-    - service: climate.set_temperature
+    - service: switch.turn_on
       target:
-        entity_id:
-          - climate.heizung_badezimmer_og_fenster
-          - climate.heizung_badezimmer_og_handtuchhalter
-      data:
-        temperature: "{{- states('input_number.eve_thermo_badezimmer_og_max') -}}"
+        entity_id: switch.eve_thermo_badezimmer_og_status

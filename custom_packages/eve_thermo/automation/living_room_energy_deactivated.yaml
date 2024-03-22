@@ -1,0 +1,14 @@
+# Automations
+- alias: "Thermostate: Wohnzimmer Steckdose deaktiviert"
+  id: eve_thermo_living_room_energy_deactivated
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_wohnzimmer
+      to: "off"
+  action:
+    - service: media_player.turn_off
+      target:
+        entity_id: media_player.appletv_wohnzimmer
+    - service: switch.turn_off
+      target:
+        entity_id: switch.eve_thermo_wohnzimmer_status

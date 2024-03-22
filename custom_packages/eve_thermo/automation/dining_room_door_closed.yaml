@@ -1,12 +1,12 @@
 # Automations
-- alias: "Thermostate: Schlafzimmer deaktivieren"
-  id: eve_thermo_turn_off_dining_room
+- alias: "Thermostate: Esszimmer Tür geschlossen"
+  id: eve_thermo_dining_room_door_closed
   trigger:
     - platform: state
       entity_id: binary_sensor.tur_esszimmer_tur
-      to: "on"
+      to: "off"
   action:
-    - service: climate.turn_off
+    - service: climate.turn_on
       target:
         entity_id:
           - climate.heizung_esszimmer_links

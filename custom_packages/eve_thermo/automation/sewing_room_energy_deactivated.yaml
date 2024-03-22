@@ -1,0 +1,11 @@
+# Automations
+- alias: "Thermostate: Nähzimmer Steckdose deaktiviert"
+  id: eve_thermo_sewing_room_energy_deactivated
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_naehzimmer
+      to: "off"
+  action:
+    - service: switch.turn_off
+      target: 
+        entity_id: switch.eve_thermo_naehzimmer_status

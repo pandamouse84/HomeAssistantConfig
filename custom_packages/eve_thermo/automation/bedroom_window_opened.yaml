@@ -1,12 +1,12 @@
 # Automations
-- alias: "Thermostate: Schlafzimmer aktivieren"
-  id: eve_thermo_turn_on_bedroom
+- alias: "Thermostate: Schlafzimmer Fenster geöffnet"
+  id: eve_thermo_bedroom_window_opened
   trigger:
     - platform: state
       entity_id: binary_sensor.fenster_schlafzimmer
-      to: 'off'
+      to: 'on'
   action:
-    - service: climate.turn_on
+    - service: climate.turn_off
       target:
         entity_id:
           - climate.heizung_schlafzimmer_links

@@ -1,6 +1,6 @@
 # Automations
-- alias: "Thermostate: Wohnzimmer deaktivieren"
-  id: eve_thermo_turn_off_living_room
+- alias: "Thermostate: Wohnzimmer Fenster geöffnet"
+  id: eve_thermo_living_room_window_opened
   trigger:
     - platform: state
       entity_id: binary_sensor.fenster_wohnzimmer

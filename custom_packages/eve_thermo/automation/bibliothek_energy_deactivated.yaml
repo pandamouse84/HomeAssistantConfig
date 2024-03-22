@@ -1,0 +1,11 @@
+# Automations
+- alias: "Thermostate: Bibliothek Steckdose deaktiviert"
+  id: eve_thermo_bibliothek_room_energy_deactivated
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_bibliothek
+      to: "off"
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.eve_thermo_bibliothek_status

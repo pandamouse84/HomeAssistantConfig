@@ -1,11 +1,11 @@
 # Automations
-- alias: "Thermostate: Bibliothek deaktivieren"
-  id: eve_thermo_turn_off_bibliothek
+- alias: "Thermostate: Bibliothek Fenster geschlossen"
+  id: eve_thermo_bibliothek_window_closed
   trigger:
     - platform: state
       entity_id: binary_sensor.fenster_bibliothek
-      to: 'on'
+      to: 'off'
   action:
-    - service: climate.turn_off
+    - service: climate.turn_on
       target:
         entity_id: climate.heizung_bibliotheke

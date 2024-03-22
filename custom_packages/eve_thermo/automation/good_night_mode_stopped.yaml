@@ -10,10 +10,6 @@
       event_data:
         entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
   action:
-    - service: climate.set_temperature
+    - service: switch.turn_off
       target:
-        entity_id:
-          - climate.heizung_schlafzimmer_links
-          - climate.heizung_schlafzimmer_rechts
-      data:
-        temperature: "{{- states('input_number.eve_thermo_schlafzimmer_min') -}}"
+        entity_id: switch.eve_thermo_schlafzimmer_status
