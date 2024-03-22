@@ -1,4 +1,16 @@
 # Frontend input number controls:
+eve_thermo_flur_min:
+  name: eve_thermo_flur_min
+  icon: mdi:thermometer-minus
+  unit_of_measurement: °C
+  min: 10
+  max: 30
+eve_thermo_flur_max:
+  name: eve_thermo_flur_max
+  icon: mdi:thermometer-plus
+  unit_of_measurement: °C
+  min: 10
+  max: 30
 eve_thermo_schlafzimmer_min:
   name: eve_thermo_schlafzimmer_min
   icon: mdi:thermometer-minus

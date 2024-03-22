@@ -1,6 +1,19 @@
 # Template sensors:
 
 # Thermostat Bibliothek (Eingestellte Temperatur)
+- unique_id: eve_thermostat_corridor_set_temperature
+  name: eve_thermostat_corridor_set_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_flur', 'temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_flur', 'temperature')
+      | float(0) | round(1)          
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+# Thermostat Bibliothek (Eingestellte Temperatur)
 - unique_id: eve_thermostat_library_set_temperature
   name: eve_thermostat_library_set_temperature
   device_class: temperature

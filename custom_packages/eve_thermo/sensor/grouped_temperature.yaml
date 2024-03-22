@@ -52,6 +52,7 @@
   device_class: temperature
   state_class: measurement
   entities:
+    - sensor.eve_thermostat_corridor_temperature
     - sensor.eve_thermostat_kitchen_temperature
     - sensor.eve_thermostat_bath_ground_floor_temperature
     - sensor.eve_thermostat_mean_livingroom
@@ -90,6 +91,7 @@
   device_class: temperature
   state_class: measurement
   entities:
+    - sensor.eve_thermostat_corridor_temperature
     - sensor.eve_thermostat_bath_ground_floor_temperature
     - sensor.eve_thermostat_kitchen_temperature
     - sensor.eve_thermostat_library_temperature
@@ -112,6 +114,7 @@
   device_class: temperature
   state_class: measurement
   entities:
+    - sensor.eve_thermostat_corridor_temperature
     - sensor.eve_thermostat_bath_ground_floor_temperature
     - sensor.eve_thermostat_kitchen_temperature
     - sensor.eve_thermostat_library_temperature
@@ -134,6 +137,7 @@
   device_class: temperature
   state_class: measurement
   entities:
+    - sensor.eve_thermostat_corridor_temperature
     - sensor.eve_thermostat_kitchen_temperature
     - sensor.eve_thermostat_library_temperature
     - sensor.eve_thermostat_sewingroom_temperature

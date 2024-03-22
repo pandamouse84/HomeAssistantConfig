@@ -1,6 +1,18 @@
 # Template sensors:
-
 # Thermostat Bibliothek (Aktuelle Temperatur)
+- unique_id: eve_thermostat_corridor_temperature
+  name: eve_thermostat_corridor_temperature
+  device_class: temperature
+  availability: "{{- is_number(state_attr('climate.heizung_flur', 'current_temperature')) -}}"
+  state: |-
+    {{-
+      state_attr('climate.heizung_flur', 'current_temperature')
+      | float(0) | round(1)          
+    -}}
+  unit_of_measurement: "°C"
+  state_class: measurement
+
+  # Thermostat Bibliothek (Aktuelle Temperatur)
 - unique_id: eve_thermostat_library_temperature
   name: eve_thermostat_library_temperature
   device_class: temperature
