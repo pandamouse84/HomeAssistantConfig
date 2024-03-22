@@ -1,0 +1,12 @@
+# Automations
+- alias: "Thermostate: Wohnzimmer aktivieren"
+  id: eve_thermo_turn_on_living_room
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.fenster_wohnzimmer
+      to: 'off'
+  action:
+    - service: climate.turn_on
+      target:
+        - entity_id: climate.heizung_wohnzimmer_links
+        - entity_id: climate.heizung_wohnzimmer_rechts

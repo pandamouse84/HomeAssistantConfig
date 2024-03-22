@@ -1,0 +1,12 @@
+# Automations
+- alias: "Thermostate: Schlafzimmer aktivieren"
+  id: eve_thermo_turn_on_dining_room
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.tur_esszimmer_tur
+      to: 'off'
+  action:
+    - service: climate.turn_on
+      target:
+        - entity_id: climate.heizung_esszimmer_links
+        - entity_id: climate.heizung_esszimmer_rechts

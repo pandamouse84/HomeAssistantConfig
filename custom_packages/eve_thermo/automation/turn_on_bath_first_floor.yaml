@@ -1,0 +1,12 @@
+# Automations
+- alias: "Thermostate: Badezimmer OG aktivieren"
+  id: eve_thermo_turn_on_bath_first_floor
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.fenster_badezimmer_og
+      to: 'off'
+  action:
+    - service: climate.turn_on
+      target:
+        - entity_id: climate.heizung_badezimmer_og_fenster
+        - entity_id: climate.heizung_badezimmer_og_handtuchhalter
