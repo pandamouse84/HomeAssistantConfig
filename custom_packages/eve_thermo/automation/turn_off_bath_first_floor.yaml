@@ -8,5 +8,6 @@
   action:
     - service: climate.turn_off
       target:
-        - entity_id: climate.heizung_badezimmer_og_fenster
-        - entity_id: climate.heizung_badezimmer_og_handtuchhalter
+        entity_id:
+          - climate.heizung_badezimmer_og_fenster
+          - climate.heizung_badezimmer_og_handtuchhalter

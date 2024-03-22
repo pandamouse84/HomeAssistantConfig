@@ -9,7 +9,8 @@
   action:
     - service: climate.set_temperature
       target:
-        - entity_id: climate.heizung_badezimmer_og_fenster
-        - entity_id: climate.heizung_badezimmer_og_handtuchhalter
+        entity_id:
+          - climate.heizung_badezimmer_og_fenster
+          - climate.heizung_badezimmer_og_handtuchhalter
       data:
         temperature: "{{- states('input_number.eve_thermo_badezimmer_og_max') -}}"

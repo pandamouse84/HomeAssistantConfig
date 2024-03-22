@@ -8,5 +8,6 @@
   action:
     - service: climate.turn_on
       target:
-        - entity_id: climate.heizung_wohnzimmer_links
-        - entity_id: climate.heizung_wohnzimmer_rechts
+        entity_id:
+          - climate.heizung_wohnzimmer_links
+          - climate.heizung_wohnzimmer_rechts
