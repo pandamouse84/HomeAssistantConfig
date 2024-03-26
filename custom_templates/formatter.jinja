@@ -8,7 +8,7 @@
       {%- set date_today =  (now().date() + timedelta(days = 1)) -%}
       {%- set date_tomorrow = (date_today + timedelta(days = 1)) -%}
       {%- set date_waste = as_datetime(date, '').date() -%}
-      {%- if date_waste == date_today -%}
+      {%- if date_waste <= date_today -%}
         red
       {%- elif date_waste == date_tomorrow -%}
         orange
