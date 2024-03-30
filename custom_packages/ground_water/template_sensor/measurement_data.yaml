@@ -97,11 +97,11 @@
       and state_attr('sensor.ground_water_current_measurement', 'data').Grundwasserstandsklasse != none
     -}}
   state: |-
-    {%- set stateList = ['Höchstwert überschritten', 'sehr hoch', 'hoch' 'normal', 'niedrig', 'sehr niedrig', 'Niedrigstwert unterschritten'] -%}
+    {%- set stateList = ['Höchstwert überschritten', 'sehr hoch', 'hoch', 'normal', 'niedrig', 'sehr niedrig', 'Niedrigstwert unterschritten'] -%}
     {%- if state_attr('sensor.ground_water_current_measurement', 'data').Grundwasserstandsklasse in stateList -%}
       {{- state_attr('sensor.ground_water_current_measurement', 'data').Grundwasserstandsklasse -}}
     {%- else -%}
       unknown
     {%- endif -%}
   attributes:
-    options: "{{- ['Höchstwert überschritten', 'sehr hoch', 'hoch' 'normal', 'niedrig', 'sehr niedrig', 'Niedrigstwert unterschritten', 'unknown'] -}}"
+    options: "{{- ['Höchstwert überschritten', 'sehr hoch', 'hoch', 'normal', 'niedrig', 'sehr niedrig', 'Niedrigstwert unterschritten', 'unknown'] -}}"

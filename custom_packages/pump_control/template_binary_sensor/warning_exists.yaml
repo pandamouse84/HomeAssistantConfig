@@ -1,0 +1,8 @@
+# Template binary sensors:
+- unique_id: pump_warning_exists
+  name: pump_warning_exists
+  state: |-
+    {{-
+      not is_state('pump_warning_exists', 'off')
+    -}}
+ing

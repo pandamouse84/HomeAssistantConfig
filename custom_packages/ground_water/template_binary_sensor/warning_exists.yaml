@@ -1,0 +1,7 @@
+# Template binary sensors:
+- unique_id: ground_water_warning_exists
+  name: ground_water_warning_exists
+  state: |-
+    {{-
+      is_state('sensor.ground_water_current_state', ['Höchstwert überschritten', 'sehr hoch', 'hoch', 'unknown'])
+    -}}
