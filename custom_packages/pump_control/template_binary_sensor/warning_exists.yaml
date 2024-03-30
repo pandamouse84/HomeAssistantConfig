@@ -5,4 +5,3 @@
     {{-
       not is_state('pump_warning_exists', 'off')
     -}}
-ing
