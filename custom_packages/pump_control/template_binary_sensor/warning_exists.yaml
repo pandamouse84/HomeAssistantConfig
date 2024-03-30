@@ -3,5 +3,5 @@
   name: pump_warning_exists
   state: |-
     {{-
-      not is_state('pump_warning_exists', 'off')
+      not is_state('sensor.pump_control_status', 'off')
     -}}
