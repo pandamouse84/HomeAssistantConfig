@@ -26,7 +26,7 @@
   set_value:
     - service: rest_command.apsystems_setmaxpower
       data:
-        power: "{{- this.state -}}"
+        power: "{{- value -}}"
     - service: homeassistant.update_entity
       target:
         entity_id: sensor.apsystems_getMaxPower
