@@ -6,7 +6,7 @@
     seconds: "/1"
   condition:
     condition: state
-    entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+    entity_id: timer.eve_thermo_badezimmer_bath_time_timer
     state: "active"
   action:
     - service: homeassistant.update_entity
