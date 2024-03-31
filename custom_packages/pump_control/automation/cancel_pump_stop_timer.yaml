@@ -1,6 +1,6 @@
 # Automations
-- alias: "Keller-Pumpe: Abschalt Countdown starten"
-  id: pump_control_cancel_stop_timer
+- alias: "Keller-Pumpe: Einschalt Countdown abbrechen"
+  id: pump_control_cancel_start_timer
   trigger:
     - platform: state
       entity_id: sensor.pump_control_status
@@ -8,7 +8,18 @@
   action:
     - service: timer.cancel
       target:
-        entity_id: timer.pump_control_stop_timer
+        entity_id: timer.pump_control_start_timer
+
+- alias: "Keller-Pumpe: Abschalt Countdown abbrechen"
+  id: pump_control_cancel_stop_timer
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_keller
+      to: "off"
+    - platform: state
+      entity_id: sensor.pump_control_status
+      to: "on"
+  action:
     - service: timer.cancel
       target:
-        entity_id: timer.pump_control_start_timer
+        entity_id: timer.pump_control_stop_timer
