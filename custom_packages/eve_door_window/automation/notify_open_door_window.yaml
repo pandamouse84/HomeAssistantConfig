@@ -26,11 +26,11 @@
         data:
           subtitle: |-
             {%- if 'tur' in trigger.entity_id | lower -%}
-              "Die Tür {{-  + state_attr(trigger.entity_id, 'friendly_name') -}} ist schon für {{-  trigger.for -}} geöffnet."
+              "Die {{ state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
             {%- elif 'fenster' in trigger.entity_id | lower -%}
-              "Das Fenster {{-  + state_attr(trigger.entity_id, 'friendly_name') -}} ist schon für {{-  trigger.for -}} geöffnet."
+              "Das {{ state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
             {%- else -%}
-              "{{-  + state_attr(trigger.entity_id, 'friendly_name') -}} ist schon für {{-  trigger.for -}} geöffnet."
+              "{{- state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
             {%- endif -%}
           group: "ha_eve_door_window"
           tag: "{{- 'ha_' + trigger.entity_id -}}"
