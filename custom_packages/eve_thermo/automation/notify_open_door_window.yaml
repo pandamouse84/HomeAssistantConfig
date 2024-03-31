@@ -1,0 +1,54 @@
+# Automations
+- alias: "Offene Tür/Fenster erkannt: Melden"
+  id: eve_thermo_notify_open_door_window
+  mode: parallel
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.tur_esszimmer_tur
+        - binary_sensor.tur_flur
+        - binary_sensor.fenster_badezimmer_og
+        - binary_sensor.fenster_bibliothek
+        - binary_sensor.fenster_schlafzimmer
+        - binary_sensor.fenster_wohnzimmer
+      to: "on"
+      for: "00:15:00"
+  action:
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "{{- 'ha_' + trigger.entity_id -}}"
+    - service: notify.all_mobile_apps
+      data:
+        title: "Offene Tür/Fenster"
+        message: "Eine Tür oder ein Fenster ist länger geöffnet."
+        data:
+          group: "ha_eve_windows_sensor"
+          tag: "{{- 'ha_' + trigger.entity_id -}}"
+          actions:
+            - action: "URI"
+              icon: mdi:view-dashboard
+              title: "Übersicht öffnen"
+              uri: "/lovelace"
+
+# Automations
+- alias: "Offene Tür/Fenster erkannt: Meldung löschen"
+  id: eve_thermo_remove_notification_open_door_window
+  mode: parallel
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.tur_esszimmer_tur
+        - binary_sensor.tur_flur
+        - binary_sensor.fenster_badezimmer_og
+        - binary_sensor.fenster_bibliothek
+        - binary_sensor.fenster_schlafzimmer
+        - binary_sensor.fenster_wohnzimmer
+      to: "off"
+  action:
+    - service: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "{{- 'ha_' + trigger.entity_id -}}"
