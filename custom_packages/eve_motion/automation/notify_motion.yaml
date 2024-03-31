@@ -10,46 +10,69 @@
       after: "08:00:00"
       before: "22:00:00"
   action:
-    - service: notify.all_mobile_apps
-      data:
-        message: "clear_notification"
-        data:
-          tag: "ha_carport_motion"
-    - service: notify.all_mobile_apps
-      data:
-        title: "Bewegung erkannt"
-        message: "Es wurde Bewegung im Carport erkannt"
-        data:
-          group: "ha_carport_motion"
-          tag: "ha_carport_motion"
-          actions:
-            - action: "URI"
-              icon: mdi:garage-open-variant
-              title: "Carport ansehen"
-              uri: "/dashboard-raume/carport"
-    - service: scene.create
-      data:
-        scene_id: eve_motion_carport_notify_motion_revert
-        snapshot_entities:
-          - light.licht_wohnzimmer
-          - light.licht_bibliothek
-    - repeat:
-        count: 3
-        sequence:
-          - service: light.turn_on
-            target:
-              - entity_id: light.licht_wohnzimmer
+    parallel:
+      - sequence:
+          - service: notify.all_mobile_apps
+            data:
+              message: "clear_notification"
+              data:
+                tag: "ha_carport_motion"
+          - service: notify.all_mobile_apps
+            data:
+              title: "Bewegung erkannt"
+              message: "Es wurde Bewegung im Carport erkannt"
+              data:
+                group: "ha_carport_motion"
+                tag: "ha_carport_motion"
+                actions:
+                  - action: "URI"
+                    icon: mdi:garage-open-variant
+                    title: "Carport ansehen"
+                    uri: "/dashboard-raume/carport"
+      - sequence:
+          - service: scene.create
+            data:
+              scene_id: eve_motion_carport_notify_revert_wohnzimmer
+              snapshot_entities:
+                - light.licht_wohnzimmer
+          - repeat:
+              count: 5
+              sequence:
+                - service: light.turn_on
+                  target:
+                    entity_id: light.licht_wohnzimmer
+                  data:
+                    brightness_pct: 100
+                    flash: short
+                    color_name: red
+                - delay: 2
+          - delay: 5
+          - service: scene.turn_on
+            data:
+              scene_id: eve_motion_carport_notify_revert_wohnzimmer
+      - sequence:
+          - if:
+              - condition: state
+                entity_id: switch.steckdose_bibliothek
+                state: "on"
+            then:
+              - service: scene.create
                 data:
-                  brightness_pct: 100
-                  flash: short
-                  color_name: red
-              - entity_id: light.licht_bibliothek
+                  scene_id: eve_motion_carport_notify_revert_bibliothek
+                  snapshot_entities:
+                    - light.licht_bibliothek
+              - repeat:
+                  count: 5
+                  sequence:
+                    - service: light.turn_on
+                      target:
+                        entity_id: light.licht_bibliothek
+                      data:
+                        brightness_pct: 100
+                        flash: short
+                        color_temp_kelvin: 2700
+                    - delay: 2
+              - delay: 5
+              - service: scene.turn_on
                 data:
-                  brightness_pct: 100
-                  flash: short
-                  color_temp_kelvin: 2700
-          - delay: 2
-    - delay: 5
-    - service: scene.turn_on
-      data:
-        scene_id: eve_motion_carport_notify_motion_revert
+                  scene_id: eve_motion_carport_notify_revert_bibliothek
