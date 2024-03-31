@@ -94,10 +94,10 @@
 - unique_id: eve_thermostat_bath_first_floor_towel_rail_temperature
   name: eve_thermostat_bath_first_floor_towel_rail_temperature
   device_class: temperature
-  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_og_fenster', 'current_temperature')) -}}"
+  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_og_handtuchhalter', 'current_temperature')) -}}"
   state: |-
     {{-
-      state_attr('climate.heizung_badezimmer_og_fenster', 'current_temperature')
+      state_attr('climate.heizung_badezimmer_og_handtuchhalter', 'current_temperature')
       | float(0) | round(1)
     -}}
   unit_of_measurement: "°C"

@@ -95,10 +95,10 @@
 - unique_id: eve_thermostat_bath_first_floor_towel_rail_set_temperature
   name: eve_thermostat_bath_first_floor_towel_rail_set_temperature
   device_class: temperature
-  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_og_fenster', 'temperature')) -}}"
+  availability: "{{- is_number(state_attr('climate.heizung_badezimmer_og_handtuchhalter', 'temperature')) -}}"
   state: |-
     {{-
-      state_attr('climate.heizung_badezimmer_og_fenster', 'temperature')
+      state_attr('climate.heizung_badezimmer_og_handtuchhalter', 'temperature')
       | float(0) | round(1)
     -}}
   unit_of_measurement: "°C"
