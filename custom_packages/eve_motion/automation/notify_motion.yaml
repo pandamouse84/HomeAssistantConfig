@@ -32,8 +32,9 @@
       - sequence:
           - service: scene.create
             data:
-              scene_id: eve_motion_carport_notify_revert_wohnzimmer
-              snapshot_entities: light.licht_wohnzimmer
+              snapshot_entities:
+                - light.licht_bibliothek
+            scene_id: eve_motion_carport_notify_revert_wohnzimmer
           - repeat:
               count: 3
               sequence:
@@ -63,8 +64,9 @@
             then:
               - service: scene.create
                 data:
-                  scene_id: eve_motion_carport_notify_revert_bibliothek
-                  snapshot_entities: light.licht_bibliothek
+                  snapshot_entities:
+                    - light.licht_bibliothek
+                scene_id: eve_motion_carport_notify_revert_bibliothek
               - repeat:
                   count: 3
                   sequence:
