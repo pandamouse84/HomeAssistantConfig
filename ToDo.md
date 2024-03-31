@@ -1,4 +1,5 @@
 * Fix UI Bugs
+* Documentation & clean code
 * Move UI to /config/*.yaml if possible
 * Icons and Areas
 * Scheduler
