@@ -36,7 +36,7 @@
               snapshot_entities:
                 - light.licht_wohnzimmer
           - repeat:
-              count: 5
+              count: 3
               sequence:
                 - service: light.turn_on
                   target:
@@ -45,11 +45,11 @@
                     brightness_pct: 100
                     flash: short
                     color_name: red
-                - delay: 2
+                - delay: 1
                 - service: light.turn_off
                   target:
                     entity_id: light.licht_wohnzimmer
-          - delay: 5
+                - delay: 1
           - service: scene.turn_on
             data:
               scene_id: eve_motion_carport_notify_revert_wohnzimmer
@@ -65,7 +65,7 @@
                   snapshot_entities:
                     - light.licht_bibliothek
               - repeat:
-                  count: 5
+                  count: 3
                   sequence:
                     - service: light.turn_on
                       target:
@@ -74,11 +74,11 @@
                         brightness_pct: 100
                         flash: short
                         color_temp_kelvin: 2700
-                    - delay: 2
+                    - delay: 1
                     - service: light.turn_off
                       target:
                         entity_id: light.licht_bibliothek
-              - delay: 5
+                    - delay: 1
               - service: scene.turn_on
                 data:
                   scene_id: eve_motion_carport_notify_revert_bibliothek
