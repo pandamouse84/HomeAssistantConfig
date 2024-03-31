@@ -46,6 +46,9 @@
                     flash: short
                     color_name: red
                 - delay: 2
+                - service: light.turn_off
+                  target:
+                    entity_id: light.licht_wohnzimmer
           - delay: 5
           - service: scene.turn_on
             data:
@@ -72,6 +75,9 @@
                         flash: short
                         color_temp_kelvin: 2700
                     - delay: 2
+                    - service: light.turn_off
+                      target:
+                        entity_id: light.licht_bibliothek
               - delay: 5
               - service: scene.turn_on
                 data:
