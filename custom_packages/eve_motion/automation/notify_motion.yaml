@@ -33,8 +33,7 @@
           - service: scene.create
             data:
               scene_id: eve_motion_carport_notify_revert_wohnzimmer
-              snapshot_entities:
-                - light.licht_wohnzimmer
+              snapshot_entities: light.licht_wohnzimmer
           - repeat:
               count: 3
               sequence:
@@ -53,6 +52,9 @@
           - service: scene.turn_on
             data:
               scene_id: eve_motion_carport_notify_revert_wohnzimmer
+          - service: scene.delete
+            data:
+              entity_id: scene.eve_motion_carport_notify_revert_wohnzimmer
       - sequence:
           - if:
               - condition: state
@@ -62,8 +64,7 @@
               - service: scene.create
                 data:
                   scene_id: eve_motion_carport_notify_revert_bibliothek
-                  snapshot_entities:
-                    - light.licht_bibliothek
+                  snapshot_entities: light.licht_bibliothek
               - repeat:
                   count: 3
                   sequence:
@@ -82,3 +83,6 @@
               - service: scene.turn_on
                 data:
                   scene_id: eve_motion_carport_notify_revert_bibliothek
+              - service: scene.delete
+                data:
+                  entity_id: scene.eve_motion_carport_notify_revert_bibliothek
