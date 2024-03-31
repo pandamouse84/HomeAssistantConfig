@@ -1,4 +1,14 @@
-# Friendly names for command line sensors
+# Friendly names for template sensors
+sensor.apsystems_getmaxpower:
+  friendly_name: "Aktuelle EZ1 GetMaxPower Daten"
+sensor.apsystems_getonoff:
+  friendly_name: "Aktuelle EZ1 GetOnOff Daten"
+sensor.apsystems_getdeviceinfo:
+  friendly_name: "Aktuelle EZ1 GetDeviceInfo Daten"
+sensor.apsystems_getalarm:
+  friendly_name: "Aktuelle EZ1 GetAlarm Daten"
+sensor.apsystems_getoutputdata:
+  friendly_name: "Aktuelle EZ1 GetOutputData Daten"
 sensor.apsystems_ez1_state:
   friendly_name: "Aktuelle EZ1 Daten"
 
@@ -33,3 +43,19 @@ sensor.apsystems_ez1_channel_two_energy:
   friendly_name: "EZ1 Kanal 2 Leistung"
 sensor.apsystems_ez1_summarized_energy:
   friendly_name: "EZ1 Leistung"
+
+# Friendly names for template sensors
+sensor.apsystems_ez1_url_getdeviceinfo:
+  friendly_name: "EZ1 GetDeviceInfo URL"
+sensor.apsystems_ez1_url_getoutputdata:
+  friendly_name: "EZ1 GetOutputData URL"
+sensor.apsystems_ez1_url_getmaxpower:
+  friendly_name: "EZ1 GetMaxPower URL"
+sensor.apsystems_ez1_url_setmaxpower:
+  friendly_name: "EZ1 SetMaxPower URL"
+sensor.apsystems_ez1_url_getalarm:
+  friendly_name: "EZ1 GetAlarm URL"
+sensor.apsystems_ez1_url_getonoff:
+  friendly_name: "EZ1 GetOnOff URL"
+sensor.apsystems_ez1_url_setonoff:
+  friendly_name: "EZ1 SetOnOff URL"
