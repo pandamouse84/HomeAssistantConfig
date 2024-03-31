@@ -1,6 +1,6 @@
 # Automations
 - alias: "Offene Tür/Fenster erkannt: Melden"
-  id: eve_thermo_notify_open_door_window
+  id: eve_door_window_notify_open_door_window
   mode: parallel
   trigger:
     - platform: state
@@ -24,17 +24,30 @@
         title: "Offene Tür/Fenster"
         message: "Eine Tür oder ein Fenster ist länger geöffnet."
         data:
-          group: "ha_eve_windows_sensor"
+          subtitle: |-
+            {%- if 'tur' in trigger.entity_id | lower -%}
+              "Die Tür {{-  + state_attr(trigger.entity_id, 'friendly_name') -}} ist schon für {{-  trigger.for -}} geöffnet."
+            {%- elif 'fenster' in trigger.entity_id | lower -%}
+              "Das Fenster {{-  + state_attr(trigger.entity_id, 'friendly_name') -}} ist schon für {{-  trigger.for -}} geöffnet."
+            {%- else -%}
+              "{{-  + state_attr(trigger.entity_id, 'friendly_name') -}} ist schon für {{-  trigger.for -}} geöffnet."
+            {%- endif -%}
+          group: "ha_eve_door_window"
           tag: "{{- 'ha_' + trigger.entity_id -}}"
           actions:
             - action: "URI"
               icon: mdi:view-dashboard
               title: "Übersicht öffnen"
               uri: "/lovelace"
+          push:
+            sound:
+              name: "default"
+              critical: 1
+              volume: 0.2
 
 # Automations
 - alias: "Offene Tür/Fenster erkannt: Meldung löschen"
-  id: eve_thermo_remove_notification_open_door_window
+  id: eve_door_window_remove_notification_open_door_window
   mode: parallel
   trigger:
     - platform: state
