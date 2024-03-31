@@ -1,7 +1,7 @@
 # Friendly names for command line sensors
 sensor.nina_xrepository_ars:
   friendly_name: "Aktuelle ARS Daten"
-sensor.nina_warnings:
+sensor.nina_warning:
   friendly_name: "Aktuelle NINA Warnungen"
 
 # Friendly names for UI input text

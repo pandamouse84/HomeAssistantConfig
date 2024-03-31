@@ -1,11 +1,15 @@
 # Friendly names for UI input number controls
 input_number.degu_light_duration:
-  friendly_name: "Dauer bis zum Abschalten des Degu-Lichts"
+  friendly_name: "Degu-Licht Laufzeit"
 
 # Friendly names for template switches
 switch.degu_light:
   friendly_name: "Degu-Licht"
 
+# Friendly names for template sensors
+sensor.degu_light_remaining_time:
+  friendly_name: "Verbleibende Degu-Licht Laufzeit"
+
 # Friendly names for timers
-timer.degu_light_timer:
-  friendly_name: "Zeit bis zum Abschalten des Degu-Lichts"
+timer.degu_light_stop_timer:
+  friendly_name: "Zeitschaltuhr Degu-Licht"

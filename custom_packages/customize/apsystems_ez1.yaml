@@ -1,0 +1,35 @@
+# Friendly names for command line sensors
+sensor.apsystems_ez1_state:
+  friendly_name: "Aktuelle EZ1 Daten"
+
+# Friendly names for template switches
+switch.apsystems_ez1_status:
+  friendly_name: "EZ1 Status"
+
+# Friendly names for UI input number
+number.apsystems_ez1_max_power:
+  friendly_name: "Maximale EZ1 Leistung"
+
+# Friendly names for UI input text
+input_text.apsystems_ez1_base_url:
+  friendly_name: "EZ1 Basis URL"
+
+# Friendly names for binary sensors
+binary_sensor.apsystems_ez1_api_ready:
+  friendly_name: "Vorraussetzungen zum Abruf der EZ1 Daten erfüllt"
+
+# Friendly names for integration sensors
+sensor.apsystems_ez1_channel_one_power_integral:
+  friendly_name: "EZ1 Kanal 1 Energie"
+sensor.apsystems_ez1_channel_two_power_integral:
+  friendly_name: "EZ1 Kanal 2 Energie"
+sensor.apsystems_ez1_summarized_power_integral:
+  friendly_name: "EZ1 Energie"
+
+# Friendly names for template sensors
+sensor.apsystems_ez1_channel_one_energy:
+  friendly_name: "EZ1 Kanal 1 Leistung"
+sensor.apsystems_ez1_channel_two_energy:
+  friendly_name: "EZ1 Kanal 2 Leistung"
+sensor.apsystems_ez1_summarized_energy:
+  friendly_name: "EZ1 Leistung"

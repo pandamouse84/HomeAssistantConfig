@@ -5,3 +5,7 @@ sensor.qnap_firmware_fz_nas_02:
   friendly_name: "Firmware fz-nas-02"
 sensor.qnap_firmware_fz_nas_03:
   friendly_name: "Firmware fz-nas-03"
+
+# Friendly names for binary sensors
+binary_sensor.qnap_warning_exists:
+  friendly_name: "NAS Warnung vorhanden"

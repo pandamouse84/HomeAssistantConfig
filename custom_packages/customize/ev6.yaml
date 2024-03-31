@@ -1,0 +1,13 @@
+# Friendly names for template locks
+lock.ev6_charge_port:
+  friendly_name: "EV6 Ladeklappe"
+
+# Friendly names for template switches
+switch.ev6_charge:
+  friendly_name: "EV6 Ladevorgang"
+switch.ev6_climate:
+  friendly_name: "EV6 Klimaanlage"
+
+# Friendly names for binary sensors
+binary_sensor.ev6_warning_exists:
+  friendly_name: "EV6 Warnung vorhanden"

@@ -21,6 +21,8 @@ binary_sensor.river_station_ready:
   friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messstation erfüllt"
 binary_sensor.river_measurements_ready:
   friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messdaten erfüllt"
+binary_sensor.river_warning_exists:
+  friendly_name: "Fluss Pegel-Warnung vorhanden"
 
 # Friendly names for template sensors
 sensor.river_level_next_station_api_url:

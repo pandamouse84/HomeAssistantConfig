@@ -15,6 +15,10 @@ input_number.eve_thermo_kueche_min:
   friendly_name: "Minimale Temperatur Küche"
 input_number.eve_thermo_kueche_max:
   friendly_name: "Maximale Temperatur Küche"
+input_number.eve_thermo_flur_min:
+  friendly_name: "Minimale Temperatur Flur EG"
+input_number.eve_thermo_flur_max:
+  friendly_name: "Maximale Temperatur Flur EG"
 input_number.eve_thermo_badezimmer_eg_min:
   friendly_name: "Minimale Temperatur Badezimmer EG"
 input_number.eve_thermo_badezimmer_eg_max:
@@ -111,6 +115,8 @@ sensor.eve_thermostat_childrens_room_temperature:
   friendly_name: "Temperatur Kindenzimmer"
 sensor.eve_thermostat_kitchen_temperature:
   friendly_name: "Temperatur Küche"
+sensor.eve_thermostat_corridor_temperature:
+  friendly_name: "Temperatur Flur EG"
 
 # Friendly names for template sensors
 sensor.eve_thermostat_library_set_temperature:
@@ -139,6 +145,8 @@ sensor.eve_thermostat_childrens_room_set_temperature:
   friendly_name: "Eingestellte Temperatur Kindenzimmer"
 sensor.eve_thermostat_kitchen_set_temperature:
   friendly_name: "Eingestellte Temperatur Küche"
+sensor.eve_thermostat_corridor_set_temperature:
+  friendly_name: "Eingestellte Temperatur Flur EG"
 
 # Friendly names for template switches
 switch.eve_thermo_badezimmer_eg_status:
@@ -153,6 +161,8 @@ switch.eve_thermo_kinderzimmer_status:
   friendly_name: "Temperatur Status Kinderzimmer"
 switch.eve_thermo_kueche_status:
   friendly_name: "Temperatur Status Küche"
+switch.eve_thermo_flur_status:
+  friendly_name: "Temperatur Status Flur EG"
 switch.eve_thermo_naehzimmer_status:
   friendly_name: "Temperatur Status Nähzimmer"
 switch.eve_thermo_schlafzimmer_status:
@@ -166,6 +176,12 @@ switch.eve_thermo_badezimmer_bath_time_mode:
 
 # Friendly names for timers
 timer.eve_thermo_schlafzimmer_good_night_timer:
-  friendly_name: "Zeit bis zum Abschalten der Schlafzimmer Heizung"
+  friendly_name: "Zeitschaltuhr Schlafzimmer Heizung Abschalten"
 timer.eve_thermo_badezimmer_bath_time_timer:
-  friendly_name: "Zeit bis zum Abschalten der Badezimmer OG Heizung"
+  friendly_name: "Zeitschaltuhr Badezimmer OG Heizung Abschalten"
+
+# Friendly names for template sensors
+sensor.eve_thermo_badezimmer_bath_time_remaining_time:
+  friendly_name: "Verbleibende Laufzeit Badezimmer OG Heizung"
+sensor.eve_thermo_schlafzimmer_good_night_remaining_time:
+  friendly_name: "Verbleibende Laufzeit Schlafzimmer Heizung"
