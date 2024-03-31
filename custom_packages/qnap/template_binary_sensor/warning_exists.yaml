@@ -1,0 +1,16 @@
+# Template binary sensors:
+- unique_id: qnap_warning_exists
+  name: qnap_warning_exists
+  state: |-
+    {%- set warning = namespace(state = false) -%}
+    {%- for state in states.sensor -%}
+      {%-
+        if state.entity_id in integration_entities('qnap')
+        and 'STATUS' in state.object_id | upper
+        and not state.state | upper in ['OK', 'GOOD']
+      %}
+        {{ state.attributes }}
+        {% set warning.state = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{- warning.state -}}
