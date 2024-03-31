@@ -14,36 +14,43 @@
       to: "on"
       for: "00:15:00"
   action:
-    - service: notify.all_mobile_apps
-      data:
-        message: "clear_notification"
-        data:
-          tag: "{{- 'ha_' + trigger.entity_id -}}"
-    - service: notify.all_mobile_apps
-      data:
-        title: "Offene Tür/Fenster"
-        message: "Eine Tür oder ein Fenster ist länger geöffnet."
-        data:
-          subtitle: |-
-            {%- if 'tur' in trigger.entity_id | lower -%}
-              "Die {{ state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
-            {%- elif 'fenster' in trigger.entity_id | lower -%}
-              "Das {{ state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
-            {%- else -%}
-              "{{- state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
-            {%- endif -%}
-          group: "ha_eve_door_window"
-          tag: "{{- 'ha_' + trigger.entity_id -}}"
-          actions:
-            - action: "URI"
-              icon: mdi:view-dashboard
-              title: "Übersicht öffnen"
-              uri: "/lovelace"
-          push:
-            sound:
-              name: "default"
-              critical: 1
-              volume: 0.2
+    - repeat:
+        until:
+          - condition: template
+            value_template: "{{ is_state(trigger.entity_id, 'off') }}"
+        sequence:
+          - service: notify.all_mobile_apps
+            data:
+              message: "clear_notification"
+              data:
+                tag: "{{- 'ha_' + trigger.entity_id -}}"
+          - service: notify.all_mobile_apps
+            data:
+              title: "Offene Tür/Fenster"
+              message: "Eine Tür oder ein Fenster ist länger geöffnet."
+              data:
+                subtitle: |-
+                  {%- if 'tur' in trigger.entity_id | lower -%}
+                    "Die {{ state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
+                  {%- elif 'fenster' in trigger.entity_id | lower -%}
+                    "Das {{ state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
+                  {%- else -%}
+                    "{{- state_attr(trigger.entity_id, 'friendly_name') }} ist schon seit {{  trigger.for }} geöffnet."
+                  {%- endif -%}
+                group: "ha_eve_door_window"
+                tag: "{{- 'ha_' + trigger.entity_id -}}"
+                actions:
+                  - action: "URI"
+                    icon: mdi:view-dashboard
+                    title: "Übersicht öffnen"
+                    uri: "/lovelace"
+                push:
+                  sound:
+                    name: "default"
+                    critical: 1
+                    volume: 0.2
+          - delay:
+              minutes: 15
 
 # Automations
 - alias: "Offene Tür/Fenster erkannt: Meldung löschen"
