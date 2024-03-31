@@ -1,0 +1,14 @@
+# Automations
+- alias: "Update Sensor: degu_light_remaining_time"
+  id: update_degu_light_remaining_time
+  trigger:
+    platform: time_pattern
+    seconds: "/1"
+  condition:
+    condition: state
+    entity_id: timer.degu_light_stop_timer
+    state: "active"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.degu_light_remaining_time

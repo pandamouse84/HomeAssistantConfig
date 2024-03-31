@@ -1,0 +1,28 @@
+# Automations
+- alias: "Update Sensor: eve_thermo_badezimmer_bath_time_remaining_time"
+  id: update_eve_thermo_badezimmer_bath_time_remaining_time
+  trigger:
+    platform: time_pattern
+    seconds: "/1"
+  condition:
+    condition: state
+    entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+    state: "active"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.eve_thermo_badezimmer_bath_time_remaining_time
+
+- alias: "Update Sensor: eve_thermo_schlafzimmer_good_night_remaining_time"
+  id: update_eve_thermo_schlafzimmer_good_night_remaining_time
+  trigger:
+    platform: time_pattern
+    seconds: "/1"
+  condition:
+    condition: state
+    entity_id: timer.eve_thermo_schlafzimmer_good_night_timer
+    state: "active"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.eve_thermo_schlafzimmer_good_night_remaining_time

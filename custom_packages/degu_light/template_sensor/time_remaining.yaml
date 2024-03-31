@@ -1,0 +1,14 @@
+# Template sensors:
+- unique_id: degu_light_remaining_time
+  name: degu_light_remaining_time
+  availability: "{{- is_state('timer.degu_light_stop_timer', 'active') -}}"
+  icon: mdi:clock
+  state: |-
+    {%- set finishTime = as_datetime(state_attr('timer.degu_light_stop_timer', 'finishes_at'), 0) -%}
+    {%- if not finishTime == 0 -%}
+      {%- set timeDelta = (finishTime - now()) -%}
+      {%- set remainingTime = timeDelta - timedelta(microseconds = timeDelta.microseconds) -%}
+      {{- remainingTime -}}
+    {%- else -%}
+      unknown
+    {%- endif -%}

@@ -3,4 +3,6 @@ input_number: !include_dir_merge_named input_number/
 switch:
   - platform: template
     switches: !include_dir_merge_named switch/
+template:
+  - sensor: !include_dir_merge_list template_sensor/
 timer: !include_dir_merge_named timer/

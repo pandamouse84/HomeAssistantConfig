@@ -1,0 +1,14 @@
+# Template binary sensors:
+- unique_id: ev6_warning_exists
+  name: ev6_warning_exists
+  state: |-
+    {{-
+      is_state('binary_sensor.ev6_brake_fluid_warning', 'on')
+      or is_state('binary_sensor.ev6_smart_key_battery_warning', 'on')
+      or is_state('binary_sensor.ev6_washer_fluid_warning', 'on')
+      or is_state('binary_sensor.ev6_tire_pressure_all', 'on')
+      or is_state('binary_sensor.ev6_tire_pressure_front_left', 'on')
+      or is_state('binary_sensor.ev6_tire_pressure_front_right', 'on')
+      or is_state('binary_sensor.ev6_tire_pressure_rear_left', 'on')
+      or is_state('binary_sensor.ev6_tire_pressure_rear_right', 'on')
+    -}}
