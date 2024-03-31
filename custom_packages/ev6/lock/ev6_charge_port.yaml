@@ -6,13 +6,7 @@
     - service: kia_uvo.close_charge_port
       data:
         device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
-    - service: kia_uvo.force_update
-      data:
-        device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
   unlock:
     - service: kia_uvo.open_charge_port
-      data:
-        device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
-    - service: kia_uvo.force_update
       data:
         device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
