@@ -52,7 +52,7 @@
                 - delay: 1
           - service: scene.turn_on
             data:
-              scene_id: eve_motion_carport_notify_revert_wohnzimmer
+              entity_id: eve_motion_carport_notify_revert_wohnzimmer
           - service: scene.delete
             data:
               entity_id: scene.eve_motion_carport_notify_revert_wohnzimmer
@@ -84,7 +84,7 @@
                     - delay: 1
               - service: scene.turn_on
                 data:
-                  scene_id: eve_motion_carport_notify_revert_bibliothek
+                  entity_id: eve_motion_carport_notify_revert_bibliothek
               - service: scene.delete
                 data:
                   entity_id: scene.eve_motion_carport_notify_revert_bibliothek
