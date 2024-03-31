@@ -1,0 +1,12 @@
+# Automations
+- alias: "Bewegung im Carport erkannt: Lichter einschalten"
+  id: eve_motion_carport_enable_lights
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bewegungsmelder_carport_bewegung
+      to: "on"
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.bewegungsmelder_carport_beleuchtungsstarke
+      below: 2
+  action: []
