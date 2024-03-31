@@ -1,0 +1,25 @@
+ev6_climate:
+  availability_template: "{{- is_state('sensor.ev6_data', 'on') -}}"
+  value_template: "{{- is_state('binary_sensor.ev6_air_conditioner', 'on') -}}"
+  turn_on:
+    - service: kia_uvo.start_climate
+      data:
+        device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
+    - service: kia_uvo.force_update
+      data:
+        device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
+  turn_off:
+    - service: kia_uvo.stop_climate
+      data:
+        device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
+    - service: kia_uvo.force_update
+      data:
+        device_id: 6ac735d8cb8f48b7ef4b35fc85f0b2f2
+  icon_template: |-
+    {%-
+      if this.state == 'on'
+    -%}
+      mdi:hvac
+    {%- else -%}
+      mdi:hvac-off
+    {%- endif -%}

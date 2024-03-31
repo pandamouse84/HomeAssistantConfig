@@ -1,5 +1,6 @@
 # Template binary sensors:
 - unique_id: ev6_warning_exists
+  availability: "{{- is_state('sensor.ev6_data', 'on') -}}"
   name: ev6_warning_exists
   state: |-
     {%- set warning = namespace(state = false) -%}
@@ -8,11 +9,13 @@
         if state.entity_id in integration_entities('kia_uvo')
         and (
           (
-            state.attributes.device_class | lower == 'problem'
+            state.attributes.device_class is defined
+            and state.attributes.device_class | lower == 'problem'
             and state.state == 'on'
           )
           or (
-            state.attributes.device_class | lower == 'battery'
+            state.attributes.device_class is defined
+            and state.attributes.device_class | lower == 'battery'
             and 'warning' in state.object_id | lower
             and state.state == 'on'
           )
