@@ -33,7 +33,7 @@
           - service: scene.create
             data:
               snapshot_entities:
-                - light.licht_bibliothek
+                - light.licht_wohnzimmer
               scene_id: eve_motion_carport_notify_revert_wohnzimmer
           - repeat:
               count: 3
