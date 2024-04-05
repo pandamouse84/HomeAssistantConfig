@@ -20,32 +20,42 @@ meters:
     host: 172.20.20.1
     port: 502
     name: gridVarta
+  - type: template
+    template: varta
+    usage: battery
+    host: 172.20.20.1
+    port: 502
+    name: batteryVarta
+  - type: template
+    template: sma-data-manager
+    usage: pv
+    host: 172.20.20.2
+    port: 502
+    name: pvSMA
 
 chargers:
-  - name: wallboxElli
-    type: template
+  - type: template
     template: ellipro
-    ip: 172.20.20.3
     ski: 46B8 2F4F 26A4 3364 23BB BEB8 06ED B60E D252 0B5E
+    ip: 172.20.20.3
+    name: wallboxElli
 
 loadpoints:
   - title: Carport
     charger: wallboxElli
-
-tariffs:
-  co2:
-    type: grünstromindex
-    zip: 29323
-  currency: EUR
-  grid:
-    type: fixed
-    price: 0.2999
+    mode: pv
+    phases: 3
+    mincurrent: 6
+    maxcurrent: 16
 
 site:
   title: Mein Zuhause
   meters:
     grid: gridVarta
-  residualPower: 100
+    pv:
+      - pvSMA
+    battery:
+      - batteryVarta
 
 eebus:
   certificate:
