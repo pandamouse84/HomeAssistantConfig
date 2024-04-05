@@ -410,3 +410,4 @@ tts/
 www/
 home-assistant*
 secrets.yaml
+custom_yaml/evcc.yaml
