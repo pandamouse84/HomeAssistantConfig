@@ -3,13 +3,15 @@
   name: waste_area_city_ready
   state: |-
     {{-
-      is_state('sensor.home_address', 'OK')
+      is_state('input_boolean.waste_enabled', 'on')
+      and is_state('sensor.home_address', 'OK')
       and state_attr('sensor.home_address', 'district') != none
       and state_attr('sensor.home_address', 'city') != none
       and not is_state('sensor.waste_area_city_url', 'unavailable')
       and states('sensor.waste_area_city_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.waste_enabled', 'on') -}}"
     "Address Recieved": "{{- is_state('sensor.home_address', 'OK') -}}"
     "District is set": "{{- state_attr('sensor.home_address', 'district') != none -}}"
     "City is set": "{{- state_attr('sensor.home_address', 'city') != none -}}"
@@ -19,7 +21,8 @@
   name: waste_area_street_ready
   state: |-
     {{-
-      is_state('sensor.home_address', 'OK')
+      is_state('input_boolean.waste_enabled', 'on')
+      and is_state('sensor.home_address', 'OK')
       and state_attr('sensor.home_address', 'street') != none
       and is_state('sensor.waste_area_city', 'OK')
       and is_number(states('sensor.waste_city_id'))
@@ -27,6 +30,7 @@
       and states('sensor.waste_area_street_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.waste_enabled', 'on') -}}"
     "Address is recieved": "{{- is_state('sensor.home_address', 'OK') -}}"
     "Street is set": "{{- state_attr('sensor.home_address', 'street') != none -}}"
     "City is recieved": "{{- is_state('sensor.waste_area_city', 'OK') -}}"
@@ -37,7 +41,8 @@
   name: waste_dates_ready
   state: |-
     {{-
-      is_state('sensor.waste_area_city', 'OK')
+      is_state('input_boolean.waste_enabled', 'on')
+      and is_state('sensor.waste_area_city', 'OK')
       and is_number(states('sensor.waste_city_id'))
       and is_state('sensor.waste_area_street', 'OK')
       and is_number(states('sensor.waste_area_id'))
@@ -45,6 +50,7 @@
       and states('sensor.waste_dates_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.waste_enabled', 'on') -}}"
     "City is recieved": "{{- is_state('sensor.waste_area_city', 'OK') -}}"
     "City ID is set": "{{- is_number(states('sensor.waste_city_id')) -}}"
     "Street is recieved": "{{- is_state('sensor.waste_area_street', 'OK') -}}"

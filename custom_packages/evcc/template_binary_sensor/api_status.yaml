@@ -3,19 +3,23 @@
   name: evcc_get_data_ready
   state: |-
     {{-
-      not is_state('sensor.evcc_get_data_url', 'unavailable')
+      is_state('input_boolean.evcc_enabled', 'on')
+      and not is_state('sensor.evcc_get_data_url', 'unavailable')
       and states('sensor.evcc_get_data_url').startswith('http://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.evcc_enabled', 'on') -}}"
     "URL is available": "{{- not is_state('sensor.evcc_get_data_url', 'unavailable') -}}"
     "URL is set": "{{- states('sensor.evcc_get_data_url').startswith('http://') -}}"
 - unique_id: evcc_set_wallbox_mode_ready
   name: evcc_set_wallbox_mode_ready
   state: |-
     {{-
-      not is_state('sensor.evcc_set_wallbox_mode_url', 'unavailable')
+      is_state('input_boolean.evcc_enabled', 'on')
+      and not is_state('sensor.evcc_set_wallbox_mode_url', 'unavailable')
       and states('sensor.evcc_set_wallbox_mode_url').startswith('http://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.evcc_enabled', 'on') -}}"
     "URL is available": "{{- not is_state('sensor.evcc_set_wallbox_mode_url', 'unavailable') -}}"
     "URL is set": "{{- states('sensor.evcc_set_wallbox_mode_url').startswith('http://') -}}"

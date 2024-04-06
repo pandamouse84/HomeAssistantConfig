@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+ground_water_enabled:
+  name: ground_water_enabled
+  icon: mdi:weight-pound

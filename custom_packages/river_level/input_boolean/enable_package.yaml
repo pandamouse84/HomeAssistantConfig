@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+river_level_enabled:
+  name: river_level_enabled
+  icon: mdi:wave

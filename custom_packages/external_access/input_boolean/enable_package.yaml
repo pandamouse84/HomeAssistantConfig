@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+external_access_enabled:
+  name: external_access_enabled
+  icon: mdi:earth

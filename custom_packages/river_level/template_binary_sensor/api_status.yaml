@@ -3,13 +3,15 @@
   name: river_station_ready
   state: |-
     {{-
-      is_number(states('input_number.river_level_search_radius'))
+      is_state('input_boolean.river_level_enabled', 'on')
+      and is_number(states('input_number.river_level_search_radius'))
       and is_number(state_attr('zone.home', 'latitude'))
       and is_number(state_attr('zone.home', 'longitude'))
       and not is_state('sensor.river_level_next_station_api_url', 'unavailable')
       and states('sensor.river_level_next_station_api_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.river_level_enabled', 'on') -}}"
     "Search Radius is set": "{{- is_number(states('input_number.river_level_search_radius')) -}}"
     "Latitude is set": "{{- is_number(state_attr('zone.home', 'latitude')) -}}"
     "Longitude is set": "{{- is_number(state_attr('zone.home', 'longitude')) -}}"
@@ -19,11 +21,13 @@
   name: river_measurements_ready
   state: |-
     {{-
-      is_state('sensor.river_level_next_station', 'OK')
+      is_state('input_boolean.river_level_enabled', 'on')
+      and is_state('sensor.river_level_next_station', 'OK')
       and not is_state('sensor.river_level_current_measurement_api_url', 'unavailable')
       and states('sensor.river_level_current_measurement_api_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.river_level_enabled', 'on') -}}"
     "Station Service is done": "{{- is_state('sensor.river_level_next_station', 'OK') -}}"
     "URL is available": "{{- not is_state('sensor.river_level_current_measurement_api_url', 'unavailable') -}}"
     "URL is set": "{{- states('sensor.river_level_current_measurement_api_url').startswith('https://') -}}"

@@ -18,3 +18,7 @@ sensor.home_address_url:
 sensor.home_address:
   friendly_name: "Adresse der Zone Home"
   entity_picture: "/local/media/Lerchenkamp.jpeg"
+
+# Friendly names for UI select boolean controls
+input_boolean.home_address_enabled:
+  friendly_name: "Home Address Package aktiviert"

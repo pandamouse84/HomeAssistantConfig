@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+home_address_enabled:
+  name: home_address_enabled
+  icon: mdi:map-marker

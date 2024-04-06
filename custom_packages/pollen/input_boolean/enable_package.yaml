@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+pollen_enabled:
+  name: pollen_enabled
+  icon: mdi:flower-pollen

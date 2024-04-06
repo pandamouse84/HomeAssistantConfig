@@ -39,3 +39,7 @@ sensor.waste_city_id:
   friendly_name: "ID der Stadt im Abfallkalender"
 sensor.waste_area_id:
   friendly_name: "ID der Region im Abfallkalender"
+
+# Friendly names for UI select boolean controls
+input_boolean.waste_enabled:
+  friendly_name: "Abfallkalender Package aktiviert"

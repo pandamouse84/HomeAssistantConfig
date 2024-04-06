@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+waste_enabled:
+  name: waste_enabled
+  icon: mdi:delete

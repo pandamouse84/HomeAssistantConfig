@@ -50,3 +50,7 @@ binary_sensor.ground_water_measurements_ready:
   friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messdaten erfüllt"
 binary_sensor.ground_water_warning_exists:
   friendly_name: "Grundwasser Pegel-Warnung vorhanden"
+
+# Friendly names for UI select boolean controls
+input_boolean.ground_water_enabled:
+  friendly_name: "Grundwasser Package aktiviert"

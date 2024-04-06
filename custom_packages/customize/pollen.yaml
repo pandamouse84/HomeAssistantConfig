@@ -35,3 +35,7 @@ sensor.pollen_partregion_id:
   friendly_name: "ID der Unter-Region zum Abruf der Pollendaten"
 sensor.pollen_severity_id:
   friendly_name: "ID der gewählten Warnstufe"
+
+  # Friendly names for UI select boolean controls
+input_boolean.pollen_enabled:
+  friendly_name: "Pollen Package aktiviert"

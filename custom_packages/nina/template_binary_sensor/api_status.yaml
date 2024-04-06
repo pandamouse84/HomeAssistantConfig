@@ -3,13 +3,15 @@
   name: nina_xrepository_ars_ready
   state: |-
     {{-
-      is_state('sensor.home_address', 'OK')
+      is_state('input_boolean.nina_enabled', 'on')
+      and is_state('sensor.home_address', 'OK')
       and state_attr('sensor.home_address', 'district') != none
       and state_attr('sensor.home_address', 'city') != none
       and not is_state('sensor.nina_xrepository_ars_url', 'unavailable')
       and states('sensor.nina_xrepository_ars_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.nina_enabled', 'on') -}}"
     "Address Recieved": "{{- is_state('sensor.home_address', 'OK') -}}"
     "District is set": "{{- state_attr('sensor.home_address', 'district') != none -}}"
     "City is set": "{{- state_attr('sensor.home_address', 'city') != none -}}"
@@ -19,12 +21,14 @@
   name: nina_warning_ready
   state: |-
     {{-
-      not is_state('sensor.nina_warning_url', 'unavailable')
+      is_state('input_boolean.nina_enabled', 'on')
+      and not is_state('sensor.nina_warning_url', 'unavailable')
       and states('sensor.nina_warning_url') != none
       and not is_state('sensor.nina_warning_detail_url_pattern', 'unavailable')
       and states('sensor.nina_warning_detail_url_pattern').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.nina_enabled', 'on') -}}"
     "URL is available": "{{- not is_state('sensor.nina_warning_url', 'unavailable') -}}"
     "URL is set": "{{- states('sensor.nina_warning_url').startswith('https://') -}}"
     "Detail URL is available": "{{- not is_state('sensor.nina_warning_detail_url_pattern', 'unavailable') -}}"

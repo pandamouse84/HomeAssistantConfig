@@ -3,7 +3,8 @@
   name: pollen_ready
   state: |-
     {{-
-      not is_state('sensor.pollen_url', 'unavailable')
+      is_state('input_boolean.pollen_enabled', 'on')
+      and not is_state('sensor.pollen_url', 'unavailable')
       and states('sensor.pollen_url').startswith('https://')
       and not is_state('sensor.pollen_region_id', 'unavailable')
       and (states('sensor.pollen_region_id') | int(0)) != 0
@@ -11,6 +12,7 @@
       and (states('sensor.pollen_partregion_id') | int(0)) != 0
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.pollen_enabled', 'on') -}}"
     "URL is available": "{{- not is_state('sensor.pollen_url', 'unavailable') -}}"
     "URL is set": "{{- states('sensor.pollen_url').startswith('https://') -}}"
     "Region is available": "{{- not is_state('sensor.pollen_region_id', 'unavailable') -}}"
@@ -21,9 +23,11 @@
   name: pollen_regions_ready
   state: |-
     {{-
-      not is_state('sensor.pollen_url', 'unavailable')
+      is_state('input_boolean.pollen_enabled', 'on')
+      and not is_state('sensor.pollen_url', 'unavailable')
       and states('sensor.pollen_url').startswith('https://')
     -}}
   attributes:
+    "Package enabled": "{{- is_state('input_boolean.pollen_enabled', 'on') -}}"
     "URL is available": "{{- not is_state('sensor.pollen_url', 'unavailable') -}}"
     "URL is set": "{{- states('sensor.pollen_url').startswith('https://') -}}"

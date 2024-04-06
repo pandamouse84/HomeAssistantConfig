@@ -56,3 +56,7 @@ sensor.river_level_station:
   entity_picture: "/local/media/river_level_station.png"
 sensor.river_level_river_name:
   friendly_name: "Name des Flusses"
+
+# Friendly names for UI select boolean controls
+input_boolean.river_level_enabled:
+  friendly_name: "Fluss-Wasser-Stand Package aktiviert"

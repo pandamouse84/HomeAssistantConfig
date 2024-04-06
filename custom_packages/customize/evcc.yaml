@@ -91,3 +91,7 @@ sensor.evcc_home_consumption_without_devices_power:
 # Friendly names for utility meters
 sensor.evcc_average_green_power_utility:
   friendly_name: "Grüne Energie"
+
+# Friendly names for UI select boolean controls
+input_boolean.evcc_enabled:
+  friendly_name: "EVCC Package aktiviert"

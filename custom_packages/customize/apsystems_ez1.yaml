@@ -59,3 +59,7 @@ sensor.apsystems_ez1_url_getonoff:
   friendly_name: "EZ1 GetOnOff URL"
 sensor.apsystems_ez1_url_setonoff:
   friendly_name: "EZ1 SetOnOff URL"
+
+# Friendly names for UI select boolean controls
+input_boolean.apsystems_ez1_enabled:
+  friendly_name: "APSystems EZ-1 Package aktiviert"

@@ -35,3 +35,7 @@ sensor.nina_xrepository_ars_code:
   friendly_name: "ARS Code der Region"
 sensor.nina_warning_detail_url_pattern:
   friendly_name: "Muster für die URL Abruf von Details einer Nina Warnung"
+
+# Friendly names for UI select boolean controls
+input_boolean.nina_enabled:
+  friendly_name: "Nina Package aktiviert"

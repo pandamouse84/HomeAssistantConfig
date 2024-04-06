@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+apsystems_ez1_enabled:
+  name: apsystems_ez1_enabled
+  icon: mdi:flash

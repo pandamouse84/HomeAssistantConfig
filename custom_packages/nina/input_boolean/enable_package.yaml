@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+nina_enabled:
+  name: nina_enabled
+  icon: mdi:alert

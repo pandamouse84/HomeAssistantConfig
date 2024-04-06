@@ -17,3 +17,7 @@ binary_sensor.external_access_update_dyndns_ready:
 # Friendly names for binary sensors
 sensor.external_access_dnydns_url:
   friendly_name: "URL des DynDNS Dienstes"
+
+# Friendly names for UI select boolean controls
+input_boolean.external_access_enabled:
+  friendly_name: "External Access Package aktiviert"
