@@ -44,7 +44,7 @@
                   data:
                     brightness_pct: 100
                     flash: short
-                    color_name: red
+                    color_name: blue
                 - delay: 1
                 - service: light.turn_off
                   target:
@@ -68,13 +68,13 @@
                     - light.licht_bibliothek
                   scene_id: eve_motion_carport_notify_revert_bibliothek
               - repeat:
-                  count: 3
+                  count: 1
                   sequence:
                     - service: light.turn_on
                       target:
                         entity_id: light.licht_bibliothek
                       data:
-                        brightness_pct: 100
+                        brightness_pct: 60
                         flash: short
                         color_temp_kelvin: 2906
                     - delay: 1
