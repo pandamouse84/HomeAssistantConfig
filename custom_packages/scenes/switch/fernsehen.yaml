@@ -11,6 +11,7 @@ scene_fernsehen:
       data:
         brightness_pct: 20
         effect: Relaxing neon
+        transition: 10
     - delay:
         seconds: 4
     - service: remote.send_command
@@ -21,12 +22,14 @@ scene_fernsehen:
         command:
           - home
   turn_off:
-    - service: switch.turn_off
-      target:
-        entity_id: switch.steckdose_wohnzimmer
-    - service: light.turn_off
-      target:
-        entity_id: light.licht_wohnzimmer
     - service: remote.turn_off
       target:
         entity_id: remote.appletv_wohnzimmer
+    - service: light.turn_off
+      target:
+        entity_id: light.licht_wohnzimmer
+      data:
+        transition: 10
+    - service: switch.turn_off
+      target:
+        entity_id: switch.steckdose_wohnzimmer

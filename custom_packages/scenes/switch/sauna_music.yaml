@@ -5,7 +5,43 @@ scene_sauna:
     - service: switch.turn_on
       target:
         entity_id: switch.steckdose_sauna
+    - service: light.turn_on
+      target:
+        entity_id: light.licht_sauna
+      data:
+        transition: 10
+        kelvin: 2000
+        brightness_pct: 50
+    - service: light.turn_on
+      target:
+        entity_id: light.leselampe_florian
+      data:
+        transition: 10
+        kelvin: 2000
+        brightness_pct: 50
+    - service: light.turn_on
+      target:
+        entity_id: light.leselampe_manuela
+      data:
+        transition: 10
+        kelvin: 2000
+        brightness_pct: 50
   turn_off:
     - service: switch.turn_off
       target:
         entity_id: switch.steckdose_sauna
+    - service: light.turn_off
+      target:
+        entity_id: light.licht_sauna
+      data:
+        transition: 10
+    - service: light.turn_off
+      target:
+        entity_id: light.leselampe_florian
+      data:
+        transition: 10
+    - service: light.turn_off
+      target:
+        entity_id: light.leselampe_manuela
+      data:
+        transition: 10
