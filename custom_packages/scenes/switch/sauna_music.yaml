@@ -9,6 +9,11 @@ scene_sauna:
       target:
         entity_id: light.licht_sauna
       data:
+        brightness_pct: 1
+    - service: light.turn_on
+      target:
+        entity_id: light.licht_sauna
+      data:
         transition: 10
         kelvin: 2000
         brightness_pct: 50
@@ -16,9 +21,19 @@ scene_sauna:
       target:
         entity_id: light.leselampe_florian
       data:
+        brightness_pct: 1
+    - service: light.turn_on
+      target:
+        entity_id: light.leselampe_florian
+      data:
         transition: 10
         kelvin: 2000
         brightness_pct: 50
+    - service: light.turn_on
+      target:
+        entity_id: light.leselampe_manuela
+      data:
+        brightness_pct: 1
     - service: light.turn_on
       target:
         entity_id: light.leselampe_manuela

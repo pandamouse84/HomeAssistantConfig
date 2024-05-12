@@ -1,0 +1,102 @@
+- id: '1715547021691'
+  alias: Gartenpumpe
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:20:00
+  - platform: time
+    at: '19:20:00'
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e46d258d47c6f3a1e87d308d877ebb3d
+    entity_id: 81af1c3bca8666314da89fc088df557e
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 25
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: e46d258d47c6f3a1e87d308d877ebb3d
+    entity_id: 81af1c3bca8666314da89fc088df557e
+    domain: switch
+  mode: single
+- id: '1715547622252'
+  alias: Gartenpumpe
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:20:00
+  - platform: time
+    at: '19:20:00'
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e46d258d47c6f3a1e87d308d877ebb3d
+    entity_id: 81af1c3bca8666314da89fc088df557e
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 25
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: e46d258d47c6f3a1e87d308d877ebb3d
+    entity_id: 81af1c3bca8666314da89fc088df557e
+    domain: switch
+  mode: single
+- id: '1715547851024'
+  alias: Gartenpumpe Steuern
+  description: Steuert die Gartenpumpe
+  trigger:
+  - platform: time
+    at: 07:20:00
+  - platform: time
+    at: '19:20:00'
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e46d258d47c6f3a1e87d308d877ebb3d
+    entity_id: 81af1c3bca8666314da89fc088df557e
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 25
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: e46d258d47c6f3a1e87d308d877ebb3d
+    entity_id: 81af1c3bca8666314da89fc088df557e
+    domain: switch
+  mode: single
+- id: '1715548172418'
+  alias: Gartenpumpe
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:20:00
+  condition: []
+  action: []
+  mode: restart
+- id: '1715548276429'
+  alias: X
+  description: ''
+  trigger: []
+  condition: []
+  action: []
+  mode: single
+- id: '1715548288855'
+  alias: X
+  description: ''
+  trigger: []
+  condition: []
+  action: []
+  mode: single
+- id: '1715548301147'
+  alias: X
+  description: ''
+  trigger: []
+  condition: []
+  action: []
+  mode: single

@@ -7,7 +7,7 @@ scene_work:
         entity_id: switch.steckdose_bibliothek
     - delay:
         minutes: 1
-    - service: remote.turn_off
+    - service: remote.turn_on
       target:
         entity_id: remote.fernseher_in_der_bibliothek
   turn_off:
