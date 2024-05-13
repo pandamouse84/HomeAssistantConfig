@@ -12,24 +12,6 @@
   action:
     parallel:
       - sequence:
-          - service: notify.all_mobile_apps
-            data:
-              message: "clear_notification"
-              data:
-                tag: "ha_carport_motion"
-          - service: notify.all_mobile_apps
-            data:
-              title: "Bewegung erkannt"
-              message: "Es wurde Bewegung im Carport erkannt"
-              data:
-                group: "ha_carport_motion"
-                tag: "ha_carport_motion"
-                actions:
-                  - action: "URI"
-                    icon: mdi:garage-open-variant
-                    title: "Carport ansehen"
-                    uri: "/dashboard-raume/carport"
-      - sequence:
           - service: scene.create
             data:
               snapshot_entities:
