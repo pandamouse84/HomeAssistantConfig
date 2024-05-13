@@ -1,0 +1,15 @@
+# Automations
+- alias: "Garten-Pumpe: Anlauf für Druck"
+  id: pump_control_keep_presure
+  trigger:
+    platform: time_pattern
+    hours: "/1"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.steckdose_gartenpumpe
+    - delay:
+        minutes: 5
+    - service: switch.turn_off
+      target:
+        entity_id: switch.steckdose_gartenpumpe
