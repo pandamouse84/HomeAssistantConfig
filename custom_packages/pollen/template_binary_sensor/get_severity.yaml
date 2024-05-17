@@ -6,12 +6,15 @@
   state: |-
     {%- set vars = namespace(result=false) -%}
     {%- if is_state('sensor.pollen', 'OK') and is_number(states('sensor.pollen_severity_id')) -%}
+      {%- set isYesterdayData = strptime(state_attr('sensor.pollen', 'data').last_update, '%Y-%m-%d %H:%M Uhr').date() == now().date() -%}
+      {%- if isYesterdayData -%}
+        {%- set contendDay = 'today' -%}
+      {%- else -%}
+        {%- set contendDay = 'tomorrow' -%}
+      {%- endif -%}
       {%- for type in state_attr('sensor.pollen', 'data').content -%}
-        {%-
-          if (state_attr('sensor.pollen', 'data').content[type].today.severity | int) >= (states('sensor.pollen_severity_id') | int)
-          or (state_attr('sensor.pollen', 'data').content[type].tomorrow.severity | int) >= (states('sensor.pollen_severity_id') | int)
-          or (state_attr('sensor.pollen', 'data').content[type].dayafter_to.severity | int) >= (states('sensor.pollen_severity_id') | int)
-        -%}
+        {%- set content = state_attr('sensor.pollen', 'data').content[type][contendDay] -%}
+        {%- if (content.severity | int) >= (states('sensor.pollen_severity_id') | int) -%}
           {%- set vars.result = true -%}
         {%- endif -%}
       {%- endfor -%}
