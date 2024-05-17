@@ -94,7 +94,6 @@
   availability: |-
     {{-
       is_number(states('sensor.evcc_home_consumption_power'))
-      and is_number(states('sensor.evcc_wallbox_charging_power'))
       and is_number(states('sensor.steckdose_bibliothek_leistung'))
       and is_number(states('sensor.steckdose_degu_licht_leistung'))
       and is_number(states('sensor.steckdose_esszimmer_leistung'))
@@ -108,7 +107,6 @@
     {{-
       max(0,
         (states("sensor.evcc_home_consumption_power") | float)
-        - (states("sensor.evcc_wallbox_charging_power") | float)
         - (states("sensor.steckdose_bibliothek_leistung") | float)
         - (states("sensor.steckdose_degu_licht_leistung") | float)
         - (states("sensor.steckdose_esszimmer_leistung") | float)
@@ -123,7 +121,6 @@
   unit_of_measurement: "W"
   attributes:
     home_consumption: "{{- (states('sensor.evcc_home_consumption_power') | float) -}}"
-    wallbox_charging: "{{- (states('sensor.evcc_wallbox_charging_power') | float) -}}"
     bibliothek: "{{- (states('sensor.steckdose_bibliothek_leistung') | float) -}}"
     degu_licht: "{{- (states('sensor.steckdose_degu_licht_leistung') | float) -}}"
     esszimmer: "{{- (states('sensor.steckdose_esszimmer_leistung') | float) -}}"
