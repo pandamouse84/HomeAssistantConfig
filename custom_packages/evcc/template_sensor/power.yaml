@@ -102,7 +102,7 @@
       and is_number(states('sensor.steckdose_naehzimmer_leistung'))
       and is_number(states('sensor.steckdose_sauna_leistung'))
       and is_number(states('sensor.steckdose_wohnzimmer_leistung'))
-      and is_number(states('sensor.steckdose_gartenpumpe_leoistung'))
+      and is_number(states('sensor.steckdose_gartenpumpe_leistung'))
     -}}
   state: |-
     {{-
@@ -116,7 +116,7 @@
         - (states("sensor.steckdose_naehzimmer_leistung") | float)
         - (states("sensor.steckdose_sauna_leistung") | float)
         - (states("sensor.steckdose_wohnzimmer_leistung") | float)
-        - (states("sensor.steckdose_gartenpumpe_leoistung") | float)
+        - (states("sensor.steckdose_gartenpumpe_leistung") | float)
       )
       | float | round(2)
     -}}
@@ -131,4 +131,4 @@
     naehzimmer: "{{- (states('sensor.steckdose_naehzimmer_leistung') | float) -}}"
     sauna: "{{- (states('sensor.steckdose_sauna_leistung') | float) -}}"
     wohnzimmer: "{{- (states('sensor.steckdose_wohnzimmer_leistung') | float) -}}"
-    gartenpumpe: "{{- (states('sensor.steckdose_gartenpumpe_leoistung') | float) -}}"
+    gartenpumpe: "{{- (states('sensor.steckdose_gartenpumpe_leistung') | float) -}}"
