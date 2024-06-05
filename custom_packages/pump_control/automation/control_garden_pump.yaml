@@ -3,7 +3,9 @@
   id: pump_control_start_garden_pump
   trigger:
     - platform: time
-      at: "07:20:00"
+      at: "03:20:00"
+    - platform: time
+      at: "11:20:00"
     - platform: time
       at: "19:20:00"
   action:
