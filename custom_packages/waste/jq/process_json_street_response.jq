@@ -6,7 +6,7 @@ input? // null |
         .[] |
         select(
             .name |
-            test("^\($street)$|^\($street) \\(\($city)\\)$"; "i")
+            test("^\($street)$|^\($street) \\(.*\\)$"; "i")
         )
     ]    
 catch null) as $response |
