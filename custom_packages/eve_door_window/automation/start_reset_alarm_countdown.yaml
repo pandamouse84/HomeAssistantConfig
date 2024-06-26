@@ -1,0 +1,11 @@
+# Automations
+- alias: "Tür & Fenster Alarm: Countdown zum reaktivieren starten"
+  id: eve_door_window_start_reset_alarm_countdown
+  trigger:
+    - platform: state
+      entity_id: input_boolean.eve_door_window_alarm_disabled
+      to: "on"
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.eve_door_window_reset_alarm

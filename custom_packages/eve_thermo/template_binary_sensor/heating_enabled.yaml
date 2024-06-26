@@ -1,0 +1,26 @@
+# Template binary sensors:
+- unique_id: eve_thermostat_heating_enabled
+  name: eve_thermostat_heating_enabled
+  availability: |-
+    {{-
+      is_number(states('sensor.eve_thermostat_max_set'))
+      and is_number(states('sensor.wetter_temperatur'))
+    -}}
+  state: |-
+    {{-
+      (
+        not is_number(states('sensor.eve_thermostat_max_set'))
+        or not is_number(states('sensor.wetter_temperatur'))
+      )
+      or (
+        is_number(states('sensor.eve_thermostat_max_set'))
+        and is_number(states('sensor.wetter_temperatur'))
+        and states('sensor.eve_thermostat_max_set') >= states('sensor.wetter_temperatur')
+      )
+    -}}
+  attributes:
+    "Maximal indoor temperature is available": "{{- is_number(states('sensor.eve_thermostat_max_set')) -}}"
+    "Outdoor temperature is available": "{{- is_number(states('sensor.wetter_temperatur')) -}}"
+    "Maximal indoor temperature": "{{- states('sensor.eve_thermostat_max_set') -}}"
+    "Current outdoor temperature": "{{- states('sensor.wetter_temperatur') -}}"
+    "Outdoor is colder than max set indoor temperature": "{{- states('sensor.eve_thermostat_max_set') >= states('sensor.wetter_temperatur') -}}"

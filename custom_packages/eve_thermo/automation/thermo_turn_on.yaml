@@ -1,0 +1,25 @@
+# Automations
+- alias: "Thermostate: Alle Thermostate einschalten"
+  id: eve_thermo_heating_enabled
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.eve_thermostat_heating_enabled
+      to: "on"
+  action:
+    - service: climate.turn_on
+      target:
+        entity_id:
+          - climate.heizung_badezimmer_eg
+          - climate.heizung_badezimmer_og_fenster
+          - climate.heizung_badezimmer_og_handtuchhalter
+          - climate.heizung_bibliotheke
+          - climate.heizung_esszimmer_links
+          - climate.heizung_esszimmer_rechts
+          - climate.heizung_flur
+          - climate.heizung_kinderzimmer
+          - climate.heizung_kueche
+          - climate.heizung_naehzimmer
+          - climate.heizung_schlafzimmer_links
+          - climate.heizung_schlafzimmer_rechts
+          - climate.heizung_wohnzimmer_links
+          - climate.heizung_wohnzimmer_rechts

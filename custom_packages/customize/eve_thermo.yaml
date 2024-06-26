@@ -1,3 +1,7 @@
+# Friendly names for binary sensors
+binary_sensor.eve_thermostat_heating_enabled:
+  friendly_name: "Heizungs-Status"
+
 # Friendly names for UI input number controls
 input_number.eve_thermo_schlafzimmer_min:
   friendly_name: "Minimale Temperatur Schlafzimmer"

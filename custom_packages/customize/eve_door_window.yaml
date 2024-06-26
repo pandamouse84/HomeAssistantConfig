@@ -1,0 +1,11 @@
+# Friendly names for UI input boolean controls
+input_boolean.eve_door_window_alarm_disabled:
+  friendly_name: "TÜr & Fenster Alarm für 24h deaktiviert"
+
+# Friendly names for template sensors
+sensor.eve_door_window_remaining_time:
+  friendly_name: "Zeit bis zur Reaktivierung des Tür & Fenster Alarms"
+
+# Friendly names for timers
+timer.eve_door_window_reset_alarm:
+  friendly_name: "Zeitschaltuhr Tür & Fenster Alarm"

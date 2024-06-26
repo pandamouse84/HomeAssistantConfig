@@ -1,0 +1,4 @@
+# Frontend input boolean controls:
+eve_door_window_alarm_disabled:
+  name: eve_door_window_alarm_disabled
+  icon: mdi:door-closed-cancel

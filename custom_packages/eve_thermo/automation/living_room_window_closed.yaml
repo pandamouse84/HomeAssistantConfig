@@ -5,6 +5,10 @@
     - platform: state
       entity_id: binary_sensor.fenster_wohnzimmer
       to: 'off'
+  condition: 
+    - condition: state
+      entity_id: binary_sensor.eve_thermostat_heating_enabled
+      state: "on"
   action:
     - service: climate.turn_on
       target:

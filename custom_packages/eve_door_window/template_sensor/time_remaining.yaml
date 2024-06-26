@@ -1,0 +1,14 @@
+# Template sensors:
+- unique_id: eve_door_window_remaining_time
+  name: eve_door_window_remaining_time
+  availability: "{{- is_state('timer.eve_door_window_reset_alarm', 'active') -}}"
+  icon: mdi:clock
+  state: |-
+    {%- set finishTime = as_datetime(state_attr('timer.eve_door_window_reset_alarm', 'finishes_at'), 0) -%}
+    {%- if not finishTime == 0 -%}
+      {%- set timeDelta = (finishTime - now()) -%}
+      {%- set remainingTime = timeDelta - timedelta(microseconds = timeDelta.microseconds) -%}
+      {{- remainingTime -}}
+    {%- else -%}
+      unknown
+    {%- endif -%}

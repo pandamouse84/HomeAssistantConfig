@@ -13,6 +13,10 @@
         - binary_sensor.fenster_wohnzimmer
       to: "on"
       for: "00:15:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.eve_door_window_alarm_disabled
+      state: "off"
   action:
     - repeat:
         until:

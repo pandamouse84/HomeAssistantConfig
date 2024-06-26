@@ -99,6 +99,7 @@
     - sensor.eve_thermostat_childrens_room_temperature
     - sensor.eve_thermostat_bath_first_floor_window_temperature
     - sensor.eve_thermostat_bath_first_floor_towel_rail_temperature
+    - sensor.eve_thermostat_bath_ground_floor_temperature
     - sensor.eve_thermostat_livingroom_right_temperature
     - sensor.eve_thermostat_livingroom_left_temperature
     - sensor.eve_thermostat_diningroom_right_temperature
@@ -122,6 +123,7 @@
     - sensor.eve_thermostat_childrens_room_temperature
     - sensor.eve_thermostat_bath_first_floor_window_temperature
     - sensor.eve_thermostat_bath_first_floor_towel_rail_temperature
+    - sensor.eve_thermostat_bath_ground_floor_temperature
     - sensor.eve_thermostat_livingroom_right_temperature
     - sensor.eve_thermostat_livingroom_left_temperature
     - sensor.eve_thermostat_diningroom_right_temperature
@@ -144,9 +146,29 @@
     - sensor.eve_thermostat_childrens_room_temperature
     - sensor.eve_thermostat_bath_first_floor_window_temperature
     - sensor.eve_thermostat_bath_first_floor_towel_rail_temperature
+    - sensor.eve_thermostat_bath_ground_floor_temperature
     - sensor.eve_thermostat_livingroom_right_temperature
     - sensor.eve_thermostat_livingroom_left_temperature
     - sensor.eve_thermostat_diningroom_right_temperature
     - sensor.eve_thermostat_diningroom_left_temperature
     - sensor.eve_thermostat_bedroom_left_temperature
     - sensor.eve_thermostat_bedroom_right_temperature
+- platform: group
+  unique_id: eve_thermostat_max_set
+  name: eve_thermostat_max_set
+  type: max
+  unit_of_measurement: "°C"
+  ignore_non_numeric: true
+  device_class: temperature
+  state_class: measurement
+  entities:
+    - input_number.eve_thermo_flur_max
+    - input_number.eve_thermo_kueche_max
+    - input_number.eve_thermo_bibliothek_max
+    - input_number.eve_thermo_naehzimmer_max
+    - input_number.eve_thermo_kinderzimmer_max
+    - input_number.eve_thermo_badezimmer_og_max
+    - input_number.eve_thermo_badezimmer_eg_max
+    - input_number.eve_thermo_wohnzimmer_max
+    - input_number.eve_thermo_esszimmer_max
+    - input_number.eve_thermo_schlafzimmer_max
