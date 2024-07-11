@@ -20,9 +20,6 @@
       friendly_name: Fernsehen
       state: "on"
   icon: mdi:television
-  text_color: "var(--rgb-black-color)"
-  background_color: "var(--primary-color)"
-  icon_color: "var(--rgb-black-color)"
   metadata:
     switch.scene_fernsehen:
       entity_only: true
@@ -32,11 +29,8 @@
     switch.scene_sauna:
       icon: mdi:fireplace
       friendly_name: Sauna Musik
-      state: "off"
+      state: "on"
   icon: mdi:fireplace
-  text_color: "var(--rgb-black-color)"
-  background_color: "var(--primary-color)"
-  icon_color: "var(--rgb-black-color)"
   metadata:
     switch.scene_sauna:
       entity_only: true
@@ -46,11 +40,8 @@
     switch.scene_dinner:
       icon: mdi:silverware
       friendly_name: Dinner - Brettspiel
-      state: "off"
+      state: "on"
   icon: mdi:silverware
-  text_color: "var(--rgb-black-color)"
-  background_color: "var(--primary-color)"
-  icon_color: "var(--rgb-black-color)"
   metadata:
     switch.scene_dinner:
       entity_only: true
@@ -60,11 +51,8 @@
     switch.scene_homework:
       icon: mdi:content-cut
       friendly_name: Heimarbeit
-      state: "off"
+      state: "on"
   icon: mdi:content-cut
-  text_color: "var(--rgb-black-color)"
-  background_color: "var(--primary-color)"
-  icon_color: "var(--rgb-black-color)"
   metadata:
     switch.scene_homework:
       entity_only: true
