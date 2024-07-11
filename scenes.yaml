@@ -1,0 +1,55 @@
+- id: '1720736034559'
+  name: Arbeit
+  entities:
+    switch.scene_work:
+      icon: mdi:briefcase
+      friendly_name: Arbeit
+      state: 'on'
+  icon: mdi:briefcase
+  metadata:
+    switch.scene_work:
+      entity_only: true
+- id: '1720737032658'
+  name: Fernsehen
+  entities:
+    switch.scene_fernsehen:
+      icon: mdi:television
+      friendly_name: Fernsehen
+      state: 'on'
+  icon: mdi:television
+  metadata:
+    switch.scene_fernsehen:
+      entity_only: true
+- id: '1720737067844'
+  name: Sauna Musik
+  entities:
+    switch.scene_sauna:
+      icon: mdi:fireplace
+      friendly_name: Sauna Musik
+      state: 'off'
+  icon: mdi:fireplace
+  metadata:
+    switch.scene_sauna:
+      entity_only: true
+- id: '1720737324502'
+  name: Dinner - Brettspiel
+  entities:
+    switch.scene_dinner:
+      icon: mdi:silverware
+      friendly_name: Dinner - Brettspiel
+      state: 'off'
+  icon: mdi:silverware
+  metadata:
+    switch.scene_dinner:
+      entity_only: true
+- id: '1720737397351'
+  name: Heimarbeit
+  entities:
+    switch.scene_homework:
+      icon: mdi:content-cut
+      friendly_name: Heimarbeit
+      state: 'off'
+  icon: mdi:content-cut
+  metadata:
+    switch.scene_homework:
+      entity_only: true
