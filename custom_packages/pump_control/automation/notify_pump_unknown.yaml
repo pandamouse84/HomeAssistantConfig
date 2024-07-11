@@ -38,7 +38,7 @@
             - action: "URI"
               icon: mdi:home-floor-b
               title: "Keller ansehen"
-              uri: "/dashboard-raume/keller"
+              uri: "homeassistant://navigate/dashboard-raume/keller"
           push:
             sound:
               name: "default"

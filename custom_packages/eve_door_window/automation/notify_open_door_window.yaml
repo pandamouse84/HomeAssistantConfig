@@ -47,7 +47,7 @@
                   - action: "URI"
                     icon: mdi:view-dashboard
                     title: "Übersicht öffnen"
-                    uri: "/lovelace"
+                    uri: "homeassistant://navigate/dashboard-raume/carport"
                 push:
                   sound:
                     name: "default"

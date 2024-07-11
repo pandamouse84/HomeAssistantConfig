@@ -42,7 +42,7 @@
             - action: "URI"
               icon: mdi:home-floor-b
               title: "Keller ansehen"
-              uri: "/dashboard-raume/keller"
+              uri: "homeassistant://navigate/dashboard-raume/keller"
     - service: input_boolean.turn_on
       target:
         entity_id: input_boolean.pump_control_water_alert_send

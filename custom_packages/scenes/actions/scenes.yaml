@@ -1,0 +1,50 @@
+- name: Scene_Fernsehen
+  background_color: "#000000"
+  label:
+    text: "Scene: Fernsehen"
+    color: "#ff0000"
+  icon:
+    icon: mdi:television
+    color: "#ffffff"
+  show_in_carplay: true
+  show_in_watch: true
+- name: Scene_Work
+  background_color: "#000000"
+  label:
+    text: "Scene: Arbeit"
+    color: "#ff0000"
+  icon:
+    icon: mdi:briefcase
+    color: "#ffffff"
+  show_in_carplay: true
+  show_in_watch: true
+- name: Scene_Dinner
+  background_color: "#000000"
+  label:
+    text: "Scene: Dinner"
+    color: "#ff0000"
+  icon:
+    icon: mdi:silverware
+    color: "#ffffff"
+  show_in_carplay: true
+  show_in_watch: true
+- name: Scene_Sauna
+  background_color: "#000000"
+  label:
+    text: "Scene: Sauna"
+    color: "#ff0000"
+  icon:
+    icon: mdi:fireplace
+    color: "#ffffff"
+  show_in_carplay: true
+  show_in_watch: true
+- name: Scene_Homework
+  background_color: "#000000"
+  label:
+    text: "Scene: Homework"
+    color: "#ff0000"
+  icon:
+    icon: mdi:content-cut
+    color: "#ffffff"
+  show_in_carplay: true
+  show_in_watch: true
