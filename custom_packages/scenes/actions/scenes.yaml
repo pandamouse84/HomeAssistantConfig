@@ -9,6 +9,7 @@
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Work
+  background_color: "#ff0000"
   label:
     text: "Scene: Arbeit"
     color: "#0EA9f1"
@@ -18,6 +19,7 @@
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Dinner
+  background_color: "#ff0000"
   label:
     text: "Scene: Dinner"
     color: "#0EA9f1"
@@ -27,6 +29,7 @@
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Sauna
+  background_color: "#ff0000"
   label:
     text: "Scene: Sauna"
     color: "#0EA9f1"
@@ -36,6 +39,7 @@
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Homework
+  background_color: "#ff0000"
   label:
     text: "Scene: Homework"
     color: "#0EA9f1"
