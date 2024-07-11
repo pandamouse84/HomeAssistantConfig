@@ -11,28 +11,36 @@
 - name: Scene_Work
   label:
     text: "Scene: Arbeit"
+    color: "#0EA9f1"
   icon:
     icon: briefcase
+    color: "#0EA9f1"
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Dinner
   label:
     text: "Scene: Dinner"
+    color: "#0EA9f1"
   icon:
     icon: silverware
+    color: "#0EA9f1"
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Sauna
   label:
     text: "Scene: Sauna"
+    color: "#0EA9f1"
   icon:
     icon: fireplace
+    color: "#0EA9f1"
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Homework
   label:
     text: "Scene: Homework"
+    color: "#0EA9f1"
   icon:
     icon: content-cut
+    color: "#0EA9f1"
   show_in_carplay: true
   show_in_watch: true
