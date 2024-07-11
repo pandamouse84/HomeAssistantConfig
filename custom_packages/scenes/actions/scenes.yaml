@@ -4,47 +4,35 @@
     text: "Scene: Fernsehen"
     color: "#ff0000"
   icon:
-    icon: mdi:television
+    icon: television
     color: "#ffffff"
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Work
-  background_color: "#000000"
   label:
     text: "Scene: Arbeit"
-    color: "#ff0000"
   icon:
-    icon: mdi:briefcase
-    color: "#ffffff"
+    icon: briefcase
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Dinner
-  background_color: "#000000"
   label:
     text: "Scene: Dinner"
-    color: "#ff0000"
   icon:
-    icon: mdi:silverware
-    color: "#ffffff"
+    icon: silverware
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Sauna
-  background_color: "#000000"
   label:
     text: "Scene: Sauna"
-    color: "#ff0000"
   icon:
-    icon: mdi:fireplace
-    color: "#ffffff"
+    icon: fireplace
   show_in_carplay: true
   show_in_watch: true
 - name: Scene_Homework
-  background_color: "#000000"
   label:
     text: "Scene: Homework"
-    color: "#ff0000"
   icon:
-    icon: mdi:content-cut
-    color: "#ffffff"
+    icon: content-cut
   show_in_carplay: true
   show_in_watch: true
