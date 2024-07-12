@@ -1,0 +1,19 @@
+# Friendly names for lights
+light.all_lights:
+  friendly_name: "Alle Lichter"
+
+# Friendly names for media players
+media_player.all_lights:
+  friendly_name: "Alle Fernseher"
+
+# Friendly names notifications
+notify.all_mobile_apps:
+  friendly_name: "Alle Mobilgeräte"
+
+# Friendly names for switches
+switch.all_energy_plugs:
+  friendly_name: "Alle Steckdosen"
+switch.all_hotspots:
+  friendly_name: "Alle Hotspots"
+switch.all_thermostates:
+  friendly_name: "Alle Thermostate"
