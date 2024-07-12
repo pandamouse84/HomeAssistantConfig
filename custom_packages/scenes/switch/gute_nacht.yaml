@@ -1,4 +1,4 @@
-gute_nacht:
+scene_gute_nacht:
   icon_template: mdi:weather-night
   value_template: |-
     {{-

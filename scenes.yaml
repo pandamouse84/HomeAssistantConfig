@@ -1,66 +1,66 @@
-- id: '1720736034559'
+- id: "1720736034559"
   name: Arbeit
   entities:
     switch.scene_work:
       icon: mdi:briefcase
       friendly_name: Arbeit
-      state: 'on'
+      state: "on"
   icon: mdi:briefcase
   metadata:
     switch.scene_work:
       entity_only: true
-- id: '1720737032658'
+- id: "1720737032658"
   name: Fernsehen
   entities:
     switch.scene_fernsehen:
       icon: mdi:television
       friendly_name: Fernsehen
-      state: 'on'
+      state: "on"
   icon: mdi:television
   metadata:
     switch.scene_fernsehen:
       entity_only: true
-- id: '1720737067844'
+- id: "1720737067844"
   name: Sauna Musik
   entities:
     switch.scene_sauna:
       icon: mdi:fireplace
       friendly_name: Sauna Musik
-      state: 'on'
+      state: "on"
   icon: mdi:fireplace
   metadata:
     switch.scene_sauna:
       entity_only: true
-- id: '1720737324502'
+- id: "1720737324502"
   name: Dinner - Brettspiel
   entities:
     switch.scene_dinner:
       icon: mdi:silverware
       friendly_name: Dinner - Brettspiel
-      state: 'on'
+      state: "on"
   icon: mdi:silverware
   metadata:
     switch.scene_dinner:
       entity_only: true
-- id: '1720737397351'
+- id: "1720737397351"
   name: Heimarbeit
   entities:
     switch.scene_homework:
       icon: mdi:content-cut
       friendly_name: Heimarbeit
-      state: 'on'
+      state: "on"
   icon: mdi:content-cut
   metadata:
     switch.scene_homework:
       entity_only: true
-- id: '1720737032659'
+- id: "1720737032659"
   name: Gute Nacht
   entities:
-    switch.gute_nacht:
+    switch.scene_gute_nacht:
       icon: mdi:weather-night
       friendly_name: Gute Nacht
-      state: 'on'
+      state: "on"
   icon: mdi:weather-night
   metadata:
-    switch.gute_nacht:
+    switch.scene_gute_nacht:
       entity_only: true
