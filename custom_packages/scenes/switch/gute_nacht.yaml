@@ -25,3 +25,4 @@ gute_nacht:
           - switch.all_energy_plugs
           - switch.all_hotspots
           - switch.all_thermostates
+  turn_off:
