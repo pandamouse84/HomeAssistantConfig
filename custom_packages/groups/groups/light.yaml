@@ -1,0 +1,10 @@
+# Group lights
+- platform: group
+  unique_id: all_lights
+  name: "Alle Lichter"
+  entities:
+    - light.leselampe_florian
+    - light.leselampe_manuela
+    - light.licht_bibliothek
+    - light.licht_sauna
+    - light.licht_wohnzimmer

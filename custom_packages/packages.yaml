@@ -10,7 +10,7 @@ external_access: !include external_access/configuration.yaml
 ground_water: !include ground_water/configuration.yaml
 home_address: !include home_address/configuration.yaml
 nina: !include nina/configuration.yaml
-notifications: !include notifications/configuration.yaml
+groups: !include groups/configuration.yaml
 pollen: !include pollen/configuration.yaml
 pump_control: !include pump_control/configuration.yaml
 qnap: !include qnap/configuration.yaml

@@ -1,0 +1,32 @@
+# Group switches
+- platform: group
+  unique_id: all_energy_plugs
+  name: "Alle Steckdose"
+  entities:
+    - switch.steckdose_bibliothek
+    - switch.steckdose_degu_licht
+    - switch.steckdose_esszimmer
+    - switch.steckdose_gartenpumpe
+    - switch.steckdose_keller
+    - switch.steckdose_naehzimmer
+    - switch.steckdose_sauna
+    - switch.steckdose_wohnzimmer
+- platform: group
+  unique_id: all_hotspots
+  name: "Alle Hotspots"
+  entities:
+    - switch.fritz_box_7590_wi_fi_fritz_hotspot
+- platform: group
+  unique_id: all_thermostates
+  name: "Alle Thermostate"
+  entities:
+    - switch.eve_thermo_badezimmer_eg_status
+    - switch.eve_thermo_badezimmer_og_status
+    - switch.eve_thermo_bibliothek_status
+    - switch.eve_thermo_esszimmer_status
+    - switch.eve_thermo_flur_status
+    - switch.eve_thermo_kinderzimmer_status
+    - switch.eve_thermo_kueche_status
+    - switch.eve_thermo_naehzimmer_status
+    - switch.eve_thermo_schlafzimmer_status
+    - switch.eve_thermo_wohnzimmer_status

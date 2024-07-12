@@ -1,0 +1,4 @@
+notify: !include groups/notify.yaml
+light: !include groups/light.yaml
+media_player: !include groups/media_player.yaml
+switch: !include groups/switch.yaml

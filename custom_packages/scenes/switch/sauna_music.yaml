@@ -1,6 +1,6 @@
 scene_sauna:
   icon_template: mdi:fireplace
-  value_template: "{{- is_state('switch.steckdose_sauna', 'on')-}}"
+  value_template: "{{- is_state('switch.steckdose_sauna', 'on') -}}"
   turn_on:
     - service: switch.turn_on
       target:

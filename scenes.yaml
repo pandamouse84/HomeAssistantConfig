@@ -7,9 +7,6 @@
       state: "on"
   icon: mdi:briefcase
   metadata:
-    text_color: "var(--rgb-black-color)"
-    background_color: "var(--primary-color)"
-    icon_color: "var(--rgb-black-color)"
     switch.scene_work:
       entity_only: true
 - id: "1720737032658"
@@ -55,4 +52,15 @@
   icon: mdi:content-cut
   metadata:
     switch.scene_homework:
+      entity_only: true
+- id: "1720737032659"
+  name: Gute Nacht
+  entities:
+    switch.scene_gute_nacht:
+      icon: mdi:weather-night
+      friendly_name: Gute Nacht
+      state: "on"
+  icon: mdi:weather-night
+  metadata:
+    switch.scene_gute_nacht:
       entity_only: true
