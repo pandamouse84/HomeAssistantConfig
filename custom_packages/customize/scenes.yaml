@@ -9,3 +9,5 @@ switch.scene_homework:
   friendly_name: "Heimarbeit"
 switch.scene_sauna:
   friendly_name: "Sauna Musik"
+switch.scene_gute_nacht:
+  friendly_name: "Gute Nacht"
