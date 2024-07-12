@@ -1,7 +1,7 @@
 # Group media players
 - platform: group
   unique_id: all_media_players
-  name: "Alle Fernseher"
+  name: all_media_players
   entities:
     - media_player.appletv_esszimmer
     - media_player.appletv_wohnzimmer

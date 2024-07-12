@@ -2,27 +2,26 @@ gute_nacht:
   icon_template: mdi:weather-night
   value_template: |-
     {{-
-      is_state('group.all_media_players', 'on')
-      or is_state('group.all_lights', 'on')
-      or is_state('group.all_energy_plugs', 'on')
-      or is_state('group.all_hotspots', 'on')
-      or is_state('group.all_thermostates', 'on')
+      is_state('media_player.all_media_players', 'off')
+      and is_state('light.all_lights', 'off')
+      and is_state('switch.all_energy_plugs', 'off')
+      and is_state('switch.all_hotspots', 'off')
+      and is_state('switch.all_thermostates', 'off')
     -}}
   turn_on:
     - service: media_player.turn_off
       target:
-        entity_id: group.all_media_players
-    - service: switch.turn_off
-      target:
-        entity_id: all
+        entity_id:
+          - group.all_media_players
     - service: light.turn_off
       target:
-        entity_id: group.all_lights
+        entity_id:
+          - light.all_lights
       data:
         transition: 10
     - service: switch.turn_off
       target:
         entity_id:
-          - group.all_energy_plugs
-          - group.all_hotspots
-          - group.all_thermostates
+          - switch.all_energy_plugs
+          - switch.all_hotspots
+          - switch.all_thermostates

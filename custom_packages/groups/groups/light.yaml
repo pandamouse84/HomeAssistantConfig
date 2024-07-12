@@ -1,7 +1,7 @@
 # Group lights
 - platform: group
   unique_id: all_lights
-  name: "Alle Lichter"
+  name: all_lights
   entities:
     - light.leselampe_florian
     - light.leselampe_manuela

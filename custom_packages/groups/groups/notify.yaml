@@ -1,7 +1,7 @@
 # Group notifications
 - platform: group
   unique_id: all_mobile_apps
-  name: "Alle Mobilgeräte"
+  name: all_mobile_apps
   services:
     - service: mobile_app_ipad_von_florian
     - service: mobile_app_ipad_von_manuela

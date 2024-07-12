@@ -1,7 +1,7 @@
 # Group switches
 - platform: group
   unique_id: all_energy_plugs
-  name: "Alle Steckdose"
+  name: all_energy_plugs
   entities:
     - switch.steckdose_bibliothek
     - switch.steckdose_degu_licht
@@ -13,12 +13,12 @@
     - switch.steckdose_wohnzimmer
 - platform: group
   unique_id: all_hotspots
-  name: "Alle Hotspots"
+  name: all_hotspots
   entities:
     - switch.fritz_box_7590_wi_fi_fritz_hotspot
 - platform: group
   unique_id: all_thermostates
-  name: "Alle Thermostate"
+  name: all_thermostates
   entities:
     - switch.eve_thermo_badezimmer_eg_status
     - switch.eve_thermo_badezimmer_og_status
