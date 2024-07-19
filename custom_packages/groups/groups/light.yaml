@@ -8,3 +8,11 @@
     - light.licht_bibliothek
     - light.licht_sauna
     - light.licht_wohnzimmer
+# Group lights
+- platform: group
+  unique_id: sauna
+  name: sauna
+  entities:
+    - light.leselampe_florian
+    - light.leselampe_manuela
+    - light.licht_sauna
