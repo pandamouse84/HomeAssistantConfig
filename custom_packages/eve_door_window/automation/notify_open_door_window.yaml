@@ -20,8 +20,13 @@
   action:
     - repeat:
         until:
-          - condition: template
-            value_template: "{{ is_state(trigger.entity_id, 'off') }}"
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: input_boolean.eve_door_window_alarm_disabled
+                state: "on"
+              - condition: template
+                value_template: "{{ is_state(trigger.entity_id, 'off') }}"
         sequence:
           - service: notify.all_mobile_apps
             data:
