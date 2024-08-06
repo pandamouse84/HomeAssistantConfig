@@ -39,4 +39,4 @@ scene_gute_nacht:
           - remote.fernseher_in_der_bibliothek
           - remote.fernseher_in_der_bibliothek_dev_bridge
           - remote.xbox_remote
-      turn_off:
+  turn_off:
