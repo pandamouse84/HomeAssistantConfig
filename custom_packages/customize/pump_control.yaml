@@ -3,6 +3,8 @@ binary_sensor.pump_warning_exists:
   friendly_name: "Pumpen Warnung"
 
 # Friendly names for UI select boolean controls
+input_boolean.pump_control_enabled:
+  friendly_name: "Pumpen-Controlle Package aktiviert"
 input_boolean.pump_control_water_alert_send:
   friendly_name: "Wasser-Alarm Pausierung"
 input_boolean.pump_control_jammed:

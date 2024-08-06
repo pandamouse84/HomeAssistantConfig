@@ -11,14 +11,17 @@
       entity_id: input_boolean.pump_control_use_auto_start
       to: "on"
   condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.pump_control_use_auto_start
-          state: "on"
-        - condition: state
-          entity_id: sensor.pump_control_status
-          state: "off"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.pump_control_enabled
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.pump_control_use_auto_start
+        state: "on"
+      - condition: state
+        entity_id: sensor.pump_control_status
+        state: "off"
   action:
     - service: timer.start
       target:

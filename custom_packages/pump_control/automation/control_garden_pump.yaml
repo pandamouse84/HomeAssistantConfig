@@ -8,6 +8,10 @@
       at: "11:20:00"
     - platform: time
       at: "19:20:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.pump_control_enabled
+      state: "on"
   action:
     - service: switch.turn_on
       target:

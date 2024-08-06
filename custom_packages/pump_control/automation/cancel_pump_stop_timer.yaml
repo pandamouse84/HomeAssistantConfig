@@ -8,6 +8,10 @@
     - platform: state
       entity_id: input_boolean.pump_control_use_auto_start
       to: "off"
+  condition:
+    - condition: state
+      entity_id: input_boolean.pump_control_enabled
+      state: "on"
   action:
     - service: timer.cancel
       target:

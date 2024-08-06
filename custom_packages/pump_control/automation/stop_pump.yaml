@@ -6,6 +6,10 @@
       event_type: timer.finished
       event_data:
         entity_id: timer.pump_control_stop_timer
+  condition:
+    - condition: state
+      entity_id: input_boolean.pump_control_enabled
+      state: "on"
   action:
     - service: switch.turn_off
       target:

@@ -4,6 +4,15 @@
   trigger:
     platform: time_pattern
     hours: "/1"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.pump_control_enabled
+        state: "on"
+      - condition: state
+        entity_id: switch.steckdose_sauna
+        state: "off"
   action:
     - service: switch.turn_on
       target:

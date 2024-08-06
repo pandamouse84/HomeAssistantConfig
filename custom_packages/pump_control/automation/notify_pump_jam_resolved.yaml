@@ -5,6 +5,10 @@
     - platform: state
       entity_id: input_boolean.pump_control_jammed
       to: "off"
+  condition:
+    - condition: state
+      entity_id: input_boolean.pump_control_enabled
+      state: "on"
   action:
     - service: notify.all_mobile_apps
       data:

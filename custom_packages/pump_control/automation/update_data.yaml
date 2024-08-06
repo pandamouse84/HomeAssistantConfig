@@ -5,9 +5,14 @@
     platform: time_pattern
     seconds: "/1"
   condition:
-    condition: state
-    entity_id: timer.pump_control_start_timer
-    state: "active"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.pump_control_enabled
+        state: "on"
+      - condition: state
+        entity_id: timer.pump_control_start_timer
+        state: "active"
   action:
     - service: homeassistant.update_entity
       target:
@@ -19,9 +24,14 @@
     platform: time_pattern
     seconds: "/1"
   condition:
-    condition: state
-    entity_id: timer.pump_control_stop_timer
-    state: "active"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.pump_control_enabled
+        state: "on"
+      - condition: state
+        entity_id: timer.pump_control_stop_timer
+        state: "active"
   action:
     - service: homeassistant.update_entity
       target:

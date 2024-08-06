@@ -5,6 +5,10 @@
     - platform: state
       entity_id: sensor.pump_control_status
       to: "jammed"
+  condition:
+    - condition: state
+      entity_id: input_boolean.pump_control_enabled
+      state: "on"
   action:
     - service: switch.turn_off
       target:

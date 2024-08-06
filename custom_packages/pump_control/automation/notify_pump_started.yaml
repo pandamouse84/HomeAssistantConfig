@@ -9,6 +9,9 @@
     condition: and
     conditions:
       - condition: state
+        entity_id: input_boolean.pump_control_enabled
+        state: "on"
+      - condition: state
         entity_id: input_boolean.pump_control_water_alert_send
         state: "off"
       - condition: time
