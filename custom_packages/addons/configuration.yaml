@@ -1,4 +1,6 @@
 automation: !include_dir_merge_list automation/
+template:
+  - binary_sensor: !include_dir_merge_list template_binary_sensor/
 switch:
   - platform: template
     switches: !include_dir_merge_named switch/
