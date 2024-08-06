@@ -1,0 +1,8 @@
+scene_dinner_toggle:
+  icon_template: mdi:silverware
+  value_template: "{{- is_state('switch.scene_dinner', 'on') -}}"
+  turn_on:
+    service: switch.toggle
+    target:
+      entity_id: switch.scene_dinner
+  turn_off:

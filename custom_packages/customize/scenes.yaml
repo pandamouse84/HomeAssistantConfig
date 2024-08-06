@@ -11,3 +11,13 @@ switch.scene_sauna:
   friendly_name: "Sauna Musik"
 switch.scene_gute_nacht:
   friendly_name: "Gute Nacht"
+switch.scene_fernsehen_toggle:
+  friendly_name: "Fernsehen umschalten"
+switch.scene_work_toggle:
+  friendly_name: "Arbeit umschalten"
+switch.scene_dinner_toggle:
+  friendly_name: "Dinner - Brettspiel umschalten"
+switch.scene_homework_toggle:
+  friendly_name: "Heimarbeit umschalten"
+switch.scene_sauna_toggle:
+  friendly_name: "Sauna Musik umschalten"

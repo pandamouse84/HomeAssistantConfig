@@ -1,0 +1,8 @@
+scene_work_toggle:
+  icon_template: mdi:briefcase
+  value_template: "{{- is_state('switch.scene_work', 'on') -}}"
+  turn_on:
+    service: switch.toggle
+    target:
+      entity_id: switch.scene_work
+  turn_off:

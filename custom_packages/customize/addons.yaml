@@ -17,3 +17,7 @@ device_tracker.iphone_von_manuela:
   entity_picture: "/local/media/iPhone.png"
 zone.home:
   entity_picture: "/local/media/Home.jpeg"
+
+# Friendly names for binary sensors
+binary_sensor.update_warning_exists:
+  friendly_name: "Update Warnung vorhanden"

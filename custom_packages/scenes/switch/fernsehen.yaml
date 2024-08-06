@@ -20,6 +20,9 @@ scene_fernsehen:
         transition: 10
     - delay:
         seconds: 4
+    - service: remote.turn_on
+      target:
+        entity_id: remote.appletv_wohnzimmer
     - service: remote.send_command
       target:
         entity_id: remote.appletv_wohnzimmer

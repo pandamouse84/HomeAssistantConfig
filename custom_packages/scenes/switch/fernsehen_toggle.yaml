@@ -1,0 +1,8 @@
+scene_fernsehen_toggle:
+  icon_template: mdi:television
+  value_template: "{{- is_state('switch.scene_fernsehen', 'on') -}}"
+  turn_on:
+    service: switch.toggle
+    target:
+      entity_id: switch.scene_fernsehen
+  turn_off:

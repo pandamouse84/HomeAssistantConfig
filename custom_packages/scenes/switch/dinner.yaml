@@ -7,6 +7,9 @@ scene_dinner:
         entity_id: switch.steckdose_esszimmer
     - delay:
         seconds: 4
+    - service: remote.turn_on
+      target:
+        entity_id: remote.appletv_esszimmer
     - service: remote.send_command
       target:
         entity_id: remote.appletv_esszimmer

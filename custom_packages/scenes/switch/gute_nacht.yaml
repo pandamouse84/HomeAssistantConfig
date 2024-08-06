@@ -3,10 +3,16 @@ scene_gute_nacht:
   value_template: |-
     {{-
       is_state('media_player.all_media_players', 'off')
+      and is_state('remote', 'off')
       and is_state('light.all_lights', 'off')
       and is_state('switch.all_energy_plugs', 'off')
       and is_state('switch.all_hotspots', 'off')
       and is_state('switch.all_thermostates', 'off')
+      and is_state('remote.appletv_esszimmer', 'off')
+      and is_state('remote.appletv_wohnzimmer', 'off')
+      and is_state('remote.fernseher_in_der_bibliothek', 'off')
+      and is_state('remote.fernseher_in_der_bibliothek_dev_bridge', 'off')
+      and is_state('remote.xbox_remote', 'off')
     -}}
   turn_on:
     - service: media_player.turn_off
@@ -25,4 +31,12 @@ scene_gute_nacht:
           - switch.all_energy_plugs
           - switch.all_hotspots
           - switch.all_thermostates
-  turn_off:
+    - service: remote.turn_off
+      target:
+        entity_id:
+          - remote.appletv_esszimmer
+          - remote.appletv_wohnzimmer
+          - remote.fernseher_in_der_bibliothek
+          - remote.fernseher_in_der_bibliothek_dev_bridge
+          - remote.xbox_remote
+      turn_off:
