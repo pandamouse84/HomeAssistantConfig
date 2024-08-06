@@ -2,7 +2,7 @@
 - unique_id: pump_control_status
   name: pump_control_status
   icon: |-
-    {%- if this.state == "off" -%}
+    {%- if this.state == "deactivated" -%}
       mdi:power-off
     {%- elif this.state == "on" -%}
       mdi:water-pump
@@ -16,7 +16,7 @@
       mdi:alert-circle
     {%- endif -%}
   state: |-
-    {%- if not is_state("input_boolean.pump_control_enabled", "off")) -%}
+    {%- if not is_state("input_boolean.pump_control_enabled", "off") -%}
       deactivated
     {%- elif not is_number(states("sensor.steckdose_keller_leistung")) -%}
       unknown
@@ -37,4 +37,4 @@
     {%- endif -%}
   device_class: enum
   attributes:
-    options: "{{- ['deactivated', 'on', 'off', 'dry', 'jammed', 'unknown'] -}}"
+    options: ["deactivated", "on", "off", "dry", "jammed", "unknown"]
