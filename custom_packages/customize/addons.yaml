@@ -21,3 +21,9 @@ zone.home:
 # Friendly names for binary sensors
 binary_sensor.update_warning_exists:
   friendly_name: "Update Warnung vorhanden"
+binary_sensor.sensor_warning_exists:
+  friendly_name: "Sensor Warnung vorhanden"
+binary_sensor.battery_warning_exists:
+  friendly_name: "Batterie Warnung vorhanden"
+binary_sensor.entityname_warning_exists:
+  friendly_name: "Entitäten ohne Übersetzung vorhanden"
