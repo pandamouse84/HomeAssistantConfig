@@ -9,5 +9,6 @@
 # =========================================================================
 # </remarks>
 
+automation: !include_dir_merge_list automation/
 input_boolean: !include_dir_merge_named input_boolean/
 input_datetime: !include_dir_merge_named input_datetime/
