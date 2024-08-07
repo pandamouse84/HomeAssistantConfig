@@ -24,9 +24,9 @@
         message: "Wecker wird aktuallisiert."
         data:
           shortcut:
-          name: "Wecker stellen IPad"
-          enable: "{{- state(input_boolean.alarm_clock_enabled) -}}"
-          time: "{{- state(input_datetime.alarm_clock_time) -}}"
+            name: "Wecker stellen IPad"
+            enable: "{{- state(input_boolean.alarm_clock_enabled) -}}"
+            time: "{{- state(input_datetime.alarm_clock_time) -}}"
     - service: notify.mobile_app_ipad_von_florian
       data:
         message: "clear_notification"
