@@ -4,7 +4,7 @@ input_number.river_level_search_radius:
 
 # Friendly names for UI input text
 input_text.river_level_api_base_url:
-  friendly_name: "Basus URL des Pegelstand Dienstes"
+  friendly_name: "Basis URL des Pegelstand Dienstes"
 input_text.river_level_next_station_parameters:
   friendly_name: "Parameter für den Abruf der Pegel-Messstationen"
 input_text.river_level_current_measurement_parameters:

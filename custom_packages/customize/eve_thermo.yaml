@@ -67,6 +67,8 @@ sensor.eve_thermostat_min_house:
   friendly_name: "Durchschnittliche minimal Temperatur Haus"
 sensor.eve_thermostat_max_house:
   friendly_name: "Durchschnittliche maximal Temperatur Haus"
+sensor.eve_thermostat_max_set:
+  friendly_name: "Maximal eingestellte Temperatur im Haus"
 sensor.eve_thermostat_range_house:
   friendly_name: "Durchschnittliche Differenz Temperatur Haus"
 

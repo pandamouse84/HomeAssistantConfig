@@ -5,7 +5,7 @@ light.sauna:
   friendly_name: "Alle Sauna-Lampen"
 
 # Friendly names for media players
-media_player.all_lights:
+media_player.all_media_players:
   friendly_name: "Alle Fernseher"
 
 # Friendly names notifications
