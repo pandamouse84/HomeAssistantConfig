@@ -2,3 +2,4 @@
 eve_door_window_reset_alarm:
   name: eve_door_window_reset_alarm
   duration: "24:00:00"
+  restore: true
