@@ -1,0 +1,16 @@
+# <summary>
+# This YAML configuration contains
+# the datetime object to store the alarm clock time.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-07   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+alarm_clock_manuela_time:
+  name: alarm_clock_manuela_time
+  icon: mdi:alarm
+  has_date: false
+  has_time: true

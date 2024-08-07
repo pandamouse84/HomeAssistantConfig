@@ -9,8 +9,8 @@
 # =========================================================================
 # </remarks>
 
-alarm_clock_time:
-  name: alarm_clock_time
+alarm_clock_florian_time:
+  name: alarm_clock_florian_time
   icon: mdi:alarm
   has_date: false
   has_time: true

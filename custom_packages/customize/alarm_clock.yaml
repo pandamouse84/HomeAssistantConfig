@@ -9,8 +9,12 @@
 # =========================================================================
 # </remarks>
 
-input_datetime.alarm_clock_time:
-  friendly_name: "Weckzeitpunkt"
+input_datetime.alarm_clock_florian_time:
+  friendly_name: "Wecker Florian"
+input_datetime.alarm_clock_manuela_time:
+  friendly_name: "Wecker Manuela"
 
-input_boolean.alarm_clock_enabled:
-  friendly_name: "Wecker eingeschaltet"
+input_boolean.alarm_clock_florian_enabled:
+  friendly_name: "Wecker Florian eingeschaltet"
+input_boolean.alarm_clock_manuela_enabled:
+  friendly_name: "Wecker Manuela eingeschaltet"

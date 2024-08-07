@@ -9,6 +9,6 @@
 # =========================================================================
 # </remarks>
 
-alarm_clock_enabled:
-  name: alarm_clock_enabled
+alarm_clock_manuela_enabled:
+  name: alarm_clock_manuela_enabled
   icon: mdi:alarm-check
