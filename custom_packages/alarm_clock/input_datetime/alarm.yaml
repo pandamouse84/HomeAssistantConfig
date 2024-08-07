@@ -10,7 +10,7 @@
 # </remarks>
 
 alarm_clock_time:
-  name: Alarm clock time
+  name: alarm_clock_time
   icon: mdi:alarm
   has_date: false
   has_time: true
