@@ -1,0 +1,20 @@
+# Template binary sensors:
+- unique_id: entityname_warning_exists
+  name: entityname_warning_exists
+  icon: mdi:alert-box-outline
+  state: |-
+    {%- set vars = namespace(result=false) -%}
+    {%- for state in states -%}
+      {%- 
+        if not state.state == 'unavailable'
+        and (
+          state.attributes.friendly_name == ''
+          or state.attributes.friendly_name == state.object_id
+          or state.attributes.friendly_name is none
+          or state.attributes.friendly_name is not defined
+        )
+      -%}
+        {%- set vars.result = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ vars.result }}

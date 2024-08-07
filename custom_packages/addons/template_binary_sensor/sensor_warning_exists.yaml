@@ -1,0 +1,12 @@
+# Template binary sensors:
+- unique_id: sensor_warning_exists
+  name: sensor_warning_exists
+  icon: mdi:alert
+  state: |-
+    {%- set vars = namespace(result=false) -%}
+    {%- for state in states.sensor -%}
+      {%- if state.state == "Error" -%}
+        {%- set vars.result = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ vars.result }}

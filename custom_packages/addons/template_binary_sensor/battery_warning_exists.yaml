@@ -1,0 +1,12 @@
+# Template binary sensors:
+- unique_id: battery_warning_exists
+  name: battery_warning_exists
+  icon: mdi:battery-alert
+  state: |-
+    {%- set vars = namespace(result=false) -%}
+    {%- for state in states.battery -%}
+      {%- if (state.state | float) < 10 -%}
+        {%- set vars.result = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ vars.result }}
