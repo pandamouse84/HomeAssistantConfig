@@ -1,6 +1,6 @@
 scene_homework_toggle:
   icon_template: mdi:content-cut
-  value_template: "{{- is_state('switch.scene_homework', 'on') -}}"
+  value_template: "{{- false -}}"
   turn_on:
     service: switch.toggle
     target:
