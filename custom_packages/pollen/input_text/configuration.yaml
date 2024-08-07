@@ -5,7 +5,7 @@ pollen_base_url:
   pattern: '(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9\-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'
 pollen_selected_region:
   name: pollen_selected_region
-  icon: mdi:globe
+  icon: mdi:earth
 pollen_selected_severity:
   name: pollen_selected_severity
   icon: mdi:alert

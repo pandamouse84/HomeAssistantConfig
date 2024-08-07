@@ -1,0 +1,14 @@
+# <summary>
+# This YAML configuration contains
+# the boolean object to store the alarm clock state.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-07   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+alarm_clock_enabled:
+  name: alarm_clock_enabled
+  icon: mdi:alarm-check

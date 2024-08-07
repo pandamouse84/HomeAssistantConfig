@@ -1,0 +1,16 @@
+# <summary>
+# This YAML configuration contains
+# the translations of the alarm clock custom package
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-07   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+input_datetime.alarm_clock_time:
+  friendly_name: "Weckzeitpunkt"
+
+input_boolean.alarm_clock_enabled:
+  friendly_name: "Wecker eingeschaltet"

@@ -1,0 +1,13 @@
+# <summary>
+# This YAML configuration contains
+# the configuration of the alarm clock custom package.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-07   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+input_boolean: !include_dir_merge_named input_boolean/
+input_datetime: !include_dir_merge_named input_datetime/
