@@ -53,7 +53,7 @@
             {%- set data.dates = data.dates + [newTime] -%}
           {%- endif -%}
         {%- endfor -%}
-        {%- if data.dates.count != 0 -%}
+        {%- if data.dates | length != 0 -%}
           {%- set finalDate = as_datetime((data.dates | sort)[0], 0) -%}  
         {%- else -%}
           {%- set finalDate = now().replace(day = now().day + 1, hour = data.startTime.hour, minute = data.startTime.minute, second = data.startTime.second, microsecond = 0) -%}
