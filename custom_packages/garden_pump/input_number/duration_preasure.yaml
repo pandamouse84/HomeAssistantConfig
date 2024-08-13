@@ -7,6 +7,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2024-08-13   FZE           Extended number range
 # =========================================================================
 # </remarks>
 
@@ -14,6 +15,6 @@ garden_pump_duration_preasure:
   name: garden_pump_duration_preasure
   icon: mdi:timer-sand
   unit_of_measurement: Minutes
-  min: 3
-  max: 7
+  min: 1
+  max: 10
   step: 1

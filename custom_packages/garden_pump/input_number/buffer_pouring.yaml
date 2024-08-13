@@ -7,6 +7,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-13   FZE           Initial release
+# 2024-08-13   FZE           Extended number range
 # =========================================================================
 # </remarks>
 
@@ -15,5 +16,5 @@ garden_pump_buffer_pouring:
   icon: mdi:timer-sand
   unit_of_measurement: Minutes
   min: 1
-  max: 5
+  max: 10
   step: 1

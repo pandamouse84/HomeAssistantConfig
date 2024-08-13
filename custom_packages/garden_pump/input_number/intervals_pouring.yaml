@@ -7,6 +7,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2024-08-13   FZE           Extended number range
 # =========================================================================
 # </remarks>
 
@@ -14,6 +15,6 @@ garden_pump_interval_autostart_pouring:
   name: garden_pump_interval_autostart_pouring
   icon: mdi:clock
   unit_of_measurement: h
-  min: 4
+  min: 8
   max: 12
   step: 4
