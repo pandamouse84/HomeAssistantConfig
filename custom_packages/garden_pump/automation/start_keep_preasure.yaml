@@ -37,7 +37,7 @@
         entity_id: switch.steckdose_gartenpumpe
     - event: garden_pump_keep_preasure_started
     - delay:
-        minutes: "{{- states('input_boolean.garden_pump_duration_preasure') -}}"
+        minutes: "{{- states('input_number.garden_pump_duration_preasure') -}}"
     - action: switch.turn_off
       target:
         entity_id: switch.steckdose_gartenpumpe
