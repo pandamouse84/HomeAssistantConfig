@@ -1,0 +1,14 @@
+# <summary>
+# This YAML configuration contains
+# the input that defines if the basement pump is jammed.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+basement_pump_jammed:
+  name: basement_pump_jammed
+  icon: mdi:fuse-alert

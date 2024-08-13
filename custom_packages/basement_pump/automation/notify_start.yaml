@@ -1,0 +1,51 @@
+# <summary>
+# This YAML configuration contains
+# the automation to notify users of starting the basement pump.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Benachrichtigung über Start"
+  id: basement_pump_notify_start
+  trigger:
+    platform: state
+    entity_id: sensor.basement_pump_status
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.basement_pump_enabled
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.basement_pump_mute_notification
+        state: "off"
+      - condition: time
+        after: "08:00:00"
+        before: "22:00:00"
+  action:
+    - action: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_basement_pump"
+    - action: notify.all_mobile_apps
+      data:
+        title: "Keller Pumpe gestartet"
+        message: "Halte die Benachrichtung gedrückt für weitere Optionen."
+        data:
+          group: "ha_basement_pump"
+          subtitle: "Die Pumpe im Keller wurde gestartet!"
+          tag: "ha_basement_pump"
+          actions:
+            - action: "URI"
+              icon: mdi:home-floor-b
+              title: "Keller ansehen"
+              uri: "homeassistant://navigate/dashboard-raume/keller"
+    - action: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.basement_pump_mute_notification

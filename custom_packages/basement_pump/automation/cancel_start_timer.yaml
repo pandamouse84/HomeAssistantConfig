@@ -1,0 +1,27 @@
+# <summary>
+# This YAML configuration contains
+# the automation to cancel the basement pump start timer.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Einschalt Countdown abbrechen"
+  id: basement_pump_cancel_start_timer
+  trigger:
+    - platform: state
+      entity_id: sensor.basement_pump_status
+      from: "off"
+    - platform: state
+      entity_id: input_boolean.basement_pump_autostart
+      to: "off"
+    - platform: state
+      entity_id: input_boolean.basement_pump_enabled
+      to: "off"
+  action:
+    action: timer.cancel
+    target:
+      entity_id: timer.basement_pump_start_timer

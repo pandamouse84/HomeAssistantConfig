@@ -9,11 +9,13 @@
 # =========================================================================
 # </remarks>
 
+# Input Date/Time
 input_datetime.alarm_clock_florian_time:
   friendly_name: "Wecker Florian"
 input_datetime.alarm_clock_manuela_time:
   friendly_name: "Wecker Manuela"
 
+# Input Boolean
 input_boolean.alarm_clock_florian_enabled:
   friendly_name: "Wecker Florian eingeschaltet"
 input_boolean.alarm_clock_manuela_enabled:

@@ -11,7 +11,7 @@ scene_work:
       target:
         entity_id: remote.fernseher_in_der_bibliothek
   turn_off:
-    - service: remote.turn_on
+    - service: remote.turn_off
       target:
         entity_id: remote.fernseher_in_der_bibliothek
     - delay:

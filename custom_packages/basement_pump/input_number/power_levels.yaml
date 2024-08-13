@@ -1,0 +1,27 @@
+# <summary>
+# This YAML configuration contains
+# inputs to define the basement pumps
+# stop and emergency stop power levels.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+basement_pump_power_level_stop:
+  name: basement_pump_power_level_stop
+  icon: mdi:flash
+  min: 150
+  max: 500
+  step: 10
+  unit_of_measurement: W
+
+basement_pump_power_level_emergency_stop:
+  name: basement_pump_power_level_emergency_stop
+  icon: mdi:flash
+  min: 500
+  max: 900
+  step: 10
+  unit_of_measurement: W

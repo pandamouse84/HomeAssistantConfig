@@ -1,0 +1,50 @@
+# <summary>
+# This YAML configuration contains
+# the sensor that calculates the current basement pump status.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- unique_id: basement_pump_status
+  name: basement_pump_status
+  icon: |-
+    {%- if this.state == 'deactivated' -%}
+      mdi:power-off
+    {%- elif this.state == 'on' -%}
+      mdi:water-pump
+    {%- elif this.state == 'off' -%}
+      mdi:water-pump-off
+    {%- elif this.state == 'dry' -%}
+      mdi:water-alert
+    {%- elif this.state == 'jammed' -%}
+      mdi:fuse-alert
+    {%- else -%}
+      mdi:alert-circle
+    {%- endif -%}
+  state: |-
+    {%- if is_state('input_boolean.basement_pump_enabled', 'off') -%}
+      deactivated
+    {%- elif not is_number(states('sensor.steckdose_keller_leistung')) -%}
+      unknown
+    {%- elif
+      states('sensor.steckdose_keller_leistung') | float
+      > states('input_number.basement_pump_power_level_emergency_stop') | float    
+    -%}
+      jammed
+    {%- elif
+      states('sensor.steckdose_keller_leistung') | float
+      > states('input_number.basement_pump_power_level_stop') | float
+    -%}
+      on
+    {%- elif is_state('switch.steckdose_keller','off') -%}
+      off
+    {%- else -%}
+      dry
+    {%- endif -%}
+  device_class: enum
+  attributes:
+    options: "{{- ['deactivated', 'on', 'off', 'dry', 'jammed', 'unknown'] -}}"

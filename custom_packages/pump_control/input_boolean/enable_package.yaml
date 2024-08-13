@@ -1,4 +1,0 @@
-# Frontend input boolean controls:
-pump_control_enabled:
-  name: pump_control_enabled
-  icon: mdi:water-pump

@@ -1,0 +1,43 @@
+# <summary>
+# This YAML configuration contains
+# the automation to start keeping presure in the garden pump.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Garten-Pumpe: Start für den Druckerhalt"
+  id: garden_pump_start_keep_preasure
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.garden_pump_next_preasure_timer
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.garden_pump_enabled
+        state: "on"
+      - condition: state
+        entity_id: switch.steckdose_gartenpumpe
+        state: "off"
+      - condition: state
+        entity_id: input_boolean.garden_pump_autostart_preasure
+        state: "on"
+  action:
+    - condition: state
+      entity_id: switch.steckdose_sauna
+      state: "off"
+    - action: switch.turn_on
+      target:
+        entity_id: switch.steckdose_gartenpumpe
+    - event: garden_pump_keep_preasure_started
+    - delay:
+        minutes: "{{- states('input_boolean.garden_pump_duration_preasure') -}}"
+    - action: switch.turn_off
+      target:
+        entity_id: switch.steckdose_gartenpumpe

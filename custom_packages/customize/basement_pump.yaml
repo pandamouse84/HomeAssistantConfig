@@ -1,0 +1,44 @@
+# <summary>
+# This YAML configuration contains
+# the translations of the basement pump custom package
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# Binary Sensor
+binary_sensor.basement_pump_warning_exists:
+  friendly_name: "Keller-Pumpen Warnung"
+
+# Input Boolean
+input_boolean.basement_pump_autostart:
+  friendly_name: "Keller-Pumpen Autostart eingeschaltet"
+input_boolean.basement_pump_enabled:
+  friendly_name: "Keller-Pumpen Package aktiviert"
+input_boolean.basement_pump_jammed:
+  friendly_name: "Keller-Pumpe hat Störung"
+input_boolean.basement_pump_mute_notification:
+  friendly_name: "Keller-Pumpen-Alarm stumm geschaltet"
+
+# Input Number
+input_number.basement_pump_interval_autostart:
+  friendly_name: "Interval des Keller-Pumpen Autostarts"
+input_number.basement_pump_interval_dry:
+  friendly_name: "Dauer bis zum Abschalten der Keller-Pumpe wenn trocken"
+input_number.basement_pump_power_level_emergency_stop:
+  friendly_name: "Leistung der Keller-Pumpe bei Störung"
+input_number.basement_pump_power_level_stop:
+  friendly_name: "Leistung der Keller-Pumpe zum Abschalten"
+
+# Template Sensor
+sensor.basement_pump_remaining_time_start_timer:
+  friendly_name: "Verbleibende Zeit zum Einschalten der Keller-Pumpe"
+sensor.basement_pump_status:
+  friendly_name: "Status der Keller-Pumpe"
+
+# Timer
+timer.basement_pump_start_timer:
+  friendly_name: "Countdown zum Einschalten der Keller-Pumpe"

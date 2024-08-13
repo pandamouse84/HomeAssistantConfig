@@ -1,0 +1,39 @@
+# <summary>
+# This YAML configuration contains
+# the automation to notify users of starting the garden pump.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Garten-Pumpe: Benachrichtigung über Start"
+  id: garden_pump_notify_start
+  trigger:
+    platform: event
+    event_type: garden_pump_pouring_started
+  condition:
+    condition: time
+    after: "08:00:00"
+    before: "22:00:00"
+  action:
+    - action: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_garden_pump"
+    - action: notify.all_mobile_apps
+      data:
+        title: "Garten Pumpe gestartet"
+        message: "Halte die Benachrichtung gedrückt für weitere Optionen."
+        data:
+          group: "ha_garden_pump"
+          subtitle: "Die Pumpe im Garten wurde gestartet!"
+          tag: "ha_garden_pump"
+          actions:
+            - action: "URI"
+              icon: mdi:home-floor-g
+              title: "Garten ansehen"
+              uri: "homeassistant://navigate/dashboard-raume/garten"

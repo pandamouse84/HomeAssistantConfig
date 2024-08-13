@@ -13,3 +13,12 @@
     - service: timer.cancel
       target:
         entity_id: timer.eve_door_window_reset_alarm
+    - service: homeassistant.update_entity
+      target:
+        entity_id:
+          - binary_sensor.tur_flur
+          - binary_sensor.tur_esszimmer_tur
+          - binary_sensor.fenster_badezimmer_og
+          - binary_sensor.fenster_bibliothek
+          - binary_sensor.fenster_wohnzimmer
+          - binary_sensor.fenster_schlafzimmer

@@ -1,0 +1,15 @@
+# <summary>
+# This YAML configuration contains
+# the timer to start the basement pump.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+basement_pump_start_timer:
+  name: basement_pump_start_timer
+  icon: mdi:clock
+  duration: "00:10:00"

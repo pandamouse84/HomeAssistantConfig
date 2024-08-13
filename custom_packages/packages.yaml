@@ -8,12 +8,13 @@ eve_door_window: !include eve_door_window/configuration.yaml
 eve_motion: !include eve_motion/configuration.yaml
 eve_thermo: !include eve_thermo/configuration.yaml
 external_access: !include external_access/configuration.yaml
+garden_pump: !include garden_pump/configuration.yaml
 ground_water: !include ground_water/configuration.yaml
 home_address: !include home_address/configuration.yaml
 nina: !include nina/configuration.yaml
 groups: !include groups/configuration.yaml
 pollen: !include pollen/configuration.yaml
-pump_control: !include pump_control/configuration.yaml
+basement_pump: !include basement_pump/configuration.yaml
 qnap: !include qnap/configuration.yaml
 river_level: !include river_level/configuration.yaml
 roborock: !include roborock/configuration.yaml

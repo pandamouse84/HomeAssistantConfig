@@ -1,0 +1,19 @@
+# <summary>
+# This YAML configuration contains
+# the input to define the garden pumps
+# auto start preasure interval.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_interval_autostart_preasure:
+  name: garden_pump_interval_autostart_preasure
+  icon: mdi:clock
+  unit_of_measurement: h
+  min: 1
+  max: 6
+  step: 1

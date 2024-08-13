@@ -1,0 +1,14 @@
+# <summary>
+# This YAML configuration contains
+# the input that defines if the garden pump package is enabled.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_enabled:
+  name: garden_pump_enabled
+  icon: mdi:watering-can

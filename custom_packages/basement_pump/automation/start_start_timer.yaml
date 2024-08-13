@@ -1,0 +1,47 @@
+# <summary>
+# This YAML configuration contains
+# the automation to start the start countdown.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Einschalt Countdown starten"
+  id: basement_pump_start_start_timer
+  trigger:
+    - platform: state
+      entity_id: input_boolean.basement_pump_enabled
+      to: "on"
+    - platform: state
+      entity_id: sensor.basement_pump_status
+      to: "off"
+    - platform: homeassistant
+      event: "start"
+    - platform: state
+      entity_id: input_boolean.basement_pump_autostart
+      to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.basement_pump_enabled
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.basement_pump_autostart
+        state: "on"
+      - condition: state
+        entity_id: sensor.basement_pump_status
+        state: "off"
+  action:
+    - action: timer.start
+      target:
+        entity_id: timer.basement_pump_start_timer
+      data:
+        duration: |-
+          {{-
+            "%0.2d"| format(states("input_number.basement_pump_interval_autostart") | int)
+            + ":00:00"
+          -}}

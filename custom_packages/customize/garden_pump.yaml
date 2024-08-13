@@ -1,0 +1,48 @@
+# <summary>
+# This YAML configuration contains
+# the translations of the garden pump custom package
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+# Input Boolean
+input_boolean.garden_pump_autostart_pouring:
+  friendly_name: "Autostart des Garten-Pumpen Gießvorgangs aktiviert"
+input_boolean.garden_pump_autostart_preasure:
+  friendly_name: "Autostart des Garten-Pumpen Druckerhalts aktiviert"
+input_boolean.garden_pump_enabled:
+  friendly_name: "Garten-Pumpen Package aktiviert"
+
+# Input Date Time
+input_datetime.garden_pump_starttime_pouring:
+  friendly_name: "Startzeit des Gießvorgangs der Garten-Pumpe"
+input_datetime.garden_pump_starttime_preasure:
+  friendly_name: "Startzeit des Druckerhalts der Garten-Pumpe"
+
+# Input Number
+input_number.garden_pump_duration_pouring:
+  friendly_name: "Dauer des Gießvorgangs der Garten-Pumpe"
+input_number.garden_pump_duration_preasure:
+  friendly_name: "Dauer des Druckerhalts der Garten-Pumpe"
+input_number.garden_pump_interval_autostart_pouring:
+  friendly_name: "Interval des Gießvorgangs der Garten-Pumpe"
+input_number.garden_pump_interval_autostart_preasure:
+  friendly_name: "Interval des Druckerhalts der Garten-Pumpe"
+
+# Template Sensor
+sensor.garden_pump_remaining_time_start_pouring:
+  friendly_name: "Verbleibende Zeit bis zum nächsten Gießvorgang der Garten-Pumpe"
+sensor.garden_pump_remaining_time_start_preasure:
+  friendly_name: "Verbleibende Zeit bis zum nächsten Druckerhalt der Garten-Pumpe"
+sensor.garden_pump_status:
+  friendly_name: "Status der Garten-Pumpe"
+
+# Timer
+timer.garden_pump_next_pouring_timer:
+  friendly_name: "Countdown für nächsten Gießvorgang der Garten-Pumpe"
+timer.garden_pump_next_preasure_timer:
+  friendly_name: "Countdown zum nächsten Druckerhalt der Garten-Pumpe"

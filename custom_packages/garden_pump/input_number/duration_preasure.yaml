@@ -1,0 +1,19 @@
+# <summary>
+# This YAML configuration contains
+# the input to define the garden pumps
+# preasure duration.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_duration_preasure:
+  name: garden_pump_duration_preasure
+  icon: mdi:timer-sand
+  unit_of_measurement: Minutes
+  min: 3
+  max: 7
+  step: 1

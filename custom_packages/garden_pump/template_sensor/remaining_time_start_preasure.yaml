@@ -1,0 +1,25 @@
+# <summary>
+# This YAML configuration contains
+# the sensors that calculates the remaining time
+# to start repreasuring the garden pump.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- unique_id: garden_pump_remaining_time_start_preasure
+  name: garden_pump_remaining_time_start_preasure
+  availability: "{{- is_state('timer.garden_pump_next_preasure_timer', 'active') -}}"
+  icon: mdi:clock
+  state: |-
+    {%- set finishTime = as_datetime(state_attr('timer.garden_pump_next_preasure_timer', 'finishes_at'), 0) -%}
+    {%- if not finishTime == 0 -%}
+      {%- set timeDelta = (finishTime - now()) -%}
+      {%- set remainingTime = timeDelta - timedelta(microseconds = timeDelta.microseconds) -%}
+      {{- remainingTime -}}
+    {%- else -%}
+      unknown
+    {%- endif -%}

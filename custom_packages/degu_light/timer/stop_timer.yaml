@@ -2,3 +2,4 @@
 degu_light_stop_timer:
   name: degu_light_stop_timer
   duration: "00:10:00"
+  restore: true

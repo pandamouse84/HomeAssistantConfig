@@ -1,0 +1,24 @@
+# <summary>
+# This YAML configuration contains
+# the automation to emergency stop the basement pump on a jam.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Notfall-Abschaltung"
+  id: basement_pump_emergency_stop
+  trigger:
+    platform: state
+    entity_id: sensor.basement_pump_status
+    to: "jammed"
+  action:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.steckdose_keller
+    - action: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.basement_pump_jammed

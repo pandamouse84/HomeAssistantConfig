@@ -23,6 +23,8 @@ scene_fernsehen:
     - service: remote.turn_on
       target:
         entity_id: remote.appletv_wohnzimmer
+    - delay:
+        seconds: 3
     - service: remote.send_command
       target:
         entity_id: remote.appletv_wohnzimmer

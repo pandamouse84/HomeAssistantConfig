@@ -1,0 +1,50 @@
+# <summary>
+# This YAML configuration contains
+# the automation to notify users of a basement pump unknown state.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Benachrichtigung über Status Unbekannt"
+  id: basement_pump_notify_state_unknown
+  trigger:
+    platform: state
+    entity_id: sensor.basement_pump_status
+    to: "unknown"
+    for:
+      minutes: 15
+  condition:
+    condition: state
+    entity_id: input_boolean.basement_pump_enabled
+    state: "on"
+  action:
+    - action: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.basement_pump_mute_notification
+    - action: notify.all_mobile_apps
+      data:
+        message: "clear_notification"
+        data:
+          tag: "ha_basement_pump"
+    - action: notify.all_mobile_apps
+      data:
+        title: "Status Keller Pumpe unbekannt"
+        message: "Halte die Benachrichtung gedrückt für weitere Optionen."
+        data:
+          group: "ha_basement_pump"
+          subtitle: "Der Status der Pumpe kannn nicht mehr ermittelt werden."
+          tag: "ha_basement_pump"
+          actions:
+            - action: "URI"
+              icon: mdi:home-floor-b
+              title: "Keller ansehen"
+              uri: "homeassistant://navigate/dashboard-raume/keller"
+          push:
+            sound:
+              name: "default"
+              critical: 1
+              volume: 0.5

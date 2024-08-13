@@ -2,6 +2,8 @@
 eve_thermo_schlafzimmer_good_night_timer:
   name: eve_thermo_schlafzimmer_good_night_timer
   duration: "00:10:00"
+  restore: true
 eve_thermo_badezimmer_bath_time_timer:
   name: eve_thermo_badezimmer_bath_time_timer
   duration: "00:10:00"
+  restore: true

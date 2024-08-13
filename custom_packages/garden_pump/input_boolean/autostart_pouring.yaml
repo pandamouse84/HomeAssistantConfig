@@ -1,0 +1,15 @@
+# <summary>
+# This YAML configuration contains
+# the input that defines if the garden pump shall
+# autostart at the set interval for pouring water.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_autostart_pouring:
+  name: garden_pump_autostart_pouring
+  icon: mdi:refresh-auto

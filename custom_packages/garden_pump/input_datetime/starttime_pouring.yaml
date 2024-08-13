@@ -1,0 +1,16 @@
+# <summary>
+# This YAML configuration contains
+# the datetime object to store the garden pumps pouring start time.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_starttime_pouring:
+  name: garden_pump_starttime_pouring
+  icon: mdi:clock
+  has_date: false
+  has_time: true

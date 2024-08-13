@@ -1,0 +1,19 @@
+# <summary>
+# This YAML configuration contains
+# the input to define the garden pumps
+# pouring duration.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_duration_pouring:
+  name: garden_pump_duration_pouring
+  icon: mdi:timer-sand
+  unit_of_measurement: Minutes
+  min: 5
+  max: 30
+  step: 5

@@ -1,0 +1,23 @@
+# <summary>
+# This YAML configuration contains
+# the automation to notify if a basement pump jam was resolved.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Benachrichtigung über behobene Störung"
+  id: basement_pump_notify_jam_resolved
+  trigger:
+    platform: state
+    entity_id: input_boolean.basement_pump_jammed
+    to: "off"
+  action:
+    action: notify.all_mobile_apps
+    data:
+      message: "clear_notification"
+      data:
+        tag: "ha_basement_pump"

@@ -1,0 +1,15 @@
+# <summary>
+# This YAML configuration contains
+# the input that defines if the basement pump shall
+# autostart in the defined interval.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+basement_pump_autostart:
+  name: basement_pump_autostart
+  icon: mdi:refresh-auto

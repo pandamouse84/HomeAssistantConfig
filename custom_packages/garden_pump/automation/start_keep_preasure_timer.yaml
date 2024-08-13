@@ -1,0 +1,66 @@
+# <summary>
+# This YAML configuration contains
+# the automation to start the preasure timer.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Garten-Pumpe: Start des Countdowns für den Druckerhalt"
+  id: garden_pump_start_keep_preasure_timer
+  trigger:
+    - platform: event
+      event_type: garden_pump_keep_preasure_started
+    - platform: state
+      entity_id: input_boolean.garden_pump_enabled
+      to: "on"
+    - platform: state
+      entity_id: input_boolean.garden_pump_autostart_preasure
+      to: "on"
+    - platform: homeassistant
+      event: "start"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.garden_pump_enabled
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.garden_pump_autostart_preasure
+        state: "on"
+  action:
+    action: timer.start
+    target:
+      entity_id: timer.garden_pump_next_preasure_timer
+    data:
+      duration: |-
+        {%- set data = namespace(dates = [], interval = states("input_number.garden_pump_interval_autostart_preasure") | int , newTime = now(), startTime = strptime(states("input_datetime.garden_pump_starttime_preasure"), '%H:%M:%S')) -%}
+        {%- set count = (24 / data.interval) | round(0) -%}
+        {%- for i in range(count) -%}
+          {%- set newHour = namespace(hour=data.startTime.hour) -%}
+          {%- if i > 0 -%}
+            {%- set newHour.hour = newHour.hour + data.interval * i -%}
+          {%- endif -%}
+          {%- if newHour.hour >= 24 -%}
+            {%- set newHour.hour = newHour.hour - 24 -%}
+          {%- endif -%}
+          {%- set data.newTime = data.startTime.replace(hour=newHour.hour) -%}
+          {%- if relative_time(now().time()) < relative_time(data.newTime.time()) -%}
+            {%- set newTime = now().replace(hour = data.newTime.hour, minute = data.newTime.minute, second = data.newTime.second, microsecond = 0) -%}
+            {%- set data.dates = data.dates + [newTime] -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if data.dates.count != 0 -%}
+          {%- set finalDate = as_datetime((data.dates | sort)[0], 0) -%}  
+        {%- else -%}
+          {%- set finalDate = now().replace(day = now().day + 1, hour = data.startTime.hour, minute = data.startTime.minute, second = data.startTime.second, microsecond = 0) -%}
+        {%- endif -%}
+        {%- if not finalDate == 0 -%}
+          {%- set timeDelta = (finalDate - now().replace(microsecond = 0)) -%}
+          {{- timeDelta -}}
+        {%- else -%}
+          {{- "01:00:00" -}}
+        {%- endif -%}

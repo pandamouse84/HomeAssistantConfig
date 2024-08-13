@@ -9,7 +9,6 @@
         and 'STATUS' in state.object_id | upper
         and not state.state | upper in ['OK', 'GOOD']
       %}
-        {{ state.attributes }}
         {% set warning.state = true -%}
       {%- endif -%}
     {%- endfor -%}

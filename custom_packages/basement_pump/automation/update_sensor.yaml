@@ -1,0 +1,25 @@
+# <summary>
+# This YAML configuration contains
+# automations to update the remaining times
+# of the basement pump sensors in the frontend.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: 'Update Sensor: basement_pump_remaining_time_start_timer'
+  id: update_sensor_basement_pump_remaining_time_start_timer
+  trigger:
+    platform: time_pattern
+    seconds: '/1'
+  condition:
+    condition: state
+    entity_id: timer.basement_pump_start_timer
+    state: 'active'
+  action:
+    action: homeassistant.update_entity
+    target:
+      entity_id: sensor.basement_pump_remaining_time_start_timer

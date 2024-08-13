@@ -1,0 +1,30 @@
+# <summary>
+# This YAML configuration contains
+# the automation to stop the basement pump.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: 'Keller-Pumpe: Stoppen'
+  id: basement_pump_stop
+  trigger:
+    - platform: state
+      entity_id: input_boolean.basement_pump_enabled
+      to: 'off'
+    - platform: state
+      entity_id: sensor.basement_pump_status
+      to: 'dry'
+      for:
+        minutes: "{{ states('input_number.basement_pump_interval_dry') | int }}"
+  condition:
+    condition: state
+    entity_id: switch.steckdose_keller
+    state: 'on'
+  action:
+    action: switch.turn_off
+    target:
+      entity_id: switch.steckdose_keller

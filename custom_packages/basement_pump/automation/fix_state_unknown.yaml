@@ -1,0 +1,27 @@
+# <summary>
+# This YAML configuration contains
+# the automation to try fix the unknown state.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- alias: "Keller-Pumpe: Status Unbekannt beheben"
+  id: basement_pump_fix_state_unknown
+  trigger:
+    platform: state
+    entity_id: sensor.basement_pump_status
+    to: "unknown"
+    for:
+      minutes: 5
+  condition:
+    condition: state
+    entity_id: input_boolean.basement_pump_enabled
+    state: "on"
+  action:
+    action: hassio.addon_restart
+    data:
+      addon: core_matter_server

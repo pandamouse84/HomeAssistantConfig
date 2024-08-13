@@ -1,0 +1,18 @@
+# <summary>
+# This YAML configuration contains
+# the sensors that calculates if a basement pump warning exists.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- unique_id: basement_pump_warning_exists
+  name: basement_pump_warning_exists
+  icon: mdi:alert
+  state: |-
+    {{-
+      not is_state('sensor.basement_pump_status', ['off', 'deactivated'])
+    -}}
