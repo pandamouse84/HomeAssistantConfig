@@ -7,9 +7,13 @@
     platform: time_pattern
     seconds: "/1"
   condition:
-    condition: state
-    entity_id: timer.eve_door_window_reset_alarm
-    state: "active"
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('sensor.eve_door_window_remaining_time') | is_defined }}"
+      - condition: state
+        entity_id: timer.eve_door_window_reset_alarm
+        state: "active"
   action:
     - service: homeassistant.update_entity
       target:
