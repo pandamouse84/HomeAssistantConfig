@@ -7,18 +7,25 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2024-08-13   FZE           Guard startup
 # =========================================================================
 # </remarks>
 
 - alias: 'Update Sensor: garden_pump_remaining_time_start_pouring'
   id: update_sensor_garden_pump_remaining_time_start_pouring
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: '/1'
   condition:
-    condition: state
-    entity_id: timer.garden_pump_next_pouring_timer
-    state: 'active'
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('sensor.garden_pump_remaining_time_start_pouring') is defined }}"
+      - condition: state
+        entity_id: timer.garden_pump_next_pouring_timer
+        state: 'active'
   action:
     action: homeassistant.update_entity
     target:

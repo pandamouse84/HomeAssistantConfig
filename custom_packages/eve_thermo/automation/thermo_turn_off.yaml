@@ -1,10 +1,17 @@
 # Automations
 - alias: "Thermostate: Alle Thermostate abschalten"
   id: eve_thermo_heating_disabled
+  mode: single
+  max_exceeded: silent
   trigger:
     - platform: state
       entity_id: binary_sensor.eve_thermostat_heating_enabled
       to: "off"
+  condition:
+    condition: state
+    entity_id: automation.thermostate_alle_thermostate_einschalten
+    attribute: current
+    state: 0
   action:
     - service: climate.turn_off
       target:

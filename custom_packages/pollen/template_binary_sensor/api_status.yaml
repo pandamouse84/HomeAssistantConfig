@@ -10,6 +10,7 @@
       and (states('sensor.pollen_region_id') | int(0)) != 0
       and not is_state('sensor.pollen_partregion_id', 'unavailable')
       and (states('sensor.pollen_partregion_id') | int(0)) != 0
+      and is_state_attr('automation.update_input_select_pollen_region', 'current', 0)
     -}}
   attributes:
     "Package enabled": "{{- is_state('input_boolean.pollen_enabled', 'on') -}}"
@@ -19,6 +20,8 @@
     "Region is set": "{{- (states('sensor.pollen_region_id') | int(0)) != 0 -}}"
     "Sub-Region is available": "{{- not is_state('sensor.pollen_partregion_id', 'unavailable') -}}"
     "Sub-Region is set": "{{- (states('sensor.pollen_partregion_id') | int(0)) != 0 -}}"
+    "Loading automation not running": "{{- is_state_attr('automation.update_input_select_pollen_region', 'current', 0) -}}"
+
 - unique_id: pollen_regions_ready
   name: pollen_regions_ready
   state: |-

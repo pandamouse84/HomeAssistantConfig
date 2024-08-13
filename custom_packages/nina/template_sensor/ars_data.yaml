@@ -4,16 +4,20 @@
   availability: |-
     {{-
       is_state('sensor.nina_xrepository_ars', 'OK')
+      and state_attr('sensor.nina_xrepository_ars', 'data').daten | length != 0
       and is_number(state_attr('sensor.nina_xrepository_ars', 'data').daten[0].Schluessel)
     -}}
   state: |-
+    {%- set data = state_attr('sensor.nina_xrepository_ars', 'data').daten -%}
+    {%- if data | length != 0 -%}
     {{-
-      state_attr('sensor.nina_xrepository_ars', 'data')['daten'][0].Schluessel[:-7]
+      data[0].Schluessel[:-7]
       + (
-        state_attr('sensor.nina_xrepository_ars', 'data')['daten'][0].Schluessel[-7:]
+        data['daten'][0].Schluessel[-7:]
         | replace(
-          state_attr('sensor.nina_xrepository_ars', 'data')['daten'][0].Schluessel[-7:],
+          data['daten'][0].Schluessel[-7:],
           "0000000"
         )
       )
     -}}
+    {%- endif -%}
