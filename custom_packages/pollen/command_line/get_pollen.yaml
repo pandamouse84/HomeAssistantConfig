@@ -5,13 +5,20 @@
     scan_interval: 600
     availability: "{{- is_state('binary_sensor.pollen_ready', 'on') -}}"
     command: |-
-      if
-        {{ is_state('binary_sensor.pollen_ready', 'on') | lower -}};
+      {%- set regionid = states('sensor.pollen_region_id') -%}
+      {%- set partregionid = states('sensor.pollen_partregion_id') -%}
+      if {{
+            (
+              is_state('binary_sensor.pollen_ready', 'on')
+              and not regionid == 'unavailable'
+              and not partregionid == 'unavailable'
+            ) | lower
+        -}};
       then
         curl -L '{{- states('sensor.pollen_url') -}}' |
         jq -cn -f /config/custom_packages/pollen/jq/process_json_response.jq \
-          --argjson regionid {{ states('sensor.pollen_region_id') }} \
-          --argjson partregionid {{ states('sensor.pollen_partregion_id') }};
+          --argjson regionid {{ regionid }} \
+          --argjson partregionid {{ partregionid }};
       else
         python3 /config/scripts/check_data.py;
       fi

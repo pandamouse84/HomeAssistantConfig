@@ -13,9 +13,9 @@
     {{-
       data[0].Schluessel[:-7]
       + (
-        data['daten'][0].Schluessel[-7:]
+        data[0].Schluessel[-7:]
         | replace(
-          data['daten'][0].Schluessel[-7:],
+          data[0].Schluessel[-7:],
           "0000000"
         )
       )

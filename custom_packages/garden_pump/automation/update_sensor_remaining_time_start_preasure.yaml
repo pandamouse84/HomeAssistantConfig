@@ -22,7 +22,7 @@
     condition: and
     conditions:
       - condition: template
-        value_template: "{{ states('sensor.garden_pump_remaining_time_start_preasure') is defined }}"
+        value_template: "{{ states('sensor.garden_pump_remaining_time_start_preasure') | is_defined }}"
       - condition: state
         entity_id: timer.garden_pump_next_preasure_timer
         state: "active"
