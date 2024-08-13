@@ -6,6 +6,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2024-08-13   FZE           Added buffer for time differences
 # =========================================================================
 # </remarks>
 
@@ -37,7 +38,7 @@
       entity_id: timer.garden_pump_next_pouring_timer
     data:
       duration: |-
-        {%- set data = namespace(dates = [], interval = states("input_number.garden_pump_interval_autostart_pouring") | int , newTime = now(), startTime = strptime(states("input_datetime.garden_pump_starttime_pouring"), '%H:%M:%S')) -%}
+        {%- set data = namespace(dates = [], interval = states("input_number.garden_pump_interval_autostart_pouring") | int, buffer = states("input_number.garden_pump_buffer_pouring") | int, newTime = now(), startTime = strptime(states("input_datetime.garden_pump_starttime_pouring"), '%H:%M:%S')) -%}
         {%- set count = (24 / data.interval) | round(0) -%}
         {%- for i in range(count) -%}
           {%- set newHour = namespace(hour=data.startTime.hour) -%}
@@ -49,7 +50,7 @@
           {%- endif -%}
           {%- set data.newTime = data.startTime.replace(hour=newHour.hour) -%}
           {%- if relative_time(now().time()) < relative_time(data.newTime.time()) -%}
-            {%- set newTime = now().replace(hour = data.newTime.hour, minute = data.newTime.minute, second = data.newTime.second, microsecond = 0) -%}
+            {%- set newTime = now().replace(hour = data.newTime.hour, minute = (data.newTime.minute - data.buffer), second = data.newTime.second, microsecond = 0) -%}
             {%- set data.dates = data.dates + [newTime] -%}
           {%- endif -%}
         {%- endfor -%}

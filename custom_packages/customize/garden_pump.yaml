@@ -6,6 +6,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2024-08-13   FZE           Added buffer for time differences
 # =========================================================================
 # </remarks>
 
@@ -24,6 +25,8 @@ input_datetime.garden_pump_starttime_preasure:
   friendly_name: "Startzeit des Druckerhalts der Garten-Pumpe"
 
 # Input Number
+input_number.garden_pump_buffer_pouring:
+  friendly_name: "Länge des Puffers zum Ausgleich von Zeitdifferenzen"
 input_number.garden_pump_duration_pouring:
   friendly_name: "Dauer des Gießvorgangs der Garten-Pumpe"
 input_number.garden_pump_duration_preasure:

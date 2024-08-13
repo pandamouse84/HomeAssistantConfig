@@ -1,0 +1,19 @@
+# <summary>
+# This YAML configuration contains
+# the input to define the garden pumps
+# pouring buffer to compensate for time differences.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-13   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+garden_pump_buffer_pouring:
+  name: garden_pump_buffer_pouring
+  icon: mdi:timer-sand
+  unit_of_measurement: Minutes
+  min: 1
+  max: 5
+  step: 1
