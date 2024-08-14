@@ -35,7 +35,7 @@
         entity_id: switch.steckdose_gartenpumpe
     - event: garden_pump_pouring_started
     - delay:
-        minutes: "{{- states('input_number.garden_pump_duration_pouring') + (2 * states('input_number.garden_pump_buffer_pouring')) -}}"
+        minutes: "{{- states('input_number.garden_pump_duration_pouring') | int + (2 * states('input_number.garden_pump_buffer_pouring') | int) -}}"
     - action: switch.turn_off
       target:
         entity_id: switch.steckdose_gartenpumpe
