@@ -1,6 +1,8 @@
 # Automations
 - alias: "Update Sensor: river_level_current_measurement"
   id: update_river_level_current_measurement
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"
@@ -21,6 +23,8 @@
         entity_id: sensor.river_level_current_measurement
 - alias: "Update Sensor: river_level_next_station"
   id: update_river_level_next_station
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"

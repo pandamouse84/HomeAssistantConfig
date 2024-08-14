@@ -1,6 +1,8 @@
 # Automations
 - alias: "Update Sensors: addon_running_states"
   id: update_addon_running_states
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"

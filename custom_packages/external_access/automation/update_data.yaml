@@ -1,6 +1,8 @@
 # Automations
 - alias: "Update Sensor: external_access_update_dyndns"
   id: update_external_access_update_dyndns
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"

@@ -1,6 +1,8 @@
 # Automations
 - alias: "Update Sensor: eve_thermo_badezimmer_bath_time_remaining_time"
   id: update_eve_thermo_badezimmer_bath_time_remaining_time
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/1"
@@ -15,6 +17,8 @@
 
 - alias: "Update Sensor: eve_thermo_schlafzimmer_good_night_remaining_time"
   id: update_eve_thermo_schlafzimmer_good_night_remaining_time
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/1"

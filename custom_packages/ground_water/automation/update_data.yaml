@@ -1,6 +1,8 @@
 # Automations
 - alias: "Update Sensor: ground_water_next_station"
   id: update_ground_water_next_station
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"
@@ -21,6 +23,8 @@
         entity_id: sensor.ground_water_next_station
 - alias: "Update Sensor: ground_water_current_measurement"
   id: update_ground_water_current_measurement
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"

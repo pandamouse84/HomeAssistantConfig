@@ -12,6 +12,8 @@
 
 - alias: 'Update Sensor: basement_pump_remaining_time_start_timer'
   id: update_sensor_basement_pump_remaining_time_start_timer
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: '/1'

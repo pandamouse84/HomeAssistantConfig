@@ -1,6 +1,8 @@
 # Automations
 - alias: "Update Sensor: waste_area_street"
   id: update_waste_area_street
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"
@@ -21,6 +23,8 @@
         entity_id: sensor.waste_area_street
 - alias: "Update Sensor: waste_area_city"
   id: update_area_city
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"
@@ -41,6 +45,8 @@
         entity_id: sensor.waste_area_city
 - alias: "Update Sensor: waste_next_collections"
   id: updatewaste_next_collections
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: time_pattern
     seconds: "/10"
