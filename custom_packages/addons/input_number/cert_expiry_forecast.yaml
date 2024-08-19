@@ -1,0 +1,19 @@
+# <summary>
+# This YAML configuration contains
+# the input to define the number of days
+# to be informed before certificates expire.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+cert_expiry_forecast:
+  name: cert_expiry_forecast
+  icon: mdi:clock
+  unit_of_measurement: Days
+  min: 1
+  max: 60
+  step: 1

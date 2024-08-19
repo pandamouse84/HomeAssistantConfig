@@ -1,0 +1,15 @@
+# Template binary sensors:
+- unique_id: cert_expiry_warning_exists
+  name: cert_expiry_warning_exists
+  icon: mdi:certificate
+  state: |-
+    {%- set vars = namespace(result=false, forecast=(states('input_number.cert_expiry_forecast') | int)) -%}
+    {%- for state in states.sensor -%}
+      {%-
+        if state.entity_id in integration_entities('cert_expiry')
+        and as_timestamp(state.state) < as_timestamp(now() + timedelta(days=forecast))
+      -%}
+        {%- set vars.result = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ vars.result }}
