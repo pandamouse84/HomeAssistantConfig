@@ -1,4 +1,15 @@
-# Template binary sensors:
+# <summary>
+# This YAML configuration contains
+# the binary sensor for for flagging that
+# an SSL certificate is about to expire.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2024-08-19   FZE           Initial release
+# =========================================================================
+# </remarks>
+
 - unique_id: cert_expiry_warning_exists
   name: cert_expiry_warning_exists
   icon: mdi:certificate
@@ -7,7 +18,7 @@
     {%- for state in states.sensor -%}
       {%-
         if state.entity_id in integration_entities('cert_expiry')
-        and as_timestamp(state.state) < as_timestamp(now() + timedelta(days=forecast))
+        and as_timestamp(state.state) < as_timestamp(now() + timedelta(days=vars.forecast))
       -%}
         {%- set vars.result = true -%}
       {%- endif -%}

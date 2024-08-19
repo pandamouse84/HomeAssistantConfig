@@ -1,3 +1,7 @@
+# Friedly names for input numbers
+input_number.cert_expiry_forecast:
+  friendly_name: "Anzahl der Tage, für die zukünftige Zertifikatsabläufe gemeldet werden"
+
 # Friendly names for template switches
 switch.addons_sql_status:
   friendly_name: "SQLite Web Status"
@@ -19,6 +23,8 @@ zone.home:
   entity_picture: "/local/media/Home.jpeg"
 
 # Friendly names for binary sensors
+binary_sensor.cert_expiry_warning_exists:
+  friendly_name: "Zertifikatsablauf Warnung vorhanden"
 binary_sensor.update_warning_exists:
   friendly_name: "Update Warnung vorhanden"
 binary_sensor.sensor_warning_exists:
