@@ -5,7 +5,10 @@
   state: |-
     {%- set vars = namespace(result=false) -%}
     {%- for state in states.sensor -%}
-      {%- if state.state == "Error" -%}
+      {%-
+        if has_value(state.entity_id)
+        and state.state == "Error"
+      -%}
         {%- set vars.result = true -%}
       {%- endif -%}
     {%- endfor -%}

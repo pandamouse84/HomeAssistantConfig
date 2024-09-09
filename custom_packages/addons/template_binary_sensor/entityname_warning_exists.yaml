@@ -6,7 +6,7 @@
     {%- set vars = namespace(result=false) -%}
     {%- for state in states -%}
       {%- 
-        if not state.state == 'unavailable'
+        if has_value(state.entity_id)
         and not state.domain == 'device_tracker'
         and (
           state.attributes.friendly_name == ''
