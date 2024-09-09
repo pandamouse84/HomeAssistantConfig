@@ -4,8 +4,12 @@
   icon: mdi:battery-alert
   state: |-
     {%- set vars = namespace(result=false) -%}
-    {%- for state in states.battery -%}
-      {%- if (state.state | float) < 10 -%}
+    {%- for state in states.sensor -%}
+      {%-
+        if 'battery' in state.object_id
+        and state.attributes.unit_of_measurement == '%'
+        and (state.state | float) < 10
+      -%}
         {%- set vars.result = true -%}
       {%- endif -%}
     {%- endfor -%}
