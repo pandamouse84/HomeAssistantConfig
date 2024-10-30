@@ -5,7 +5,7 @@
   state: |-
     {%- set vars = namespace(result=false) -%}
     {%- for state in states.update -%}
-      {%- if not state.state == 'off' -%}
+      {%- if state.state == 'on' -%}
         {%- set vars.result = true -%}
       {%- endif -%}
     {%- endfor -%}

@@ -9,8 +9,9 @@
         {{ is_state('binary_sensor.home_address_ready', 'on') | lower -}};
       then
         curl -G -L '{{- states('sensor.home_address_url') -}}' \
-        -d 'latlng={{- state_attr('zone.home', 'latitude') -}},{{- state_attr('zone.home', 'longitude') -}}' \
-        -d 'key={{- states('input_text.home_address_api_key') -}}' |
+        -d 'at={{- state_attr('zone.home', 'latitude') -}},{{- state_attr('zone.home', 'longitude') -}}' \
+        -d 'apikey={{- states('input_text.home_address_api_key') -}}' \
+        -d 'lang=de-DE'|
         jq -cn -f /config/custom_packages/home_address/jq/process_reverse_data_json_response.jq;
       else
         python3 /config/scripts/check_data.py;
