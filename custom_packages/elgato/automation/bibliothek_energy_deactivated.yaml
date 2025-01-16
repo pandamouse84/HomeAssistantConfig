@@ -1,0 +1,13 @@
+# Automations
+- alias: "Licht: Bibliothek Steckdose deaktiviert"
+  id: elgato_bibliothek_room_energy_deactivated
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_bibliothek
+      to: "off"
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.bibliothek
+      data:
+        transition: 5

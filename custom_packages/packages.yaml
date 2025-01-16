@@ -2,6 +2,7 @@ addons: !include addons/configuration.yaml
 alarm_clock: !include alarm_clock/configuration.yaml
 apsystems_ez1: !include apsystems_ez1/configuration.yaml
 degu_light: !include degu_light/configuration.yaml
+elgato: !include elgato/configuration.yaml
 ev6: !include ev6/configuration.yaml
 evcc: !include evcc/configuration.yaml
 eve_door_window: !include eve_door_window/configuration.yaml
