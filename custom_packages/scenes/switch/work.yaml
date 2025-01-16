@@ -5,6 +5,18 @@ scene_work:
     - service: switch.turn_on
       target:
         entity_id: switch.steckdose_bibliothek
+    - service: light.turn_on
+      target:
+        entity_id: light.bibliothek
+      data:
+        brightness_pct: 1
+    - service: light.turn_on
+      target:
+        entity_id: light.bibliothek
+      data:
+        brightness_pct: 5
+        color_temp_kelvin: 2700
+        transition: 5
     - delay:
         minutes: 1
     - service: remote.turn_on
@@ -16,6 +28,11 @@ scene_work:
         entity_id: remote.fernseher_in_der_bibliothek
     - delay:
         seconds: 5
+    - service: light.turn_off
+      target:
+        entity_id: light.bibliothek
+      data:
+        transition: 5
     - service: switch.turn_off
       target:
         entity_id: switch.steckdose_bibliothek
