@@ -3,6 +3,8 @@ light.all_lights:
   friendly_name: "Alle Lichter"
 light.sauna:
   friendly_name: "Alle Sauna-Lampen"
+light.bibliothek:
+  friendly_name: "Alle Lichter Bibliothek"
 
 # Friendly names for media players
 media_player.all_media_players:

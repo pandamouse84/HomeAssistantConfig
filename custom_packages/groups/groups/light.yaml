@@ -5,9 +5,12 @@
   entities:
     - light.leselampe_florian
     - light.leselampe_manuela
-    - light.licht_bibliothek
     - light.licht_sauna
+    - light.fuehrungslicht_bibliothek
+    - light.ringlicht_bibliothek
     - light.licht_wohnzimmer
+    - light.licht_schlafzimmer
+    - light.weihnachtsgirlande
 # Group lights
 - platform: group
   unique_id: sauna
@@ -16,3 +19,10 @@
     - light.leselampe_florian
     - light.leselampe_manuela
     - light.licht_sauna
+# Group lights
+- platform: group
+  unique_id: bibliothek
+  name: bibliothek
+  entities:
+    - light.fuehrungslicht_bibliothek
+    - light.ringlicht_bibliothek
