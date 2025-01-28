@@ -8,7 +8,7 @@
     pvPower: "{{- state_attr('sensor.evcc_data', 'data').pvPower -}}"
     batterySoc: "{{- state_attr('sensor.evcc_data', 'data').batterySoc -}}"
     homePower: "{{- state_attr('sensor.evcc_data', 'data').homePower -}}"
-    gridPower: "{{- state_attr('sensor.evcc_data', 'data').gridPower -}}"
+    gridPower: "{{- state_attr('sensor.evcc_data', 'data').grid.power -}}"
     batteryPower: "{{- state_attr('sensor.evcc_data', 'data').batteryPower -}}"
 
 # Template sensors:
