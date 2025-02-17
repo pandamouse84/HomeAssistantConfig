@@ -1,0 +1,16 @@
+- id: '1739307575742'
+  alias: iOS Arbeit starten
+  description: ''
+  triggers:
+  - event_data:
+      actionID: 58932B82-0C02-4CA0-BE45-20C026930FC7
+    event_type: ios.action_fired
+    trigger: event
+  conditions: []
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: scene.arbeit
+  mode: single
