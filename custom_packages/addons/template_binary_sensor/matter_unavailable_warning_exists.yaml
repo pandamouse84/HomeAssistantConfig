@@ -1,0 +1,27 @@
+# <summary>
+# This YAML configuration contains
+# the binary sensor for for flagging that
+# an matter device is does not respond.
+# </summary>
+# <remarks>
+# =========================================================================
+# Date         Author        Comment
+# 2025-05-12   FZE           Initial release
+# =========================================================================
+# </remarks>
+
+- unique_id: matter_unavailable_warning_exists
+  name: matter_unavailable_warning_exists
+  icon: mdi:lan-disconnect
+  state: |-
+    {%-
+      set unavailableDevicesCount = states
+      | selectattr('entity_id', 'in', integration_entities('matter'))
+      | selectattr('state', 'eq', 'unavailable')
+      | map(attribute='entity_id')
+      | map('device_id')
+      | unique
+      | list
+      | count
+    -%}
+    {{ unavailableDevicesCount != 0 }}

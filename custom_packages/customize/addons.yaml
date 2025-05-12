@@ -1,3 +1,7 @@
+# Friedly names for input booleans
+input_boolean.show_matter_debug_information:
+  friendly_name: "Zeige zusätzliche Informationen für nicht verbundene Matter Geräte"
+
 # Friedly names for input numbers
 input_number.cert_expiry_forecast:
   friendly_name: "Anzahl der Tage, für die zukünftige Zertifikatsabläufe gemeldet werden"
@@ -5,8 +9,6 @@ input_number.cert_expiry_forecast:
 # Friendly names for template switches
 switch.addons_sql_status:
   friendly_name: "SQLite Web Status"
-switch.addons_ssh_status:
-  friendly_name: "Advanced SSH & Web Terminal Status"
 switch.addons_vscode_status:
   friendly_name: "Visual Studio Code Status"
 device_tracker.ev6_location:
@@ -33,3 +35,5 @@ binary_sensor.battery_warning_exists:
   friendly_name: "Batterie Warnung vorhanden"
 binary_sensor.entityname_warning_exists:
   friendly_name: "Entitäten ohne Übersetzung vorhanden"
+binary_sensor.matter_unavailable_warning_exists:
+  friendly_name: "Warnung über nicht verbundene Matter Geräte vorhanden"
