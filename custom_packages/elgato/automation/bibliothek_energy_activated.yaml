@@ -1,0 +1,15 @@
+# Automations
+alias: "Licht: Bibliothek Steckdose aktiviert"
+id: elgato_bibliothek_room_energy_activated
+trigger:
+  - platform: state
+    entity_id: switch.steckdose_bibliothek
+    to: "on"
+actions:
+  - sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.bibliothek
+        data:
+          transition: 5
+          brightness: 10
