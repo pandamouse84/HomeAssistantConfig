@@ -4,6 +4,6 @@
   name: fridge_warning_exists
   state: |-
     {{-
-      state_attr('sensor.kuhlschrank', 'fresh_air_filter') != none
-      and is_state_attr('sensor.kuhlschrank', 'fresh_air_filter', 'Filter ersetzen')
+      states('sensor.kuehlschrank_frischluftfilter') != none
+      and is_state('sensor.kuehlschrank_frischluftfilter', 'replace')
     -}}
