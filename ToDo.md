@@ -12,7 +12,7 @@
 **Later**
 * Add Calendars = No good API
 * Add Eve Water = Wait for Matter-Update
-* Add Eve Switch = Wait for Matter-Update
+* Add Eve Light Switch = Wait for Matter-Update
 * Add Sauna controller = buy
 * Add Gas and Water usage sensors = buy sensors, tinker
 * Add Gas-Therme = buy Interface
