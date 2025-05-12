@@ -3,6 +3,7 @@
   unique_id: all_energy_plugs
   name: all_energy_plugs
   entities:
+    - switch.heizung_sauna
     - switch.steckdose_bibliothek
     - switch.steckdose_degu_licht
     - switch.steckdose_esszimmer
