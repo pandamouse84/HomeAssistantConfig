@@ -9,7 +9,7 @@
         if 'battery' in state.object_id
         and has_value(state.entity_id)
         and state.attributes.unit_of_measurement == '%'
-        and (state.state | float) < 10
+        and (state.state | float) <= 20
       -%}
         {%- set vars.result = true -%}
       {%- endif -%}
