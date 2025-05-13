@@ -3,7 +3,8 @@
     unique_id: external_access_update_dyndns
     name: external_access_update_dyndns
     scan_interval: 360
-    availability: "{{ is_state('binary_sensor.external_access_update_dyndns_ready', 'on') -}};"
+    icon: mdi:api
+    availability: "{{ is_state('binary_sensor.external_access_update_dyndns_ready', 'on') -}}"
     command: |-
       if
         {{ is_state('binary_sensor.external_access_update_dyndns_ready', 'on') | lower -}};
