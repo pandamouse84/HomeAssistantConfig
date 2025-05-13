@@ -4,13 +4,16 @@
   icon: mdi:battery-alert
   state: |-
     {%- set vars = namespace(result=false) -%}
-    {%- for state in states.sensor -%}
-      {%-
-        if 'battery' in state.object_id
-        and has_value(state.entity_id)
-        and state.attributes.unit_of_measurement == '%'
-        and (state.state | float) <= 20
-      -%}
+    {%-
+      set batteries = states.sensor
+      | selectattr('attributes.device_class', 'eq', 'battery')
+      | selectattr('state', 'ne', 'unavailable')
+      | map(attribute='entity_id')
+      | unique
+      | list
+    -%}
+    {%- for battery in batteries -%}
+      {%- if states(battery) | float <= 20 -%}
         {%- set vars.result = true -%}
       {%- endif -%}
     {%- endfor -%}
