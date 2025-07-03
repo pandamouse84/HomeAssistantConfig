@@ -21,7 +21,7 @@
       to: "off"
     - platform: state
       entity_id: switch.steckdose_sauna
-      event: "on"
+      to: "on"
   action:
     action: timer.cancel
     target:
