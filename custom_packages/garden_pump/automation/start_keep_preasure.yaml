@@ -6,6 +6,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2025-07-04   FZE           Moved Sauna Steckdose Logic
 # =========================================================================
 # </remarks>
 
@@ -23,15 +24,9 @@
         entity_id: input_boolean.garden_pump_enabled
         state: "on"
       - condition: state
-        entity_id: switch.steckdose_gartenpumpe
-        state: "off"
-      - condition: state
         entity_id: input_boolean.garden_pump_autostart_preasure
         state: "on"
   action:
-    - condition: state
-      entity_id: switch.steckdose_sauna
-      state: "off"
     - action: switch.turn_on
       target:
         entity_id: switch.steckdose_gartenpumpe

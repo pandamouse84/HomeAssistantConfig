@@ -6,6 +6,7 @@
 # =========================================================================
 # Date         Author        Comment
 # 2024-08-12   FZE           Initial release
+# 2025-07-04   FZE           Moved Sauna Steckdose Logic
 # =========================================================================
 # </remarks>
 
@@ -22,6 +23,9 @@
       to: "on"
     - platform: homeassistant
       event: "start"
+    - platform: state
+      entity_id: switch.steckdose_sauna
+      event: "off"
   condition:
     condition: and
     conditions:
