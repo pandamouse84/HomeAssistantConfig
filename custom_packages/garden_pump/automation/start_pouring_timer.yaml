@@ -25,7 +25,7 @@
     - platform: homeassistant
       event: "start"
     - platform: state
-      entity_id: switch.steckdose_sauna
+      entity_id: switch.steckdose_gartenpumpe
       to: "off"
   condition:
     condition: and
