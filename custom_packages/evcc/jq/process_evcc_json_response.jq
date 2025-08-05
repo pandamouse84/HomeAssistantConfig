@@ -1,5 +1,5 @@
 input? // null |
-(try .result catch null) as $raw |
+(try . catch null) as $raw |
 (if $raw != null then $raw else null end) as $response |
 (try first($response.loadpoints[]) catch null) as $loadpoint |
 (
