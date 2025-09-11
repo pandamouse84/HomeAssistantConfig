@@ -9,6 +9,7 @@
       | selectattr('attributes.device_class', 'eq', 'battery')
       | selectattr('state', 'ne', 'unavailable')
       | selectattr('entity_id', 'ne', 'sensor.evcc_car_soc')
+      | selectattr('entity_id', 'ne', 'sensor.evcc_battery_soc')
       | map(attribute='entity_id')
       | unique
       | list
