@@ -6,12 +6,6 @@ sensor.waste_area_street:
 sensor.waste_next_waste_collections:
   friendly_name: "Nächste Müll-Abfuhr Termine"
 
-# Friendly names for UI input text
-input_text.waste_area_base_url:
-  friendly_name: "Basis URL des Abfallkalender Dienstes für den Standort"
-input_text.waste_dates_base_url:
-  friendly_name: "Basis URL des Abfallkalender Dienstes für die Daten"
-
 # Friendly names for binary sensors
 binary_sensor.waste_area_city_ready:
   friendly_name: "Vorraussetzungen zum Abruf der Stadt aus dem Abfallkalender Dienstes erfülltt"
@@ -39,7 +33,3 @@ sensor.waste_city_id:
   friendly_name: "ID der Stadt im Abfallkalender"
 sensor.waste_area_id:
   friendly_name: "ID der Region im Abfallkalender"
-
-# Friendly names for UI select boolean controls
-input_boolean.waste_enabled:
-  friendly_name: "Abfallkalender Package aktiviert"
