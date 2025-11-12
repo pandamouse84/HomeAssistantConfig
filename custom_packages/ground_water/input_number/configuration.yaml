@@ -1,7 +1,0 @@
-# Frontend input number controls:
-ground_water_search_radius:
-  name: ground_water_search_radius
-  icon: mdi:map-marker-distance
-  min: 0
-  max: 600
-  step: 10

@@ -4,17 +4,7 @@ sensor.ground_water_current_measurement:
 sensor.ground_water_next_station:
   friendly_name: "Pegelstand Messstation"
 
-# Friendly names for UI input number
-input_number.ground_water_search_radius:
-  friendly_name: "Radius für die Suche nach der nächsten Pegel-Messstation"
-
 # Friendly names for UI input text
-input_text.ground_water_api_base_url:
-  friendly_name: "Basus URL des Pegelstand Dienstes"
-input_text.ground_water_next_station_parameters:
-  friendly_name: "Parameter für den Abruf der Pegel-Messstationen"
-input_text.ground_water_current_measurement_parameters:
-  friendly_name: "Parameter für den Abruf der Messdaten"
 input_text.ground_water_api_key:
   friendly_name: "Key für den API Zugriff"
 
@@ -50,7 +40,3 @@ binary_sensor.ground_water_measurements_ready:
   friendly_name: "Vorraussetzungen zum Abruf der Pegel-Messdaten erfüllt"
 binary_sensor.ground_water_warning_exists:
   friendly_name: "Grundwasser Pegel-Warnung vorhanden"
-
-# Friendly names for UI select boolean controls
-input_boolean.ground_water_enabled:
-  friendly_name: "Grundwasser Package aktiviert"

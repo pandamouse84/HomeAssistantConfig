@@ -1,15 +1,3 @@
-# Friendly names for UI input number
-input_number.river_level_search_radius:
-  friendly_name: "Radius für die Suche nach der nächsten Pegel-Messstation"
-
-# Friendly names for UI input text
-input_text.river_level_api_base_url:
-  friendly_name: "Basis URL des Pegelstand Dienstes"
-input_text.river_level_next_station_parameters:
-  friendly_name: "Parameter für den Abruf der Pegel-Messstationen"
-input_text.river_level_current_measurement_parameters:
-  friendly_name: "Parameter für den Abruf der Messdaten"
-
 # Friendly names for REST sensors
 sensor.river_level_current_measurement:
   friendly_name: "Aktuelle Pegelstand Messdaten"
@@ -56,7 +44,3 @@ sensor.river_level_station:
   entity_picture: "/local/media/river_level_station.png"
 sensor.river_level_river_name:
   friendly_name: "Name des Flusses"
-
-# Friendly names for UI select boolean controls
-input_boolean.river_level_enabled:
-  friendly_name: "Fluss-Wasser-Stand Package aktiviert"
