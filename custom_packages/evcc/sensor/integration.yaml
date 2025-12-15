@@ -1,64 +1,29 @@
 # Integration sensors
 - platform: integration
-  unique_id: evcc_average_grid_reference_power
-  name: evcc_average_grid_reference_power
-  source: sensor.evcc_grid_reference_power
+  unique_id: evcc_gridpower_receiving_total
+  name: evcc_gridpower_receiving_total
+  source: sensor.evcc_gridpower_receiving
   method: left
   unit_prefix: k
   round: 2
 - platform: integration
-  unique_id: evcc_average_grid_delivery_power
-  name: evcc_average_grid_delivery_power
-  source: sensor.evcc_grid_delivery_power
+  unique_id: evcc_gridpower_distributing_total
+  name: evcc_gridpower_distributing_total
+  source: sensor.evcc_gridpower_distributing
   method: left
   unit_prefix: k
   round: 2
 - platform: integration
-  unique_id: evcc_average_pv_delivery_power
-  name: evcc_average_pv_delivery_power
-  source: sensor.evcc_pv_delivery_power
+  unique_id: evcc_batterypower_charging_total
+  name: evcc_batterypower_charging_total
+  source: sensor.evcc_batterypower_charging
   method: left
   unit_prefix: k
   round: 2
 - platform: integration
-  unique_id: evcc_average_battery_charging_power
-  name: evcc_average_battery_charging_power
-  source: sensor.evcc_battery_charging_power
-  method: left
-  unit_prefix: k
-  round: 2
-- platform: integration
-  unique_id: evcc_average_battery_discharging_power
-  name: evcc_average_battery_discharging_power
-  source: sensor.evcc_battery_discharging_power
-  method: left
-  unit_prefix: k
-  round: 2
-- platform: integration
-  unique_id: evcc_average_home_consumption_power
-  name: evcc_average_home_consumption_power
-  source: sensor.evcc_home_consumption_power
-  method: left
-  unit_prefix: k
-  round: 2
-- platform: integration
-  unique_id: evcc_average_home_consumption_without_devices_power
-  name: evcc_average_home_consumption_without_devices_power
-  source: sensor.evcc_home_consumption_power
-  method: left
-  unit_prefix: k
-  round: 2
-- platform: integration
-  unique_id: evcc_average_wallbox_charging_power
-  name: evcc_average_wallbox_charging_power
-  source: sensor.evcc_wallbox_charging_power
-  method: left
-  unit_prefix: k
-  round: 2
-- platform: integration
-  unique_id: evcc_average_green_power
-  name: evcc_average_green_power
-  source: sensor.evcc_green_power
+  unique_id: evcc_batterypower_discharging_total
+  name: evcc_batterypower_discharging_total
+  source: sensor.evcc_batterypower_discharging
   method: left
   unit_prefix: k
   round: 2
