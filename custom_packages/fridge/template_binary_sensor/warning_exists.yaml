@@ -1,9 +1,0 @@
-# Template binary sensors:
-
-- unique_id: frdige_warning_exists
-  name: fridge_warning_exists
-  state: |-
-    {{-
-      states('sensor.kuehlschrank_frischluftfilter') != none
-      and is_state('sensor.kuehlschrank_frischluftfilter', 'replace')
-    -}}

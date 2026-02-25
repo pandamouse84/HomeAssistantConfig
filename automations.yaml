@@ -18,3 +18,22 @@
       entity_id: scene.arbeit
     data: {}
   mode: single
+- id: '1772034110361'
+  alias: 'Update Sensors: addon_running_states'
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    seconds: /10
+  conditions: []
+  actions:
+  - action: homeassistant.update_entity
+    metadata: {}
+    data:
+      entity_id:
+      - binary_sensor.sqlite_web_lauft
+  - action: homeassistant.update_entity
+    metadata: {}
+    data:
+      entity_id:
+      - binary_sensor.studio_code_server_lauft
+  mode: single

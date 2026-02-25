@@ -1,3 +1,0 @@
-# Friendly names for binary sensors
-binary_sensor.fridge_warning_exists:
-  friendly_name: "Kühlschrank meldet Fehler"
