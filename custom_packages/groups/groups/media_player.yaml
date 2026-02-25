@@ -1,8 +1,0 @@
-# Group media players
-- platform: group
-  unique_id: all_media_players
-  name: all_media_players
-  entities:
-    - media_player.appletv_esszimmer
-    - media_player.appletv_wohnzimmer
-    - media_player.fernseher_in_der_bibliothek
