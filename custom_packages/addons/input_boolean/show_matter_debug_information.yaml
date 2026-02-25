@@ -8,6 +8,6 @@
 # 2024-08-07   FZE           Initial release
 # =========================================================================
 # </remarks>
-show_matter_debug_information:
-  name: show_matter_debug_information
+show_matter_debug_information2:
+  name: show_matter_debug_information2
   icon: mdi:eye

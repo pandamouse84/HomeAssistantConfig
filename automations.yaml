@@ -1,1 +1,20 @@
-[]
+- id: '1767814546683'
+  alias: 'Bibliothek Hub: Wenn Taste Arbeit gedrückt dann Szene Arbeit'
+  description: ''
+  triggers:
+  - trigger: event
+    event_type: ''
+  - trigger: state
+    entity_id:
+    - event.hub_bibliothek_button_arbeit_taste
+    attribute: event_type
+    to:
+    - initial_press
+  conditions: []
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.arbeit
+    data: {}
+  mode: single
