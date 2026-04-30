@@ -1,6 +1,4 @@
 automation: !include_dir_merge_list automation/
-input_number: !include_dir_merge_named input_number/
-sensor: !include_dir_merge_list sensor/
 switch:
   - platform: template
     switches: !include_dir_merge_named switch/
