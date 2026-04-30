@@ -1,4 +1,3 @@
-degu_light: !include degu_light/configuration.yaml
 elgato: !include elgato/configuration.yaml
 eve_motion: !include eve_motion/configuration.yaml
 eve_thermo: !include eve_thermo/configuration.yaml
