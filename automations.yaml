@@ -152,7 +152,7 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.turen
+    - binary_sensor.alle_turen
     to:
     - 'on'
     for:
@@ -161,7 +161,7 @@
       seconds: 0
   - trigger: state
     entity_id:
-    - binary_sensor.fenster
+    - binary_sensor.alle_fenster
     to:
     - 'on'
     for:

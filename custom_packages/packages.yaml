@@ -1,4 +1,3 @@
-apsystems_ez1: !include apsystems_ez1/configuration.yaml
 degu_light: !include degu_light/configuration.yaml
 elgato: !include elgato/configuration.yaml
 eve_motion: !include eve_motion/configuration.yaml
