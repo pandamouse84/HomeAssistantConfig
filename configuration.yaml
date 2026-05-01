@@ -19,6 +19,7 @@ frontend:
 # Load configurations
 scene: !include scenes.yaml
 automation: !include automations.yaml
+script: !include scripts.yaml
 
 logger:
   default: warn

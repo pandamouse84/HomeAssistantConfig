@@ -1,0 +1,164 @@
+szene_wohnzimmer_fernsehen:
+  sequence:
+  - sequence:
+    - action: light.turn_on
+      metadata: {}
+      target:
+        device_id: ab08bbdf3ba87bfdccd58db7a6bbde35
+      data:
+        brightness_pct: 1
+        effect: Wohnzimmer Ambiente
+    - action: light.turn_on
+      metadata: {}
+      target:
+        device_id: ab08bbdf3ba87bfdccd58db7a6bbde35
+      data:
+        brightness_pct: 20
+        effect: Wohnzimmer Ambiente
+        transition: 10
+    - if:
+      - condition: state
+        entity_id: switch.steckdose_bibliothek
+        state:
+        - 'off'
+      then:
+      - action: switch.turn_on
+        metadata: {}
+        target:
+          device_id: 87b0cc2ac8aeede6181a97f09cb87811
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 4
+          milliseconds: 0
+    - action: remote.turn_on
+      metadata: {}
+      target:
+        device_id: a8038c0dab43f1dde8cac0f3f5e4f47c
+      data: {}
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 3
+        milliseconds: 0
+    - action: remote.send_command
+      metadata: {}
+      target:
+        device_id: a8038c0dab43f1dde8cac0f3f5e4f47c
+      data:
+        command:
+        - home
+  alias: 'Szene: Wohnzimmer Fernsehen'
+  description: ''
+  icon: mdi:television
+neues_skript:
+  sequence:
+  - sequence:
+    - action: light.turn_on
+      metadata: {}
+      target:
+        device_id: ab08bbdf3ba87bfdccd58db7a6bbde35
+      data:
+        brightness_pct: 1
+        effect: Wohnzimmer Ambiente
+    - action: light.turn_on
+      metadata: {}
+      target:
+        device_id: ab08bbdf3ba87bfdccd58db7a6bbde35
+      data:
+        brightness_pct: 20
+        effect: Wohnzimmer Ambiente
+        transition: 10
+    - if:
+      - condition: device
+        type: is_off
+        device_id: ce0306da09d94ab317b81b340cbfaef6
+        entity_id: 47849ce5fa789737bec014f7a2ff2393
+        domain: switch
+      then:
+      - action: switch.turn_on
+        metadata: {}
+        target:
+          device_id: ce0306da09d94ab317b81b340cbfaef6
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 4
+          milliseconds: 0
+    - action: remote.turn_on
+      metadata: {}
+      target:
+        device_id: a8038c0dab43f1dde8cac0f3f5e4f47c
+      data: {}
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 3
+        milliseconds: 0
+    - action: remote.send_command
+      metadata: {}
+      target:
+        device_id: a8038c0dab43f1dde8cac0f3f5e4f47c
+      data:
+        command:
+        - home
+  alias: 'Szenen: Wohnzimmer - Fernsehen'
+  description: ''
+  icon: mdi:television
+szenen_wohnzimmer_fernsehen:
+  sequence:
+  - sequence:
+    - action: light.turn_on
+      metadata: {}
+      target:
+        device_id: ab08bbdf3ba87bfdccd58db7a6bbde35
+      data:
+        brightness_pct: 1
+        effect: Wohnzimmer Ambiente
+    - action: light.turn_on
+      metadata: {}
+      target:
+        device_id: ab08bbdf3ba87bfdccd58db7a6bbde35
+      data:
+        brightness_pct: 20
+        effect: Wohnzimmer Ambiente
+        transition: 10
+    - if:
+      - condition: device
+        type: is_off
+        device_id: ce0306da09d94ab317b81b340cbfaef6
+        entity_id: 47849ce5fa789737bec014f7a2ff2393
+        domain: switch
+      then:
+      - action: switch.turn_on
+        metadata: {}
+        target:
+          device_id: ce0306da09d94ab317b81b340cbfaef6
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 4
+          milliseconds: 0
+    - action: remote.turn_on
+      metadata: {}
+      target:
+        device_id: a8038c0dab43f1dde8cac0f3f5e4f47c
+      data: {}
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 3
+        milliseconds: 0
+    - action: remote.send_command
+      metadata: {}
+      target:
+        device_id: a8038c0dab43f1dde8cac0f3f5e4f47c
+      data:
+        command:
+        - home
+  alias: 'Szenen: Wohnzimmer - Fernsehen'
+  description: ''
+  icon: mdi:television

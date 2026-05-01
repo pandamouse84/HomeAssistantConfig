@@ -912,9 +912,8 @@
       brightness_pct: 10
   mode: single
 - id: '1777609069715'
-  alias: 'Leuchten: Licht Wohnzimmer einschalten'
-  description: Schaltet das Licht im Wohnzimmer ein, sobald der Strom eingeschaltet
-    wird.
+  alias: 'Szenen: Szene Wohnzimmer starten'
+  description: Startet die Wohnzimmer Szene, sobald der Strom eingeschaltet wird.
   triggers:
   - entity_id:
     - switch.steckdose_bibliothek
