@@ -1,2 +1,0 @@
-notify: !include groups/notify.yaml
-switch: !include groups/switch.yaml

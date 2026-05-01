@@ -1,8 +1,0 @@
-scene_homework_toggle:
-  icon_template: mdi:content-cut
-  value_template: "{{- false -}}"
-  turn_on:
-    service: switch.toggle
-    target:
-      entity_id: switch.scene_homework
-  turn_off:
