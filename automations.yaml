@@ -744,3 +744,43 @@
       entity_id: valve.heizen_bibliothek
     data: {}
   mode: single
+- id: '1777607743528'
+  alias: 'Thermostate: Heizung Badezimmer OG runterfahren'
+  description: Senkt die Temperatur der Heizung im Badezimmer OG auf das eingestellte
+    Minimum.
+  triggers:
+  - event_type: timer.finished
+    event_data:
+      entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
+    trigger: event
+  - event_type: timer.cancelled
+    event_data:
+      entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
+    trigger: event
+  conditions: []
+  actions:
+  - action: valve.close_valve
+    target:
+      entity_id: valve.heizen_badezimmer_og
+    data: {}
+  mode: single
+- id: '1777607795723'
+  alias: 'Thermostate: Heizung Schlafzimmer runterfahren'
+  description: Senkt die Temperatur der Heizung im Schlafzimmer auf das eingestellte
+    Minimum.
+  triggers:
+  - event_type: timer.finished
+    event_data:
+      entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
+    trigger: event
+  - event_type: timer.cancelled
+    event_data:
+      entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
+    trigger: event
+  conditions: []
+  actions:
+  - action: valve.close_valve
+    target:
+      entity_id: valve.heizen_schlafzimmer
+    data: {}
+  mode: single
