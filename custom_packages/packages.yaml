@@ -1,4 +1,3 @@
-elgato: !include elgato/configuration.yaml
 eve_motion: !include eve_motion/configuration.yaml
 external_access: !include external_access/configuration.yaml
 garden_pump: !include garden_pump/configuration.yaml

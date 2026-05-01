@@ -784,3 +784,150 @@
       entity_id: valve.heizen_schlafzimmer
     data: {}
   mode: single
+- id: '1777608480895'
+  alias: 'Leuchten: Licht Bibliothek ausschalten'
+  description: Schaltet das Licht in der Bibliothek aus, sobald der Strom ausgeschaltet
+    wird.
+  triggers:
+  - entity_id: switch.steckdose_bibliothek
+    to: 'off'
+    trigger: state
+  conditions: []
+  actions:
+  - target:
+      area_id: bibliothek
+    data:
+      transition: 5
+    action: light.turn_off
+  mode: single
+- id: '1777608647782'
+  alias: 'Leuchten: Licht Wohnzimmer ausschalten'
+  description: Schaltet das Licht im Wohnzimmer aus, sobald der Strom ausgeschaltet
+    wird.
+  triggers:
+  - entity_id: switch.steckdose_bibliothek
+    to: 'off'
+    trigger: state
+  conditions: []
+  actions:
+  - target:
+      area_id: wohnzimmer
+    data:
+      transition: 5
+    action: light.turn_off
+  mode: single
+- id: '1777608699714'
+  alias: 'Leuchten: Licht Sauna ausschalten'
+  description: Schaltet das Licht in der Sauna aus, sobald der Strom ausgeschaltet
+    wird.
+  triggers:
+  - entity_id:
+    - switch.steckdose_sauna
+    to:
+    - 'off'
+    trigger: state
+  conditions: []
+  actions:
+  - target:
+      area_id: sauna
+    data:
+      transition: 5
+    action: light.turn_off
+  mode: single
+- id: '1777608780261'
+  alias: 'Leuchten: Licht Sauna einschalten'
+  description: Schaltet das Licht in der Sauna ein, sobald der Strom eingeschaltet
+    wird.
+  triggers:
+  - entity_id:
+    - switch.steckdose_sauna
+    to:
+    - 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - action: light.turn_on
+    target:
+      area_id:
+      - sauna
+    data:
+      transition: 5
+      brightness_pct: 10
+  mode: single
+- id: '1777608906536'
+  alias: 'Leuchten: Licht Esszimmer ausschalten'
+  description: Schaltet das Licht im Esszimmer aus, sobald der Strom ausgeschaltet
+    wird.
+  triggers:
+  - entity_id:
+    - switch.steckdose_esszimmer
+    to:
+    - 'off'
+    trigger: state
+  conditions: []
+  actions:
+  - target:
+      area_id: esszimmer
+    data:
+      transition: 5
+    action: light.turn_off
+  mode: single
+- id: '1777608946436'
+  alias: 'Leuchten: Licht Esszimmer einschalten'
+  description: Schaltet das Licht im Esszimmer ein, sobald der Strom eingeschaltet
+    wird.
+  triggers:
+  - entity_id:
+    - switch.steckdose_esszimmer
+    to:
+    - 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - action: light.turn_on
+    target:
+      area_id:
+      - esszimmer
+    data:
+      transition: 5
+      brightness_pct: 10
+  mode: single
+- id: '1777609013201'
+  alias: 'Leuchten: Licht Bibliothek einschalten'
+  description: Schaltet das Licht in der Bibliothek ein, sobald der Strom eingeschaltet
+    wird.
+  triggers:
+  - entity_id:
+    - switch.steckdose_bibliothek
+    to:
+    - 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - action: light.turn_on
+    target:
+      area_id: bibliothek
+    data:
+      transition: 5
+      brightness_pct: 10
+  mode: single
+- id: '1777609069715'
+  alias: 'Leuchten: Licht Wohnzimmer einschalten'
+  description: Schaltet das Licht im Wohnzimmer ein, sobald der Strom eingeschaltet
+    wird.
+  triggers:
+  - entity_id:
+    - switch.steckdose_bibliothek
+    to:
+    - 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - action: light.turn_on
+    target:
+      area_id:
+      - wohnzimmer
+    data:
+      transition: 5
+      brightness_pct: 10
+  mode: single
