@@ -17,17 +17,3 @@
   name: all_hotspots
   entities:
     - switch.fritz_box_7590_wi_fi_fritz_hotspot
-- platform: group
-  unique_id: all_thermostates
-  name: all_thermostates
-  entities:
-    - switch.eve_thermo_badezimmer_eg_status
-    - switch.eve_thermo_badezimmer_og_status
-    - switch.eve_thermo_bibliothek_status
-    - switch.eve_thermo_esszimmer_status
-    - switch.eve_thermo_flur_status
-    - switch.eve_thermo_kinderzimmer_status
-    - switch.eve_thermo_kueche_status
-    - switch.eve_thermo_naehzimmer_status
-    - switch.eve_thermo_schlafzimmer_status
-    - switch.eve_thermo_wohnzimmer_status
