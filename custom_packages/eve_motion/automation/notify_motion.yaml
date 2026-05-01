@@ -47,14 +47,14 @@
               - service: scene.create
                 data:
                   snapshot_entities:
-                    - light.licht_bibliothek
+                    - light.alle_leuchten_bibliothek
                   scene_id: eve_motion_carport_notify_revert_bibliothek
               - repeat:
                   count: 1
                   sequence:
                     - service: light.turn_on
                       target:
-                        entity_id: light.licht_bibliothek
+                        entity_id: light.alle_leuchten_bibliothek
                       data:
                         brightness_pct: 60
                         flash: short
@@ -62,7 +62,7 @@
                     - delay: 1
                     - service: light.turn_off
                       target:
-                        entity_id: light.licht_bibliothek
+                        entity_id: light.alle_leuchten_bibliothek
                     - delay: 1
               - service: scene.turn_on
                 data:

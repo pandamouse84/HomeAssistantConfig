@@ -8,6 +8,6 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.bibliothek
+        entity_id: light.alle_leuchten_bibliothek
       data:
         transition: 5

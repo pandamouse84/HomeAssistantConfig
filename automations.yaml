@@ -120,21 +120,21 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.alle_fenster
+    - binary_sensor.alle_fenster_haus
     to:
     - 'off'
   - trigger: state
     entity_id:
-    - binary_sensor.alle_turen
+    - binary_sensor.alle_tueren_haus
     to:
     - 'off'
   conditions:
   - condition: state
-    entity_id: binary_sensor.alle_fenster
+    entity_id: binary_sensor.alle_fenster_haus
     state:
     - 'off'
   - condition: state
-    entity_id: binary_sensor.alle_turen
+    entity_id: binary_sensor.alle_tueren_haus
     state:
     - 'off'
   actions:
@@ -152,7 +152,7 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.alle_turen
+    - binary_sensor.alle_tueren_haus
     to:
     - 'on'
     for:
@@ -161,7 +161,7 @@
       seconds: 0
   - trigger: state
     entity_id:
-    - binary_sensor.alle_fenster
+    - binary_sensor.alle_fenster_haus
     to:
     - 'on'
     for:
@@ -183,11 +183,11 @@
     - condition: or
       conditions:
       - condition: state
-        entity_id: binary_sensor.alle_turen
+        entity_id: binary_sensor.alle_tueren_haus
         state:
         - 'on'
       - condition: state
-        entity_id: binary_sensor.alle_fenster
+        entity_id: binary_sensor.alle_fenster_haus
         state:
         - 'on'
   actions:
