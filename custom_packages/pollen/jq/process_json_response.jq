@@ -29,7 +29,7 @@ $raw.content |
         null
     end) as $content |
 $content.Pollen |
-    (try with_entries(.value |= with_entries(.value |= . as $item | ($legend[] | select(.id == $item)))) catch null) as $pollen |
+    (try with_entries(.value |= with_entries(.value |= .)) catch null) as $pollen |
 (if $legend == null or $pollen == null then "ERROR" else "OK" end) as $status |
 (if $status == "OK" then 
     {
@@ -42,7 +42,8 @@ $content.Pollen |
         last_update: $raw.last_update,
         next_update: $raw.next_update,
         legend: $legend,
-        content: $pollen
+        content: $pollen,
+        raw: $content
     }
 else null end ) as $response |
 {
