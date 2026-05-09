@@ -12,15 +12,12 @@ input? // null |
     map(
         . as $idnum |
         {
-            ($raw.legend["id" + $idnum]):
-                {
-                    id: ($raw.legend["id" + $idnum]),
-                    description: ($raw.legend["id" + $idnum + "_desc"]),
-                    severity: ($idnum | tonumber - 1)
-                }
+            id: ($raw.legend["id" + $idnum]),
+            description: ($raw.legend["id" + $idnum + "_desc"]),
+            severity: ($idnum | tonumber - 1)
         }
-    ) |
-    add
+    )
+    | flatten
 ) as $legend |
 $raw.content |
     try .[] catch null |
@@ -31,7 +28,7 @@ $raw.content |
         null
     end) as $content |
 $content.Pollen |
-    (try with_entries(.value |= with_entries(.value |= $legend[.])) catch null) as $pollen |
+    (try with_entries(.value |= with_entries(.value |= (. as $pollenValue | $legend[] | select(.id == $pollenValue)))) catch null) as $pollen |
 (if $legend == null or $pollen == null then "ERROR" else "OK" end) as $status |
 (if $status == "OK" then 
     {
