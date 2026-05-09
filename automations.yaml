@@ -1,795 +1,790 @@
-- id: '1772037656469'
-  alias: 'Update Sensor: door_window_remaining_time'
-  description: ''
+- id: "1772037656469"
+  alias: "Update Sensor: door_window_remaining_time"
+  description: ""
   triggers:
-  - trigger: time_pattern
-    seconds: /1
+    - trigger: time_pattern
+      seconds: /1
   conditions:
-  - condition: state
-    entity_id: timer.door_window_reset_alarm
-    state:
-    - active
-  actions:
-  - action: homeassistant.update_entity
-    metadata: {}
-    data:
-      entity_id:
-      - sensor.door_window_remaining_time
-  mode: single
-- id: '1772037903349'
-  alias: 'Tür & Fenster Alarm: Countdown zum reaktivieren starten'
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - input_boolean.door_window_alarm_disabled
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: timer.start
-    metadata: {}
-    target:
+    - condition: state
       entity_id: timer.door_window_reset_alarm
-    data: {}
-  mode: single
-- id: '1772038407252'
-  alias: 'Tür & Fenster Alarm: Reaktivieren'
-  description: ''
-  triggers:
-  - trigger: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.door_window_reset_alarm
-  - trigger: event
-    event_type: timer.cancelled
-    event_data:
-      entity_id: timer.door_window_reset_alarm
-  conditions: []
+      state:
+        - active
   actions:
-  - action: input_boolean.turn_off
-    metadata: {}
-    target:
-      entity_id: input_boolean.door_window_alarm_disabled
-    data: {}
-  mode: single
-- id: '1772038806959'
-  alias: 'Tür & Fenster Alarm: Countdown zum reaktivieren abbrechen'
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - input_boolean.door_window_alarm_disabled
-    to:
-    - 'off'
-  - trigger: state
-    entity_id:
-    - zone.home
-    to:
-    - '0'
-  conditions: []
-  actions:
-  - action: timer.cancel
-    metadata: {}
-    target:
-      entity_id: timer.door_window_reset_alarm
-    data: {}
-  mode: single
-- id: '1772040225277'
-  alias: 'Alle Türen/Fenster geschlossen: Meldung löschen'
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.alle_fenster_haus
-    to:
-    - 'off'
-  - trigger: state
-    entity_id:
-    - binary_sensor.alle_tueren_haus
-    to:
-    - 'off'
-  conditions:
-  - condition: state
-    entity_id: binary_sensor.alle_fenster_haus
-    state:
-    - 'off'
-  - condition: state
-    entity_id: binary_sensor.alle_tueren_haus
-    state:
-    - 'off'
-  actions:
-  - action: notify.all_mobile_apps
-    metadata: {}
-    data:
-      message: clear_notification
+    - action: homeassistant.update_entity
+      metadata: {}
       data:
-        tag: ha_doorwindow
+        entity_id:
+          - sensor.door_window_remaining_time
+  mode: single
+- id: "1772037903349"
+  alias: "Tür & Fenster Alarm: Countdown zum reaktivieren starten"
+  description: ""
+  triggers:
+    - trigger: state
+      entity_id:
+        - input_boolean.door_window_alarm_disabled
+      to:
+        - "on"
+  conditions: []
+  actions:
+    - action: timer.start
+      metadata: {}
+      target:
+        entity_id: timer.door_window_reset_alarm
+      data: {}
+  mode: single
+- id: "1772038407252"
+  alias: "Tür & Fenster Alarm: Reaktivieren"
+  description: ""
+  triggers:
+    - trigger: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.door_window_reset_alarm
+    - trigger: event
+      event_type: timer.cancelled
+      event_data:
+        entity_id: timer.door_window_reset_alarm
+  conditions: []
+  actions:
+    - action: input_boolean.turn_off
+      metadata: {}
+      target:
+        entity_id: input_boolean.door_window_alarm_disabled
+      data: {}
+  mode: single
+- id: "1772038806959"
+  alias: "Tür & Fenster Alarm: Countdown zum reaktivieren abbrechen"
+  description: ""
+  triggers:
+    - trigger: state
+      entity_id:
+        - input_boolean.door_window_alarm_disabled
+      to:
+        - "off"
+    - trigger: state
+      entity_id:
+        - zone.home
+      to:
+        - "0"
+  conditions: []
+  actions:
+    - action: timer.cancel
+      metadata: {}
+      target:
+        entity_id: timer.door_window_reset_alarm
+      data: {}
+  mode: single
+- id: "1772040225277"
+  alias: "Alle Türen/Fenster geschlossen: Meldung löschen"
+  description: ""
+  triggers:
+    - trigger: state
+      entity_id:
+        - binary_sensor.alle_fenster_haus
+      to:
+        - "off"
+    - trigger: state
+      entity_id:
+        - binary_sensor.alle_tueren_haus
+      to:
+        - "off"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.alle_fenster_haus
+      state:
+        - "off"
+    - condition: state
+      entity_id: binary_sensor.alle_tueren_haus
+      state:
+        - "off"
+  actions:
+    - action: notify.all_mobile_apps
+      metadata: {}
+      data:
+        message: clear_notification
+        data:
+          tag: ha_doorwindow
   mode: parallel
   max: 10
-- id: '1777604728286'
-  alias: 'Thermostate: Heizung Badezimmer OG abschalten'
+- id: "1777604728286"
+  alias: "Thermostate: Heizung Badezimmer OG abschalten"
   description: Schaltet die Thermostate im Badezimmer OG ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_badezimmer_og
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_badezimmer_og
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: badezimmer_og
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: badezimmer_og
+      data: {}
   mode: single
-- id: '1777604840760'
-  alias: 'Thermostate: Heizung Badezimmer EG abschalten'
+- id: "1777604840760"
+  alias: "Thermostate: Heizung Badezimmer EG abschalten"
   description: Schaltet die Thermostate im Badezimmer EG ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_badezimmer_eg
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_badezimmer_eg
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: badezimmer_eg
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: badezimmer_eg
+      data: {}
   mode: single
-- id: '1777604982944'
-  alias: 'Thermostate: Heizung Bibliothek abschalten'
+- id: "1777604982944"
+  alias: "Thermostate: Heizung Bibliothek abschalten"
   description: Schaltet die Thermostate in der Bibliothek ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_bibliothek
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_bibliothek
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: bibliothek
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: bibliothek
+      data: {}
   mode: single
-- id: '1777605020181'
-  alias: 'Thermostate: Heizung Esszimmer abschalten'
+- id: "1777605020181"
+  alias: "Thermostate: Heizung Esszimmer abschalten"
   description: Schaltet die Thermostate im Esszimmer ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_esszimmer
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_esszimmer
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: esszimmer
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: esszimmer
+      data: {}
   mode: single
-- id: '1777605053742'
-  alias: 'Thermostate: Heizung Kíndenzimmer abschalten'
+- id: "1777605053742"
+  alias: "Thermostate: Heizung Kíndenzimmer abschalten"
   description: Schaltet die Thermostate im Kindenzimmer ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_kinderzimmer
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_kinderzimmer
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: kinderzimmer
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: kinderzimmer
+      data: {}
   mode: single
-- id: '1777605085379'
-  alias: 'Thermostate: Heizung Küche abschalten'
+- id: "1777605085379"
+  alias: "Thermostate: Heizung Küche abschalten"
   description: Schaltet die Thermostate in der Küche ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_kueche
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_kueche
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: kuche
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: kuche
+      data: {}
   mode: single
-- id: '1777605116289'
-  alias: 'Thermostate: Heizung Nähzimmer abschalten'
+- id: "1777605116289"
+  alias: "Thermostate: Heizung Nähzimmer abschalten"
   description: Schaltet die Thermostate im Nähzimmer ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_naehzimmer
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_naehzimmer
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: nahzimmer
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: nahzimmer
+      data: {}
   mode: single
-- id: '1777605150850'
-  alias: 'Thermostate: Heizung Schlafzimmer abschalten'
+- id: "1777605150850"
+  alias: "Thermostate: Heizung Schlafzimmer abschalten"
   description: Schaltet die Thermostate im Schlafzimmer ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_schlafzimmer
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_schlafzimmer
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: schlafzimmer
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: schlafzimmer
+      data: {}
   mode: single
-- id: '1777605178086'
-  alias: 'Thermostate: Heizung Wohnzimmer abschalten'
+- id: "1777605178086"
+  alias: "Thermostate: Heizung Wohnzimmer abschalten"
   description: Schaltet die Thermostate im Wohnzimmer ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_wohnzimmer
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_wohnzimmer
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: wohnzimmer
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: wohnzimmer
+      data: {}
   mode: single
-- id: '1777605318766'
-  alias: 'Thermostate: Heizung Flur EG abschalten'
+- id: "1777605318766"
+  alias: "Thermostate: Heizung Flur EG abschalten"
   description: Schaltet die Thermostate im Flur EG ab.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_flur_eg
-    to:
-    - 'off'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_flur_eg
+      to:
+        - "off"
   conditions: []
   actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: flur_eg
-    data: {}
+    - action: climate.turn_off
+      metadata: {}
+      target:
+        area_id: flur_eg
+      data: {}
   mode: single
-- id: '1777605440492'
-  alias: 'Thermostate: Heizung Badezimmer EG einschalten'
+- id: "1777605440492"
+  alias: "Thermostate: Heizung Badezimmer EG einschalten"
   description: Schaltet die Thermostate im Badezimmer EG ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_badezimmer_eg
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_badezimmer_eg
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: badezimmer_eg
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: badezimmer_eg
+      data: {}
   mode: single
-- id: '1777605488291'
-  alias: 'Thermostate: Heizung Badezimmer OG einschalten'
+- id: "1777605488291"
+  alias: "Thermostate: Heizung Badezimmer OG einschalten"
   description: Schaltet die Thermostate im Badezimmer OG ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_badezimmer_og
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_badezimmer_og
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: badezimmer_og
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: badezimmer_og
+      data: {}
   mode: single
-- id: '1777605510150'
-  alias: 'Thermostate: Heizung Bibliothek einschalten'
+- id: "1777605510150"
+  alias: "Thermostate: Heizung Bibliothek einschalten"
   description: Schaltet die Thermostate in der Bibliothek  ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_bibliothek
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_bibliothek
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: bibliothek
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: bibliothek
+      data: {}
   mode: single
-- id: '1777605553430'
-  alias: 'Thermostate: Heizung Esszimmer einschalten'
+- id: "1777605553430"
+  alias: "Thermostate: Heizung Esszimmer einschalten"
   description: Schaltet die Thermostate im Esszimmer ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_esszimmer
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_esszimmer
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: esszimmer
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: esszimmer
+      data: {}
   mode: single
-- id: '1777605586686'
-  alias: 'Thermostate: Heizung Flur EG einschalten'
+- id: "1777605586686"
+  alias: "Thermostate: Heizung Flur EG einschalten"
   description: Schaltet die Thermostate im Flur EG ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_flur_eg
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_flur_eg
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: flur_eg
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: flur_eg
+      data: {}
   mode: single
-- id: '1777605627977'
-  alias: 'Thermostate: Heizung Kinderzimmer einschalten'
+- id: "1777605627977"
+  alias: "Thermostate: Heizung Kinderzimmer einschalten"
   description: Schaltet die Thermostate im Kinderzimmer ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_kinderzimmer
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_kinderzimmer
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: kinderzimmer
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: kinderzimmer
+      data: {}
   mode: single
-- id: '1777605665597'
-  alias: 'Thermostate: Heizung Küche einschalten'
+- id: "1777605665597"
+  alias: "Thermostate: Heizung Küche einschalten"
   description: Schaltet die Thermostate in der Küche ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_kueche
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_kueche
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: kuche
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: kuche
+      data: {}
   mode: single
-- id: '1777605697269'
-  alias: 'Thermostate: Heizung Nähzimmer einschalten'
+- id: "1777605697269"
+  alias: "Thermostate: Heizung Nähzimmer einschalten"
   description: Schaltet die Thermostate im Nähzimmer ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_naehzimmer
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_naehzimmer
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: nahzimmer
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: nahzimmer
+      data: {}
   mode: single
-- id: '1777605733473'
-  alias: 'Thermostate: Heizung Schlafzimmer einschalten'
+- id: "1777605733473"
+  alias: "Thermostate: Heizung Schlafzimmer einschalten"
   description: Schaltet die Thermostate im Schlafzimmer ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_schlafzimmer
-    to:
-    - 'on'
+    - trigger: state
+      entity_id:
+        - binary_sensor.heizung_schlafzimmer
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: schlafzimmer
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: schlafzimmer
+      data: {}
   mode: single
-- id: '1777605777041'
-  alias: 'Thermostate: Heizung Wohnzimmer einschalten'
+- id: "1777605777041"
+  alias: "Thermostate: Heizung Wohnzimmer einschalten"
   description: Schaltet die Thermostate im Wohnzimmer ein.
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.heizung_wohnzimmer
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: climate.turn_on
-    metadata: {}
-    target:
-      area_id: wohnzimmer
-    data: {}
-  mode: single
-- id: '1777606322550'
-  alias: 'Thermostate: Heizung Badezimmer OG hochfahren'
-  description: Erhöht die Temperatur der Heizung im Badezimmer OG auf das eingestellte
-    Maximum.
-  triggers:
-  - event_type: timer.started
-    event_data:
-      entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
-    trigger: event
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_badezimmer_og
-    data: {}
-  mode: single
-- id: '1777606418710'
-  alias: 'Thermostate: Heizung Schlafzimmer hochfahren'
-  description: Erhöht die Temperatur der Heizung im Schlafzimmer auf das eingestellte
-    Maximum.
-  triggers:
-  - event_type: timer.started
-    event_data:
-      entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
-    trigger: event
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_schlafzimmer
-    data: {}
-  mode: single
-- id: '1777606523592'
-  alias: 'Thermostate: Heizung Bibliothek hochfahren'
-  description: Erhöht die Temperatur der Heizung in der Bibliothek auf das eingestellte
-    Maximum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_bibliothek
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_bibliothek
-    data: {}
-  mode: single
-- id: '1777606583431'
-  alias: 'Thermostate: Heizung Nähzimmer hochfahren'
-  description: Erhöht die Temperatur der Heizung im Nähzimmer auf das eingestellte
-    Maximum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_naehzimmer
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_naehzimmer
-    data: {}
-  mode: single
-- id: '1777606748794'
-  alias: 'Thermostate: Heizung Esszimmer hochfahren'
-  description: Erhöht die Temperatur der Heizung im Esszimmer auf das eingestellte
-    Maximum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_esszimmer
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_esszimmer
-    data: {}
-  mode: single
-- id: '1777606748794'
-  alias: 'Thermostate: Heizung Wohnzimmer hochfahren'
-  description: Erhöht die Temperatur der Heizung im Wohnzimmer auf das eingestellte
-    Maximum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_wohnzimmer
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_wohnzimmer
-    data: {}
-  mode: single
-- id: '1777606922039'
-  alias: 'Thermostate: Heizung Wohnzimmer hochfahren'
-  description: Erhöht die Temperatur der Heizung im Wohnzimmer auf das eingestellte
-    Maximum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_wohnzimmer
-    to:
-    - 'on'
-  conditions: []
-  actions:
-  - action: valve.open_valve
-    target:
-      entity_id: valve.heizen_wohnzimmer
-    data: {}
-  mode: single
-- id: '1777606962819'
-  alias: 'Thermostate: Heizung Wohnzimmer runterfahren'
-  description: Senkt die Temperatur der Heizung im Wohnzimmer auf das eingestellte
-    Minimum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_wohnzimmer
-    to:
-    - 'off'
-  conditions: []
-  actions:
-  - action: valve.close_valve
-    target:
+    - trigger: state
       entity_id:
-      - valve.heizen_wohnzimmer
-    data: {}
-  mode: single
-- id: '1777607007461'
-  alias: 'Thermostate: Heizung Esszimmer runterfahren'
-  description: Senkt die Temperatur der Heizung im Esszimmer auf das eingestellte
-    Minimum.
-  triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_esszimmer
-    to:
-    - 'off'
+        - binary_sensor.heizung_wohnzimmer
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: valve.close_valve
-    target:
-      entity_id: valve.heizen_esszimmer
-    data: {}
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        area_id: wohnzimmer
+      data: {}
   mode: single
-- id: '1777607049152'
-  alias: 'Thermostate: Heizung Nähzimmer runterfahren'
-  description: Senkt die Temperatur der Heizung im Nähzimmer auf das eingestellte
-    Minimum.
+- id: "1777606322550"
+  alias: "Thermostate: Heizung Badezimmer OG hochfahren"
+  description:
+    Erhöht die Temperatur der Heizung im Badezimmer OG auf das eingestellte
+    Maximum.
   triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_naehzimmer
-    to:
-    - 'off'
+    - event_type: timer.started
+      event_data:
+        entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
+      trigger: event
   conditions: []
   actions:
-  - action: valve.close_valve
-    target:
-      entity_id: valve.heizen_naehzimmer
-    data: {}
+    - action: valve.open_valve
+      target:
+        entity_id: valve.heizen_badezimmer_og
+      data: {}
   mode: single
-- id: '1777607087855'
-  alias: 'Thermostate: Heizung Bibliothek runterfahren'
-  description: Senkt die Temperatur der Heizung in der Bibliothek auf das eingestellte
-    Minimum.
+- id: "1777606418710"
+  alias: "Thermostate: Heizung Schlafzimmer hochfahren"
+  description:
+    Erhöht die Temperatur der Heizung im Schlafzimmer auf das eingestellte
+    Maximum.
   triggers:
-  - trigger: state
-    entity_id:
-    - switch.steckdose_bibliothek
-    to:
-    - 'off'
+    - event_type: timer.started
+      event_data:
+        entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
+      trigger: event
   conditions: []
   actions:
-  - action: valve.close_valve
-    target:
-      entity_id: valve.heizen_bibliothek
-    data: {}
+    - action: valve.open_valve
+      target:
+        entity_id: valve.heizen_schlafzimmer
+      data: {}
   mode: single
-- id: '1777607743528'
-  alias: 'Thermostate: Heizung Badezimmer OG runterfahren'
-  description: Senkt die Temperatur der Heizung im Badezimmer OG auf das eingestellte
-    Minimum.
+- id: "1777606523592"
+  alias: "Thermostate: Heizung Bibliothek hochfahren"
+  description:
+    Erhöht die Temperatur der Heizung in der Bibliothek auf das eingestellte
+    Maximum.
   triggers:
-  - event_type: timer.finished
-    event_data:
-      entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
-    trigger: event
-  - event_type: timer.cancelled
-    event_data:
-      entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
-    trigger: event
+    - trigger: state
+      entity_id:
+        - switch.steckdose_bibliothek
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: valve.close_valve
-    target:
-      entity_id: valve.heizen_badezimmer_og
-    data: {}
+    - action: valve.open_valve
+      target:
+        entity_id: valve.heizen_bibliothek
+      data: {}
   mode: single
-- id: '1777607795723'
-  alias: 'Thermostate: Heizung Schlafzimmer runterfahren'
-  description: Senkt die Temperatur der Heizung im Schlafzimmer auf das eingestellte
-    Minimum.
+- id: "1777606583431"
+  alias: "Thermostate: Heizung Nähzimmer hochfahren"
+  description:
+    Erhöht die Temperatur der Heizung im Nähzimmer auf das eingestellte
+    Maximum.
   triggers:
-  - event_type: timer.finished
-    event_data:
-      entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
-    trigger: event
-  - event_type: timer.cancelled
-    event_data:
-      entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
-    trigger: event
+    - trigger: state
+      entity_id:
+        - switch.steckdose_naehzimmer
+      to:
+        - "on"
   conditions: []
   actions:
-  - action: valve.close_valve
-    target:
-      entity_id: valve.heizen_schlafzimmer
-    data: {}
+    - action: valve.open_valve
+      target:
+        entity_id: valve.heizen_naehzimmer
+      data: {}
   mode: single
-- id: '1777608480895'
-  alias: 'Szenen: Lade Szene Bibliothek - Aus'
+- id: "1777606748794"
+  alias: "Thermostate: Heizung Esszimmer hochfahren"
+  description:
+    Erhöht die Temperatur der Heizung im Esszimmer auf das eingestellte
+    Maximum.
+  triggers:
+    - trigger: state
+      entity_id:
+        - switch.steckdose_esszimmer
+      to:
+        - "on"
+  conditions: []
+  actions:
+    - action: valve.open_valve
+      target:
+        entity_id: valve.heizen_esszimmer
+      data: {}
+  mode: single
+- id: "1777606922039"
+  alias: "Thermostate: Heizung Wohnzimmer hochfahren"
+  description:
+    Erhöht die Temperatur der Heizung im Wohnzimmer auf das eingestellte
+    Maximum.
+  triggers:
+    - trigger: state
+      entity_id:
+        - switch.steckdose_wohnzimmer
+      to:
+        - "on"
+  conditions: []
+  actions:
+    - action: valve.open_valve
+      target:
+        entity_id: valve.heizen_wohnzimmer
+      data: {}
+  mode: single
+- id: "1777606962819"
+  alias: "Thermostate: Heizung Wohnzimmer runterfahren"
+  description:
+    Senkt die Temperatur der Heizung im Wohnzimmer auf das eingestellte
+    Minimum.
+  triggers:
+    - trigger: state
+      entity_id:
+        - switch.steckdose_wohnzimmer
+      to:
+        - "off"
+  conditions: []
+  actions:
+    - action: valve.close_valve
+      target:
+        entity_id:
+          - valve.heizen_wohnzimmer
+      data: {}
+  mode: single
+- id: "1777607007461"
+  alias: "Thermostate: Heizung Esszimmer runterfahren"
+  description:
+    Senkt die Temperatur der Heizung im Esszimmer auf das eingestellte
+    Minimum.
+  triggers:
+    - trigger: state
+      entity_id:
+        - switch.steckdose_esszimmer
+      to:
+        - "off"
+  conditions: []
+  actions:
+    - action: valve.close_valve
+      target:
+        entity_id: valve.heizen_esszimmer
+      data: {}
+  mode: single
+- id: "1777607049152"
+  alias: "Thermostate: Heizung Nähzimmer runterfahren"
+  description:
+    Senkt die Temperatur der Heizung im Nähzimmer auf das eingestellte
+    Minimum.
+  triggers:
+    - trigger: state
+      entity_id:
+        - switch.steckdose_naehzimmer
+      to:
+        - "off"
+  conditions: []
+  actions:
+    - action: valve.close_valve
+      target:
+        entity_id: valve.heizen_naehzimmer
+      data: {}
+  mode: single
+- id: "1777607087855"
+  alias: "Thermostate: Heizung Bibliothek runterfahren"
+  description:
+    Senkt die Temperatur der Heizung in der Bibliothek auf das eingestellte
+    Minimum.
+  triggers:
+    - trigger: state
+      entity_id:
+        - switch.steckdose_bibliothek
+      to:
+        - "off"
+  conditions: []
+  actions:
+    - action: valve.close_valve
+      target:
+        entity_id: valve.heizen_bibliothek
+      data: {}
+  mode: single
+- id: "1777607743528"
+  alias: "Thermostate: Heizung Badezimmer OG runterfahren"
+  description:
+    Senkt die Temperatur der Heizung im Badezimmer OG auf das eingestellte
+    Minimum.
+  triggers:
+    - event_type: timer.finished
+      event_data:
+        entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
+      trigger: event
+    - event_type: timer.cancelled
+      event_data:
+        entity_id: timer.zeitschaltuhr_heizung_abschalten_badezimmer_og
+      trigger: event
+  conditions: []
+  actions:
+    - action: valve.close_valve
+      target:
+        entity_id: valve.heizen_badezimmer_og
+      data: {}
+  mode: single
+- id: "1777607795723"
+  alias: "Thermostate: Heizung Schlafzimmer runterfahren"
+  description:
+    Senkt die Temperatur der Heizung im Schlafzimmer auf das eingestellte
+    Minimum.
+  triggers:
+    - event_type: timer.finished
+      event_data:
+        entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
+      trigger: event
+    - event_type: timer.cancelled
+      event_data:
+        entity_id: timer.zeitschaltuhr_heizung_abschalten_schlafzimmer
+      trigger: event
+  conditions: []
+  actions:
+    - action: valve.close_valve
+      target:
+        entity_id: valve.heizen_schlafzimmer
+      data: {}
+  mode: single
+- id: "1777608480895"
+  alias: "Szenen: Lade Szene Bibliothek - Aus"
   description: Lädt die Szene Aus, sobald der Strom ausgeschaltet wird.
   triggers:
-  - type: turned_off
-    device_id: 87b0cc2ac8aeede6181a97f09cb87811
-    entity_id: 5c23a04a9a39fcc52b34a8665c08bdeb
-    domain: switch
-    trigger: device
+    - type: turned_off
+      device_id: 87b0cc2ac8aeede6181a97f09cb87811
+      entity_id: 5c23a04a9a39fcc52b34a8665c08bdeb
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.szenen_bibliothek_aus
-    metadata: {}
-    data: {}
+    - action: script.szenen_bibliothek_aus
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777608780261'
-  alias: 'Szenen: Lade Szene Sauna - Musik'
+- id: "1777608780261"
+  alias: "Szenen: Lade Szene Sauna - Musik"
   description: Lädt die Szene Musik, sobald der Strom eingeschaltet wird.
   triggers:
-  - type: turned_on
-    device_id: c182a97624c521a75b2b5c1c93f0b0a9
-    entity_id: 00c1f98d28db23d077a7f407830592b7
-    domain: switch
-    trigger: device
+    - type: turned_on
+      device_id: c182a97624c521a75b2b5c1c93f0b0a9
+      entity_id: 00c1f98d28db23d077a7f407830592b7
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.szenen_sauna_musik
-    metadata: {}
-    data: {}
+    - action: script.szenen_sauna_musik
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777608946436'
-  alias: 'Szenen: Lade Szene Esszimmer - Dinner'
+- id: "1777608946436"
+  alias: "Szenen: Lade Szene Esszimmer - Dinner"
   description: Lädt die Szene Dinner, sobald der Strom eingeschaltet wird.
   triggers:
-  - type: turned_on
-    device_id: d03cc10e1f9e1bc9a3cbc6ebac9199ed
-    entity_id: c67b573347678ec515655169b5e01c02
-    domain: switch
-    trigger: device
+    - type: turned_on
+      device_id: d03cc10e1f9e1bc9a3cbc6ebac9199ed
+      entity_id: c67b573347678ec515655169b5e01c02
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.szenen_esszimmer_dinner
-    metadata: {}
-    data: {}
+    - action: script.szenen_esszimmer_dinner
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777609013201'
-  alias: 'Szenen: Lade Szene Bibliothek - Arbeit'
+- id: "1777609013201"
+  alias: "Szenen: Lade Szene Bibliothek - Arbeit"
   description: Lädt die Szene Arbeit, sobald der Strom eingeschaltet wird.
   triggers:
-  - type: turned_on
-    device_id: 87b0cc2ac8aeede6181a97f09cb87811
-    entity_id: 5c23a04a9a39fcc52b34a8665c08bdeb
-    domain: switch
-    trigger: device
+    - type: turned_on
+      device_id: 87b0cc2ac8aeede6181a97f09cb87811
+      entity_id: 5c23a04a9a39fcc52b34a8665c08bdeb
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.szenen_bibliothek_arbeit
-    metadata: {}
-    data: {}
+    - action: script.szenen_bibliothek_arbeit
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777609069715'
-  alias: 'Szenen: Lade Szene Wohnzimmer - Fernsehen'
+- id: "1777609069715"
+  alias: "Szenen: Lade Szene Wohnzimmer - Fernsehen"
   description: Lädt die Szene Fernsehen, sobald der Strom eingeschaltet wird.
   triggers:
-  - type: turned_on
-    device_id: ce0306da09d94ab317b81b340cbfaef6
-    entity_id: 47849ce5fa789737bec014f7a2ff2393
-    domain: switch
-    trigger: device
+    - type: turned_on
+      device_id: ce0306da09d94ab317b81b340cbfaef6
+      entity_id: 47849ce5fa789737bec014f7a2ff2393
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.neues_skript
-    metadata: {}
-    data: {}
+    - action: script.neues_skript
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777617430437'
-  alias: 'Szene: Lade Szene Esszimmer - Aus'
+- id: "1777617430437"
+  alias: "Szene: Lade Szene Esszimmer - Aus"
   description: Lädt die Szene Aus, sobald der Strom ausgeschaltet wird.
   triggers:
-  - type: turned_off
-    device_id: d03cc10e1f9e1bc9a3cbc6ebac9199ed
-    entity_id: c67b573347678ec515655169b5e01c02
-    domain: switch
-    trigger: device
+    - type: turned_off
+      device_id: d03cc10e1f9e1bc9a3cbc6ebac9199ed
+      entity_id: c67b573347678ec515655169b5e01c02
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.1777615485176
-    metadata: {}
-    data: {}
+    - action: script.1777615485176
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777617621013'
-  alias: 'Szenen: Lade Szene Wohnzimmer - Aus'
+- id: "1777617621013"
+  alias: "Szenen: Lade Szene Wohnzimmer - Aus"
   description: Lädt die Szene Aus, sobald der Strom ausgeschaltet wird.
   triggers:
-  - type: turned_off
-    device_id: ce0306da09d94ab317b81b340cbfaef6
-    entity_id: 47849ce5fa789737bec014f7a2ff2393
-    domain: switch
-    trigger: device
+    - type: turned_off
+      device_id: ce0306da09d94ab317b81b340cbfaef6
+      entity_id: 47849ce5fa789737bec014f7a2ff2393
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.szenen_wohnzimmer_aus
-    metadata: {}
-    data: {}
+    - action: script.szenen_wohnzimmer_aus
+      metadata: {}
+      data: {}
   mode: single
-- id: '1777617806583'
-  alias: 'Szenen: Lade Szene Sauna - Aus'
+- id: "1777617806583"
+  alias: "Szenen: Lade Szene Sauna - Aus"
   description: Lädt die Szene Aus, sobald der Strom ausgeschaltet wird.
   triggers:
-  - type: turned_off
-    device_id: c182a97624c521a75b2b5c1c93f0b0a9
-    entity_id: 00c1f98d28db23d077a7f407830592b7
-    domain: switch
-    trigger: device
+    - type: turned_off
+      device_id: c182a97624c521a75b2b5c1c93f0b0a9
+      entity_id: 00c1f98d28db23d077a7f407830592b7
+      domain: switch
+      trigger: device
   conditions: []
   actions:
-  - action: script.szenen_sauna_aus
-    metadata: {}
-    data: {}
+    - action: script.szenen_sauna_aus
+      metadata: {}
+      data: {}
   mode: single
